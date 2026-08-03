@@ -1,0 +1,120 @@
+<svg viewBox="0 0 480 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI tutor assistant">
+  <defs>
+    <linearGradient id="tbody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#eef3fa"/><stop offset="1" stop-color="#d7e2f2"/>
+    </linearGradient>
+    <linearGradient id="tsilver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8edf5"/><stop offset=".5" stop-color="#c3cede"/><stop offset="1" stop-color="#9fb0c9"/>
+    </linearGradient>
+    <linearGradient id="tvisor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/><stop offset="1" stop-color="#e2ecfa"/>
+    </linearGradient>
+    <linearGradient id="tled" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <radialGradient id="tcheek" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#7dd3fc" stop-opacity=".55"/><stop offset="1" stop-color="#7dd3fc" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="teye" cx=".38" cy=".32" r=".75">
+      <stop offset="0" stop-color="#7dd3fc"/><stop offset=".55" stop-color="#2563eb"/><stop offset="1" stop-color="#1d4ed8"/>
+    </radialGradient>
+    <radialGradient id="tglow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity=".35"/><stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="tsoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#0b1e3a" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <!-- ambient glow -->
+  <ellipse cx="240" cy="300" rx="220" ry="240" fill="url(#tglow)"/>
+
+  <!-- ===== raised greeting arm (his right, viewer left) ===== -->
+  <g filter="url(#tsoft)">
+    <!-- one smooth arm from the shoulder up to the waving wrist -->
+    <path d="M152 416 C 128 380, 108 320, 100 252" stroke="url(#tbody)" stroke-width="42" stroke-linecap="round" fill="none"/>
+    <path d="M120 342 C 112 314, 105 284, 100 252" stroke="url(#tsilver)" stroke-width="30" stroke-linecap="round" fill="none" opacity=".85"/>
+    <g transform="translate(-42,-32) rotate(-24 118 232)">
+      <rect x="88" y="196" width="62" height="66" rx="20" fill="url(#tbody)"/>
+      <rect x="90" y="184" width="11" height="36" rx="5.5" fill="url(#tbody)"/>
+      <rect x="104" y="176" width="11" height="44" rx="5.5" fill="url(#tbody)"/>
+      <rect x="118" y="174" width="11" height="46" rx="5.5" fill="url(#tbody)"/>
+      <rect x="132" y="180" width="11" height="40" rx="5.5" fill="url(#tbody)"/>
+      <path d="M146 226c8-8 20-8 24 0 3 7-2 15-10 18l-16 6z" fill="url(#tbody)"/>
+      <circle cx="119" cy="238" r="7" fill="#bfdbfe" opacity=".8"/>
+    </g>
+  </g>
+
+  <!-- ===== torso ===== -->
+  <g filter="url(#tsoft)">
+    <path d="M142 560c0-96 8-138 46-160 16-9 34-13 52-13s36 4 52 13c38 22 46 64 46 160z" fill="url(#tbody)"/>
+    <!-- shoulder pads -->
+    <ellipse cx="152" cy="420" rx="34" ry="42" fill="url(#tsilver)"/>
+    <ellipse cx="328" cy="420" rx="34" ry="42" fill="url(#tsilver)"/>
+    <!-- resting arm (his left) -->
+    <path d="M334 428c20 24 26 62 26 132h-44c0-58-4-92-14-116z" fill="url(#tbody)"/>
+    <!-- chest panel -->
+    <path d="M196 442c0-26 20-42 44-42s44 16 44 42v118h-88z" fill="#ffffff"/>
+    <path d="M196 442c0-26 20-42 44-42s44 16 44 42v10h-88z" fill="#eef3fa"/>
+    <!-- chest LED core -->
+    <circle cx="240" cy="452" r="17" fill="url(#tled)"/>
+    <circle cx="240" cy="452" r="24" fill="none" stroke="#60a5fa" stroke-width="3" opacity=".45"/>
+    <circle cx="240" cy="452" r="8" fill="#e0f2fe"/>
+    <!-- collar -->
+    <path d="M206 398h68c-6 14-18 22-34 22s-28-8-34-22z" fill="url(#tsilver)"/>
+    <!-- accent lines -->
+    <path d="M170 470c-6 26-8 56-8 90" stroke="#2563eb" stroke-width="3" stroke-linecap="round" fill="none" opacity=".5"/>
+    <path d="M310 470c6 26 8 56 8 90" stroke="#2563eb" stroke-width="3" stroke-linecap="round" fill="none" opacity=".5"/>
+  </g>
+
+  <!-- ===== neck ===== -->
+  <rect x="222" y="356" width="36" height="44" rx="14" fill="url(#tsilver)"/>
+  <rect x="222" y="368" width="36" height="6" rx="3" fill="#2563eb" opacity=".55"/>
+
+  <!-- ===== head ===== -->
+  <g filter="url(#tsoft)">
+    <!-- helmet shell -->
+    <path d="M148 232c0-72 40-118 92-118s92 46 92 118c0 66-40 122-92 122s-92-56-92-122z" fill="url(#tbody)"/>
+    <!-- crown accent -->
+    <path d="M164 176c14-38 42-62 76-62s62 24 76 62c-20-18-46-28-76-28s-56 10-76 28z" fill="url(#tsilver)"/>
+    <path d="M236 118h8v-16h-8z" fill="url(#tsilver)"/>
+    <circle cx="240" cy="96" r="8" fill="url(#tled)"/>
+    <circle cx="240" cy="96" r="12" fill="none" stroke="#60a5fa" stroke-width="2.5" opacity=".5"/>
+
+    <!-- face visor -->
+    <path d="M166 240c0-54 32-90 74-90s74 36 74 90c0 50-32 92-74 92s-74-42-74-92z" fill="url(#tvisor)"/>
+
+    <!-- eyes: expressive, warm -->
+    <g>
+      <ellipse cx="206" cy="240" rx="19" ry="22" fill="url(#teye)"/>
+      <ellipse cx="274" cy="240" rx="19" ry="22" fill="url(#teye)"/>
+      <circle cx="212" cy="231" r="7" fill="#ffffff"/>
+      <circle cx="280" cy="231" r="7" fill="#ffffff"/>
+      <circle cx="200" cy="248" r="3.4" fill="#bae6fd" opacity=".9"/>
+      <circle cx="268" cy="248" r="3.4" fill="#bae6fd" opacity=".9"/>
+      <!-- friendly lifted brows -->
+      <path d="M188 210c8-8 24-10 34-5" stroke="#9fb0c9" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M258 205c10-5 26-3 34 5" stroke="#9fb0c9" stroke-width="5" stroke-linecap="round" fill="none"/>
+    </g>
+
+    <!-- cheeks -->
+    <circle cx="186" cy="272" r="14" fill="url(#tcheek)"/>
+    <circle cx="294" cy="272" r="14" fill="url(#tcheek)"/>
+
+    <!-- warm smile -->
+    <path d="M212 292c8 12 20 18 28 18s20-6 28-18" stroke="#2563eb" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+
+    <!-- ===== headset ===== -->
+    <path d="M146 226c-4-64 36-124 94-124s98 60 94 124" stroke="url(#tsilver)" stroke-width="13" fill="none" stroke-linecap="round"/>
+    <rect x="128" y="212" width="30" height="58" rx="14" fill="url(#tsilver)"/>
+    <rect x="322" y="212" width="30" height="58" rx="14" fill="url(#tsilver)"/>
+    <rect x="134" y="222" width="18" height="38" rx="9" fill="#0b3d91"/>
+    <rect x="328" y="222" width="18" height="38" rx="9" fill="#0b3d91"/>
+    <circle cx="143" cy="241" r="4.5" fill="#38bdf8"/>
+    <circle cx="337" cy="241" r="4.5" fill="#38bdf8"/>
+    <!-- mic boom -->
+    <path d="M150 268c6 30 26 48 56 54" stroke="url(#tsilver)" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <ellipse cx="214" cy="326" rx="12" ry="9" fill="url(#tled)"/>
+    <ellipse cx="214" cy="326" rx="5" ry="3.6" fill="#e0f2fe"/>
+  </g>
+</svg>

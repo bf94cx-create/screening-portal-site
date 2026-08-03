@@ -1,0 +1,199 @@
+/* =================================================================
+   Induction Portal — Premium interaction & polish layer (additive)
+   Loaded AFTER style.css. Enhances the landing page with tasteful,
+   classic motion and depth. All decorative; degrades gracefully and
+   respects prefers-reduced-motion. Nothing here is required for the
+   page to function.
+   ================================================================= */
+
+/* ---- 1. Scroll progress bar (thin gold line at the very top) ---- */
+#ip-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, #6EE7C5, #FFD58A);
+  z-index: 2000; pointer-events: none;
+  box-shadow: 0 0 10px rgba(255,213,138,.5);
+  transition: width .08s linear;
+}
+
+/* ---- 2. Hero depth: animated aurora behind the content ---- */
+.hero { position: relative; overflow: hidden; }
+.ip-aurora {
+  position: absolute; inset: -30% -10% auto -10%; height: 150%;
+  pointer-events: none; z-index: 0; filter: blur(60px); opacity: .55;
+  background:
+    radial-gradient(38% 42% at 18% 22%, rgba(110,231,197,.30), transparent 70%),
+    radial-gradient(34% 38% at 82% 30%, rgba(45,108,223,.38), transparent 70%),
+    radial-gradient(40% 44% at 60% 78%, rgba(255,166,35,.16), transparent 70%);
+  animation: ipAurora 18s ease-in-out infinite alternate;
+}
+.hero > .container { position: relative; z-index: 1; }
+@keyframes ipAurora {
+  0%   { transform: translate3d(-4%, -2%, 0) scale(1.05); }
+  50%  { transform: translate3d(3%, 2%, 0)   scale(1.12); }
+  100% { transform: translate3d(-2%, 4%, 0)  scale(1.06); }
+}
+
+/* ---- 3. Shimmering gradient headline accent (classic sheen) ---- */
+.hero h1 .accent {
+  background: linear-gradient(100deg, #6EE7C5 0%, #FFD58A 35%, #ffffff 50%, #FFD58A 65%, #6EE7C5 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: ipSheen 7s ease-in-out infinite;
+}
+@keyframes ipSheen { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+/* ---- 4. Kicker: refined pill with a soft pulse dot ---- */
+.hero .kicker { position: relative; }
+.hero .kicker::before {
+  content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: #6EE7C5; margin-right: 8px; vertical-align: middle;
+  box-shadow: 0 0 0 0 rgba(110,231,197,.6); animation: ipPulse 2.4s ease-out infinite;
+}
+@keyframes ipPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(110,231,197,.55); }
+  70%  { box-shadow: 0 0 0 9px rgba(110,231,197,0); }
+  100% { box-shadow: 0 0 0 0 rgba(110,231,197,0); }
+}
+
+/* ---- 5. Hero visual: 3D perspective + gently floating badges ---- */
+.hero-visual { perspective: 1200px; }
+.hero-visual .dash {
+  transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease;
+  will-change: transform;
+}
+.hero-visual.is-tilting .dash { box-shadow: 0 40px 90px rgba(3,12,30,.55); }
+.float-card { animation: ipFloat 5.5s ease-in-out infinite; }
+.float-card.br { animation-delay: -2.6s; }
+@keyframes ipFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+/* live "pulse" dot on the dashboard header */
+.dash-head .dot.g { position: relative; }
+.dash-head .dot.g::after {
+  content: ""; position: absolute; inset: -3px; border-radius: 50%;
+  border: 1px solid rgba(46,204,113,.6); animation: ipPulse 2s ease-out infinite;
+}
+
+/* ---- 6. Primary button: sweeping shine on hover ---- */
+.btn--primary { position: relative; overflow: hidden; }
+.btn--primary::after {
+  content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent);
+  transform: skewX(-18deg); transition: none; pointer-events: none;
+}
+.btn--primary:hover::after { animation: ipShine .8s ease; }
+@keyframes ipShine { to { left: 140%; } }
+
+/* ---- 7. Card polish: lift + gold hairline glow on hover ---- */
+.card, .feature-card, .sector-card, .price-card, .step-card, .quote-card,
+.section .card, [class*="feature"] .card {
+  transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease, border-color .28s ease;
+}
+.card:hover, .feature-card:hover, .sector-card:hover, .price-card:hover,
+.step-card:hover, .quote-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(11,30,58,.16);
+}
+
+/* ---- 8. Classic gold hairline under section headings ---- */
+.section-head { position: relative; }
+.section-head h2 { position: relative; display: inline-block; }
+.section-head h2::after {
+  content: ""; display: block; width: 54px; height: 3px; margin: 14px auto 0;
+  border-radius: 3px; background: linear-gradient(90deg, #2D6CDF, #FFA623);
+  opacity: .9;
+}
+
+/* ---- 9. Reveal, a slightly richer entrance (kept compatible) ---- */
+.reveal { transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+
+/* ---- 10. Rotating hero accent word ---- */
+.ip-rotator { display: inline-block; position: relative; vertical-align: bottom; }
+.ip-rotator .ip-word { display: inline-block; transition: opacity .38s ease, transform .38s cubic-bezier(.2,.7,.2,1); }
+.ip-rotator.is-swapping .ip-word { opacity: 0; transform: translateY(-.35em); }
+
+/* ---- 11. Trusted-by marquee (seamless auto-scroll, pause on hover) ---- */
+.logo-bar:has(.logo-bar-grid.is-marquee) {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.logo-bar-grid.is-marquee {
+  display: flex !important; flex-wrap: nowrap !important;
+  gap: 0 !important; width: max-content;
+  animation: ipMarquee 34s linear infinite;
+}
+.logo-bar-grid.is-marquee .client-logo { margin: 0 34px; flex: 0 0 auto; }
+.logo-bar:hover .logo-bar-grid.is-marquee { animation-play-state: paused; }
+@keyframes ipMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---- 12. Live dashboard flourish ---- */
+.dash-row { transition: background .5s ease; }
+.dash-row.ip-live-hit { background: rgba(46,204,113,.12); }
+.pill { transition: background .35s ease, color .35s ease; }
+.pill.ip-verifying { background: rgba(45,108,223,.16) !important; color: #9fc0ff !important; }
+
+/* ---- 13. Animated "how it works" walkthrough ----
+   Uses the existing .step::before counter badge (01..04). The badges pop in
+   one after another, and each card lifts to a "live" state as it lands. */
+.process.ip-steps .step {
+  transition: box-shadow .5s ease, border-color .5s ease, transform .5s ease;
+}
+.process.ip-steps .step::before {
+  transform-origin: center;
+  transform: scale(.3) rotate(-12deg); opacity: 0;
+  transition: transform .55s cubic-bezier(.2,1.4,.4,1), opacity .4s ease,
+              box-shadow .4s ease, background .4s ease;
+}
+.process.ip-steps.is-in .step::before { transform: scale(1) rotate(0); opacity: 1; }
+.process.ip-steps.is-in .step:nth-child(1)::before { transition-delay: .15s; }
+.process.ip-steps.is-in .step:nth-child(2)::before { transition-delay: .48s; }
+.process.ip-steps.is-in .step:nth-child(3)::before { transition-delay: .81s; }
+.process.ip-steps.is-in .step:nth-child(4)::before { transition-delay: 1.14s; }
+/* the just-landed card gets a soft blue accent that then settles */
+.process.ip-steps .step.ip-lit {
+  border-color: rgba(45,108,223,.45);
+  box-shadow: 0 14px 34px rgba(37,99,235,.16);
+}
+.process.ip-steps .step.ip-lit::before {
+  box-shadow: 0 6px 16px rgba(37,99,235,.45);
+}
+
+/* ---- 14. Testimonials carousel ---- */
+.testimonials.ip-carousel {
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+  gap: 22px; scroll-behavior: smooth; padding: 6px 2px 12px;
+  scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;
+}
+.testimonials.ip-carousel::-webkit-scrollbar { display: none; }
+.testimonials.ip-carousel > .quote {
+  scroll-snap-align: center; flex: 0 0 min(440px, 84%);
+}
+.ip-carousel-ctrl {
+  display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 22px;
+}
+.ip-carousel-ctrl button {
+  width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
+  border: 1px solid rgba(17,38,74,.14); background: #fff; color: #11264A;
+  font-size: 1.15rem; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 10px rgba(11,30,58,.10);
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.ip-carousel-ctrl button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(11,30,58,.18); }
+.ip-carousel-ctrl button:active { transform: translateY(0); }
+.ip-carousel-dots { display: flex; gap: 9px; align-items: center; }
+.ip-carousel-dots i {
+  width: 9px; height: 9px; border-radius: 50%; background: rgba(17,38,74,.20); cursor: pointer;
+  transition: width .28s ease, background .28s ease;
+}
+.ip-carousel-dots i.is-active { width: 28px; border-radius: 5px; background: #2563EB; }
+
+/* ---- Reduced motion: switch everything decorative off ---- */
+@media (prefers-reduced-motion: reduce) {
+  .ip-aurora, .hero h1 .accent, .float-card, .dash-head .dot.g::after,
+  .hero .kicker::before, .logo-bar-grid.is-marquee { animation: none !important; }
+  .btn--primary:hover::after { animation: none !important; }
+  #ip-progress { transition: none; }
+  .process.ip-steps::after,
+  .process.ip-steps .step .ip-step-num { transition: none; }
+  .testimonials.ip-carousel { scroll-behavior: auto; }
+}

@@ -1,0 +1,6 @@
+:root{--c-blue-500:#0D9488;--c-blue-400:#14B8A6;--c-navy-600:#155E56}
+.yt-link{display:inline-flex;align-items:center;margin-right:8px}
+@media (min-width:1100px){.site-header .nav-list{gap:6px}.site-header .nav-list>li>a,.site-header .nav-trigger{padding-left:10px;padding-right:10px;font-size:.94rem}.site-header .btn--sm{padding:9px 14px}}
+.yt-link svg{width:30px;height:22px;display:block}
+.xlink-band{background:linear-gradient(90deg,#07172E,#11264A);color:#dbe7fb;text-align:center;padding:14px 18px;font-size:.95rem}
+.xlink-band a{color:#7dd3c8;font-weight:700;text-decoration:underline}
