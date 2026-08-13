@@ -1,0 +1,1695 @@
+/* ============================================================
+   Screening Portal — 2026 theme layer
+   Source of truth: design-reference/Screening Portal Home.dc.html
+   ------------------------------------------------------------
+   This file is loaded LAST on every page. It restyles existing
+   markup only. It adds no links, changes no hrefs, touches no
+   forms, no login targets and no scripts that talk to a backend.
+   ============================================================ */
+
+/* ---------- 1. Tokens ---------- */
+:root {
+  /* Ground + ink */
+  --sp-bg:          #eaf3fc;
+  --sp-bg-2:        #f8fbff;
+  --sp-bg-3:        #dfebf8;
+  --sp-bg-4:        #cfe1f4;
+  --sp-footer:      #d8e6f5;
+  --sp-ink:         #14293d;
+  --sp-ink-86:      rgba(20, 41, 61, .86);
+  --sp-ink-78:      rgba(20, 41, 61, .78);
+  --sp-ink-68:      rgba(20, 41, 61, .68);
+
+  /* Brass accent */
+  --sp-brass:       #b8892b;
+  --sp-brass-deep:  #6f5522;
+  --sp-brass-lt:    #c39c4e;
+  --sp-brass-dk:    #8a6a2e;
+  --sp-brass-08:    rgba(184, 137, 43, .08);
+  --sp-brass-14:    rgba(184, 137, 43, .14);
+  --sp-brass-18:    rgba(184, 137, 43, .18);
+  --sp-brass-32:    rgba(184, 137, 43, .32);
+
+  /* Hairlines */
+  --sp-line:        rgba(20, 41, 61, .08);
+  --sp-line-2:      rgba(20, 41, 61, .14);
+  --sp-fill:        rgba(20, 41, 61, .05);
+
+  /* Remap the original site tokens so untouched components follow */
+  --c-navy-900: #14293d;
+  --c-navy-800: #14293d;
+  --c-navy-700: #1d3a54;
+  /* The legacy blue tokens are consumed by inline styles on the pages
+     (e.g. pricing's price-tag, several "learn more" links). Pointing
+     them at brass keeps those inline declarations on-palette without
+     editing markup. #2f6f9e survives only as the logo figure's torso. */
+  --c-navy-600: #6f5522;
+  --c-blue-500: #6f5522;
+  --c-blue-400: #8a6a2e;
+  --c-accent:   #b8892b;
+  --c-accent-d: #8a6a2e;
+  --c-warn:     #b8892b;
+  --c-warn-d:   #8a6a2e;
+  --c-gold:     #c39c4e;
+
+  --c-text:     #14293d;
+  --c-muted:    rgba(20, 41, 61, .72);
+  --c-line:     rgba(20, 41, 61, .10);
+  --c-bg:       #ffffff;
+  --c-bg-soft:  #f8fbff;
+  --c-bg-dark:  #eaf3fc;
+
+  --ff-sans:    "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --ff-display: "Barlow Condensed", "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --shadow-sm:  0 1px 2px rgba(20, 41, 61, .05), 0 1px 3px rgba(20, 41, 61, .06);
+  --shadow:     0 12px 30px rgba(20, 41, 61, .05);
+  --shadow-lg:  0 30px 70px rgba(20, 41, 61, .14);
+  --shadow-glow: 0 0 0 6px rgba(184, 137, 43, .16);
+
+  --container:  1340px;
+}
+
+/* ---------- 2. Base ---------- */
+body {
+  background: var(--sp-bg);
+  color: var(--sp-ink);
+  font-family: var(--ff-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.stat b, .brand, .dash-stat b {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+}
+
+h1 { line-height: 1.04; letter-spacing: -.025em; }
+h2 { line-height: 1.06; letter-spacing: -.02em; }
+h3 { line-height: 1.18; letter-spacing: -.01em; }
+
+p { color: var(--sp-ink-86); line-height: 1.65; }
+
+a { color: var(--sp-brass-deep); }
+a:hover { color: var(--sp-brass-dk); }
+
+::selection { background: var(--sp-brass-32); color: var(--sp-ink); }
+
+/* ---------- 3. Header ---------- */
+.site-header {
+  background: rgba(234, 243, 252, .82);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid transparent;
+}
+.site-header.is-scrolled {
+  background: rgba(234, 243, 252, .96);
+  border-bottom-color: var(--sp-line);
+  box-shadow: 0 8px 30px rgba(20, 41, 61, .07);
+}
+
+.brand {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 1.45rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--sp-ink);
+}
+.brand:hover { color: var(--sp-ink); }
+.brand-mark svg { filter: drop-shadow(0 4px 10px rgba(20, 41, 61, .16)); }
+
+.nav-list > li > a,
+.nav-trigger {
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-weight: 500;
+  color: rgba(20, 41, 61, .92);
+  transition: background .25s ease, color .25s ease;
+}
+.nav-list > li > a:hover,
+.nav-trigger:hover,
+.nav-list > li > a[aria-current="page"] {
+  background: rgba(20, 41, 61, .08);
+  color: var(--sp-ink);
+}
+
+.nav-dropdown {
+  border-radius: 18px;
+  border: 1px solid var(--sp-line);
+  background: rgba(255, 255, 255, .98);
+  box-shadow: 0 24px 54px rgba(20, 41, 61, .14);
+  backdrop-filter: blur(10px);
+}
+.nav-dropdown a { color: var(--sp-ink); border-radius: 12px; }
+.nav-dropdown a:hover { background: var(--sp-brass-08); color: var(--sp-brass-deep); }
+.nav-dropdown small { color: var(--sp-ink-68); }
+
+.nav-toggle span { background: var(--sp-ink); }
+
+/* ---------- 4. Buttons ---------- */
+.btn {
+  border-radius: 999px;
+  font-family: var(--ff-sans);
+  font-weight: 600;
+  letter-spacing: .005em;
+  transition: transform .28s ease, box-shadow .28s ease, background .28s ease, border-color .28s ease, color .28s ease;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--sp-brass-lt), var(--sp-brass-dk));
+  color: var(--sp-ink);
+  border-color: transparent;
+  box-shadow: 0 14px 32px rgba(150, 116, 48, .40);
+}
+.btn--primary:hover {
+  background: linear-gradient(135deg, var(--sp-brass-lt), var(--sp-brass-dk));
+  color: var(--sp-ink);
+  transform: translateY(-3px);
+  box-shadow: 0 22px 46px rgba(150, 116, 48, .55);
+}
+
+.btn--secondary {
+  background: var(--sp-brass);
+  color: var(--sp-ink);
+  box-shadow: 0 12px 28px rgba(184, 137, 43, .32);
+}
+.btn--secondary:hover { background: var(--sp-brass-dk); color: var(--sp-ink); transform: translateY(-3px); }
+
+.btn--outline {
+  border-color: rgba(20, 41, 61, .28);
+  color: var(--sp-ink);
+  background: rgba(20, 41, 61, .04);
+}
+.btn--outline:hover {
+  background: rgba(20, 41, 61, .11);
+  border-color: rgba(20, 41, 61, .68);
+  color: var(--sp-ink);
+  transform: translateY(-3px);
+}
+
+.btn--ghost {
+  border-color: rgba(20, 41, 61, .26);
+  color: var(--sp-ink);
+}
+.btn--ghost:hover { background: rgba(20, 41, 61, .1); border-color: rgba(20, 41, 61, .6); color: var(--sp-ink); }
+
+.btn--lg { padding: 18px 34px; font-size: 1.05rem; }
+
+/* brass sheen on the primary CTA (premium.css already positions ::after) */
+.btn--primary::after { background: linear-gradient(90deg, transparent, rgba(20, 41, 61, .30), transparent) !important; }
+
+/* ---------- 5. Hero + page intro: the blueprint ground ---------- */
+.hero,
+.page-intro {
+  position: relative;
+  color: var(--sp-ink);
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 78% 8%, var(--sp-bg-4) 0%, var(--sp-bg-3) 42%, var(--sp-bg) 100%);
+}
+
+.hero::before,
+.page-intro::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(20, 41, 61, .05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 41, 61, .05) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(100% 80% at 60% 20%, #000 25%, transparent 80%);
+  -webkit-mask-image: radial-gradient(100% 80% at 60% 20%, #000 25%, transparent 80%);
+  opacity: .5;
+  pointer-events: none;
+}
+
+/* ambient brass orbs */
+.hero::after,
+.page-intro::after {
+  content: "";
+  position: absolute;
+  top: -18%; right: -8%;
+  width: 56vw; height: 56vw;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(195, 156, 78, .42) 0%, transparent 62%);
+  filter: blur(24px);
+  animation: sp-orb 18s ease-in-out infinite;
+}
+
+.hero > .container,
+.page-intro > .container { position: relative; z-index: 2; }
+
+.hero h1, .page-intro h1 { color: var(--sp-ink); }
+.hero p,  .page-intro p  { color: rgba(20, 41, 61, .90); }
+.hero .hero-meta,
+.page-intro .breadcrumb { color: var(--sp-ink-78); }
+.page-intro .breadcrumb a { color: var(--sp-brass-deep); }
+
+/* gradient last line of the hero headline */
+.hero h1 .text-gradient,
+.text-gradient {
+  background: linear-gradient(100deg, var(--sp-brass), var(--sp-ink) 55%, var(--sp-brass-lt));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---------- 6. Kickers ---------- */
+.kicker {
+  font-family: var(--ff-sans);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  color: var(--sp-brass-deep);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+.hero .kicker,
+.page-intro .kicker {
+  gap: 11px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(20, 41, 61, .07);
+  border: 1px solid var(--sp-line-2);
+  backdrop-filter: blur(8px);
+  letter-spacing: .14em;
+}
+.section--dark .kicker { color: var(--sp-brass-deep); background: transparent; }
+
+.eyebrow { color: var(--sp-brass-deep); letter-spacing: .22em; }
+
+/* ---------- 7. Sections ---------- */
+.section { background: var(--sp-bg); }
+.section--soft { background: var(--sp-bg-2); }
+
+/* the old dark band becomes the brass-to-sky gradient from the design */
+.section--dark {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #5f4820, var(--sp-bg) 65%);
+  color: var(--sp-ink);
+}
+.section--dark::before {
+  content: "";
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 44vw; height: 44vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 137, 43, .30), transparent 62%);
+  filter: blur(28px);
+  pointer-events: none;
+  animation: sp-orb 20s ease-in-out infinite;
+}
+.section--dark > .container { position: relative; z-index: 2; }
+.section--dark h1,
+.section--dark h2,
+.section--dark h3 { color: var(--sp-ink); }
+.section--dark p  { color: rgba(20, 41, 61, .90); }
+
+.section-head h2 { margin-top: 14px; }
+
+/* ---------- 8. Cards ---------- */
+.card {
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid var(--sp-line);
+  box-shadow: 0 12px 30px rgba(20, 41, 61, .05);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 54px rgba(20, 41, 61, .12);
+}
+
+.card--dark {
+  background: rgba(20, 41, 61, .07);
+  border-color: rgba(20, 41, 61, .12);
+  color: var(--sp-ink);
+  backdrop-filter: blur(8px);
+}
+.card--dark h3 { color: var(--sp-ink); }
+.card--dark p  { color: var(--sp-ink-78); }
+.card--dark .icon { background: var(--sp-brass-18); color: var(--sp-brass-deep); }
+
+.card .icon,
+.icon {
+  border-radius: 12px;
+  background: rgba(150, 116, 48, .12);
+  color: var(--sp-brass-deep);
+}
+
+/* tick glyph in feature lists, recoloured to brass */
+.feature-list li::before {
+  background: var(--sp-brass-14) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236f5522' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat;
+}
+.card--dark .feature-list li,
+.section--dark .feature-list li,
+.hero .feature-list li { color: rgba(20, 41, 61, .92); }
+
+/* ---------- 9. Stats ---------- */
+.stats {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  color: var(--sp-ink);
+  background: linear-gradient(150deg, var(--sp-bg-3), var(--sp-bg) 60%);
+  border: 1px solid var(--sp-line);
+}
+.stats::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(20, 41, 61, .05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 41, 61, .05) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(80% 100% at 50% 50%, #000, transparent 85%);
+  -webkit-mask-image: radial-gradient(80% 100% at 50% 50%, #000, transparent 85%);
+  opacity: .4;
+  pointer-events: none;
+}
+.stats .stat { position: relative; z-index: 2; }
+.stat b {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  background: none;
+  -webkit-background-clip: initial; background-clip: initial;
+  color: var(--sp-brass-deep);
+  letter-spacing: -.01em;
+}
+.stat span {
+  color: var(--sp-ink-78);
+  font-size: .8rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+/* ---------- 10. Pills, badges, ratings ---------- */
+.pill, .badge {
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.badge--green { color: var(--sp-brass-deep); background: var(--sp-brass-18); border: 1px solid var(--sp-brass-32); }
+.badge--navy  { color: var(--sp-ink); background: rgba(20, 41, 61, .08); border: 1px solid var(--sp-line-2); }
+.badge--orange{ color: var(--sp-brass-deep); background: var(--sp-brass-14); border: 1px solid var(--sp-brass-32); }
+
+.stars, .rating-bar b { color: var(--sp-brass-deep); }
+
+.trust-strip,
+.logo-bar {
+  background: var(--sp-bg);
+  border-top: 1px solid var(--sp-line);
+  border-bottom: 1px solid var(--sp-line);
+}
+.logo-bar-title {
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--sp-ink-68);
+}
+.client-logo {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(20, 41, 61, .80);
+}
+
+.accred-mark,
+.accred-logo {
+  border-radius: 12px;
+  color: var(--sp-brass-deep);
+  background: var(--sp-brass-14);
+  border: 1px solid rgba(184, 137, 43, .24);
+}
+
+/* ---------- 11. Process / steps ---------- */
+.step, .step-card {
+  border-radius: 20px;
+  background: var(--sp-fill);
+  border: 1px solid rgba(20, 41, 61, .09);
+  transition: background .35s ease, transform .35s ease, border-color .35s ease;
+}
+.step:hover, .step-card:hover {
+  background: rgba(184, 137, 43, .12);
+  border-color: rgba(184, 137, 43, .34);
+  transform: translateY(-6px);
+}
+.step b, .step-card b,
+.step .num, .step-card .num {
+  color: var(--sp-ink);
+  background: var(--sp-brass);
+  font-family: var(--ff-display);
+}
+
+/* ---------- 12. Pricing ---------- */
+.price-card {
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid rgba(20, 41, 61, .09);
+}
+.price-card.is-featured,
+.price-card--featured {
+  background: linear-gradient(160deg, #f7e8c8, #f0dcb0);
+  border: 1px solid rgba(184, 137, 43, .5);
+  box-shadow: 0 30px 70px rgba(20, 41, 61, .28);
+  color: var(--sp-ink);
+}
+.price-card.is-featured h3,
+.price-card--featured h3 { color: var(--sp-ink); }
+.price-card .price,
+.price-card b {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  color: var(--sp-ink);
+}
+.price-toggle { border-radius: 999px; background: var(--sp-fill); border: 1px solid var(--sp-line); }
+.price-toggle .is-active { background: var(--sp-brass); color: var(--sp-ink); }
+
+/* ---------- 13. Testimonials ---------- */
+.quote, .testimonials figure {
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid var(--sp-line);
+}
+.avatar {
+  background: linear-gradient(140deg, var(--sp-brass-lt), var(--sp-brass-dk));
+  color: var(--sp-ink);
+  font-weight: 600;
+}
+
+/* ---------- 14. Tabs / accordion / forms ---------- */
+.industries {
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid var(--sp-line);
+}
+.tabs { background: var(--sp-bg-2); border-bottom-color: var(--sp-line); }
+.tab {
+  border-radius: 999px;
+  color: var(--sp-ink-78);
+  transition: background .25s ease, color .25s ease;
+}
+.tab:hover { background: rgba(20, 41, 61, .06); color: var(--sp-ink); }
+.tab.is-active,
+.tab[aria-selected="true"] { background: var(--sp-brass); color: var(--sp-ink); }
+
+.acc-item { border-color: var(--sp-line); }
+.acc-trigger { color: var(--sp-ink); font-family: var(--ff-display); font-weight: 600; }
+.acc-trigger:hover { color: var(--sp-brass-deep); }
+
+.field input, .field textarea, .field select,
+.form input, .form textarea, .form select {
+  border-radius: 12px;
+  border: 1px solid var(--sp-line-2);
+  background: #fff;
+  color: var(--sp-ink);
+  font-family: var(--ff-sans);
+}
+.field input:focus, .field textarea:focus, .field select:focus,
+.form input:focus, .form textarea:focus, .form select:focus {
+  outline: none;
+  border-color: rgba(184, 137, 43, .6);
+  box-shadow: 0 0 0 4px var(--sp-brass-14);
+}
+.field label, .form label { color: var(--sp-ink-78); font-weight: 500; }
+
+/* ---------- 15. CTA banner ---------- */
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  color: var(--sp-ink);
+  background: radial-gradient(110% 130% at 20% 10%, var(--sp-bg-4), var(--sp-bg) 62%);
+  border: 1px solid var(--sp-line);
+}
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  bottom: -40%; left: 30%;
+  width: 50vw; height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 137, 43, .26), transparent 62%);
+  filter: blur(30px);
+  pointer-events: none;
+  animation: sp-orb 26s ease-in-out infinite reverse;
+}
+.cta-banner > * { position: relative; z-index: 2; }
+.cta-banner h2 { color: var(--sp-ink); }
+.cta-banner p  { color: rgba(20, 41, 61, .90); }
+
+.float-cta .btn { box-shadow: 0 18px 40px rgba(150, 116, 48, .45); }
+
+/* ---------- 16. Training perk band ---------- */
+.training-perk,
+.training-perk-inner,
+.tp-card, .tp-stack {
+  border-radius: 20px;
+}
+.tp-card {
+  background: rgba(20, 41, 61, .07);
+  border: 1px solid rgba(20, 41, 61, .12);
+  backdrop-filter: blur(8px);
+  color: var(--sp-ink);
+}
+.tp-card b, .tp-counter {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  color: var(--sp-ink);
+}
+.tp-card .tag,
+.tp-list .tag {
+  color: var(--sp-brass-deep);
+  background: var(--sp-brass-18);
+  border: 1px solid var(--sp-brass-32);
+}
+
+/* ---------- 17. Dashboard mock (index hero visual) ---------- */
+.dash {
+  border-radius: 20px;
+  background: linear-gradient(170deg, rgba(255, 255, 255, .97), rgba(234, 243, 252, .97));
+  border: 1px solid var(--sp-line);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 40px 90px rgba(20, 41, 61, .28);
+  color: var(--sp-ink);
+}
+.dash-head {
+  border-bottom: 1px solid var(--sp-line);
+  font-family: var(--ff-display);
+  font-weight: 600;
+  color: var(--sp-ink);
+}
+.dash-stat {
+  border-radius: 16px;
+  background: var(--sp-fill);
+  border: 1px solid rgba(20, 41, 61, .07);
+}
+.dash-stat b { font-family: var(--ff-display); font-weight: 600; color: var(--sp-ink); }
+.dash-stat span { color: var(--sp-ink-68); letter-spacing: .08em; text-transform: uppercase; font-size: .72rem; }
+.dash-row {
+  border-radius: 14px;
+  border: 1px solid rgba(20, 41, 61, .06);
+  background: rgba(20, 41, 61, .035);
+  color: var(--sp-ink);
+}
+.float-card {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .97);
+  color: var(--sp-ink);
+  box-shadow: 0 18px 40px rgba(20, 41, 61, .28);
+  font-weight: 600;
+}
+
+/* ---------- 18. Footer ---------- */
+.site-footer {
+  background: var(--sp-footer);
+  color: var(--sp-ink-86);
+  border-top: 1px solid rgba(20, 41, 61, .07);
+}
+.site-footer h4 {
+  color: var(--sp-ink);
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.foot-grid a { color: var(--sp-brass-deep); }
+.foot-grid a:hover { color: var(--sp-brass-dk); }
+.foot-brand p { color: var(--sp-ink-78); }
+.foot-brand .brand { color: var(--sp-ink); }
+.foot-badges span {
+  color: var(--sp-brass-deep);
+  background: var(--sp-brass-14);
+  border: 1px solid rgba(184, 137, 43, .24);
+  border-radius: 999px;
+}
+.foot-bottom {
+  border-top: 1px solid rgba(20, 41, 61, .07);
+  color: var(--sp-ink-68);
+}
+.foot-bottom a { color: var(--sp-brass-deep); }
+.socials a { color: var(--sp-ink-78); }
+.socials a:hover { color: var(--sp-brass-deep); }
+
+/* ---------- 19. Motion ---------- */
+@keyframes sp-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(5%, -4%) scale(1.12); }
+  66%      { transform: translate(-4%, 5%) scale(.94); }
+}
+@keyframes sp-ring {
+  0%   { transform: scale(.85); opacity: .75; }
+  100% { transform: scale(1.9);  opacity: 0; }
+}
+@keyframes sp-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+@keyframes sp-rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes sp-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.float-card { animation: sp-float 5s ease-in-out 1.2s infinite; }
+.float-card + .float-card { animation: sp-float 5.8s ease-in-out 2.2s infinite; }
+
+/* live pulse dot in front of the hero kicker */
+.hero .kicker::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--sp-brass);
+  box-shadow: 0 0 0 0 rgba(184, 137, 43, .6);
+  flex: none;
+  animation: sp-pulse 2.4s ease-out infinite;
+}
+@keyframes sp-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(184, 137, 43, .55); }
+  100% { box-shadow: 0 0 0 12px rgba(184, 137, 43, 0); }
+}
+
+/* ---------- 20. Focus + reduced motion ---------- */
+a:focus-visible,
+.btn:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--sp-brass-deep);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after, .page-intro::after,
+  .section--dark::before, .cta-banner::before,
+  .float-card { animation: none !important; }
+}
+
+/* ---------- 21. Small screens ---------- */
+@media (max-width: 860px) {
+  .hero::after, .page-intro::after { width: 90vw; height: 90vw; opacity: .7; }
+  .stats { border-radius: 20px; }
+  .cta-banner { border-radius: 20px; }
+}
+
+/* ============================================================
+   22. Component detail pass — hero visual, dashboard, marquee
+   ============================================================ */
+
+/* rotating accent word in the h1 gets the brass-to-navy gradient */
+.hero h1 .accent,
+.hero h1 .ip-rotator {
+  background: linear-gradient(100deg, var(--sp-brass), var(--sp-ink) 55%, var(--sp-brass-lt));
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* dashboard sits in a soft gradient frame, as in the design */
+.hero-visual .dash {
+  border: 8px solid transparent;
+  background:
+    linear-gradient(170deg, rgba(255,255,255,.97), rgba(234,243,252,.97)) padding-box,
+    linear-gradient(160deg, rgba(20,41,61,.22), rgba(20,41,61,.04)) border-box;
+  border-radius: 26px;
+  box-shadow: 0 40px 90px rgba(20, 41, 61, .30);
+}
+.hero-visual.is-tilting .dash { box-shadow: 0 46px 100px rgba(20, 41, 61, .38); }
+
+/* traffic-light dots become one live brass pulse */
+.dash-head .dot.y,
+.dash-head .dot.g { display: none; }
+.dash-head .dot.r {
+  width: 9px; height: 9px;
+  background: var(--sp-brass);
+  box-shadow: 0 0 0 0 rgba(184, 137, 43, .6);
+  animation: sp-pulse 2s ease-out infinite;
+}
+.dash-head h4 {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  color: var(--sp-ink);
+  letter-spacing: .01em;
+}
+.dash-head span[style] {
+  color: var(--sp-ink-68) !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* status pills, legible on the light panel */
+.dash-row .pill,
+.pill.ok, .pill.pending, .pill.flag {
+  font-weight: 600;
+  letter-spacing: .03em;
+  padding: 5px 13px;
+  border-radius: 999px;
+}
+.pill.ok {
+  color: var(--sp-brass-deep);
+  background: var(--sp-brass-18);
+  border: 1px solid rgba(184, 137, 43, .30);
+}
+.pill.pending,
+.pill.flag {
+  color: rgba(20, 41, 61, .90);
+  background: rgba(20, 41, 61, .08);
+  border: 1px solid var(--sp-line-2);
+}
+.pill.ip-verifying {
+  background: var(--sp-brass-14) !important;
+  color: var(--sp-brass-deep) !important;
+  border: 1px solid rgba(184, 137, 43, .30) !important;
+}
+
+/* the row the platform is "working on" glides forward */
+.dash-row {
+  transition: background .5s ease, border-color .5s ease, transform .5s cubic-bezier(.2, .7, .3, 1);
+}
+.dash-row.is-active {
+  background: var(--sp-brass-14);
+  border-color: rgba(184, 137, 43, .34);
+  transform: translateX(4px);
+}
+
+/* floating confirmation chips */
+.float-card {
+  border: 1px solid rgba(20, 41, 61, .08);
+  color: var(--sp-ink);
+}
+.float-card svg { color: var(--sp-brass-deep); }
+
+/* client marquee */
+.logo-bar-grid.is-marquee { animation-name: sp-marquee; }
+.logo-bar:has(.logo-bar-grid.is-marquee),
+.logo-bar-grid.is-marquee {
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.cl-mark,
+.cl-mark.alt,
+.cl-mark.warm {
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: var(--sp-brass-deep);
+  background: var(--sp-brass-14);
+  border: 1px solid rgba(184, 137, 43, .24);
+}
+
+/* rating bar */
+.rating-bar {
+  border-radius: 18px;
+  background: var(--sp-fill);
+  border: 1px solid rgba(20, 41, 61, .09);
+  color: var(--sp-ink);
+}
+.rating-bar b { font-family: var(--ff-display); font-weight: 600; color: var(--sp-ink); }
+.rating-bar .divider-v { background: var(--sp-line-2); }
+.rating-bar span { color: var(--sp-ink-78); }
+.rating-bar .stars { color: var(--sp-brass-deep); letter-spacing: .3em; }
+
+/* aurora wash from premium.css, retinted to brass */
+.ip-aurora {
+  background:
+    radial-gradient(closest-side, rgba(195, 156, 78, .34), transparent 70%),
+    radial-gradient(closest-side, rgba(184, 137, 43, .22), transparent 70%);
+}
+
+/* demo frames sit on the light ground now */
+.demo-frame,
+.demo-frame--hero {
+  border-radius: 20px;
+  border: 1px solid var(--sp-line);
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(20, 41, 61, .16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dash-head .dot.r, .dash-row.is-active { animation: none !important; transform: none !important; }
+}
+
+/* ============================================================
+   24. Ink correction
+   Every surface below used to be dark navy and carried
+   light-on-dark text (#EAF0F8 / #C3CFE3 / #B9C4D8 / #9AAAC2 /
+   #8E9DB4 / #fff). Those surfaces are light now, so the ink has
+   to flip with them or the copy disappears. Class is doubled to
+   clear the original two-class specificity.
+   ============================================================ */
+
+/* --- Hero --- */
+.hero.hero,
+.hero.hero p,
+.hero.hero p.lead,
+.hero.hero .hero-meta,
+.hero.hero .hero-meta span,
+.hero.hero .feature-list li,
+.hero.hero li { color: rgba(20, 41, 61, .90); }
+.hero.hero h1,
+.hero.hero h2,
+.hero.hero h3,
+.hero.hero .hero-meta strong { color: var(--sp-ink); }
+.hero.hero .hero-meta { color: var(--sp-ink-78); }
+
+/* --- Page intro (the 6 inner pages) --- */
+.page-intro.page-intro,
+.page-intro.page-intro p { color: rgba(20, 41, 61, .90); }
+.page-intro.page-intro h1 { color: var(--sp-ink); }
+.page-intro.page-intro .breadcrumb { color: var(--sp-ink-68); }
+.page-intro.page-intro .breadcrumb a { color: var(--sp-brass-deep); }
+
+/* --- Former dark band --- */
+.section--dark.section--dark,
+.section--dark.section--dark p,
+.section--dark.section--dark li { color: rgba(20, 41, 61, .90); }
+.section--dark.section--dark h1,
+.section--dark.section--dark h2,
+.section--dark.section--dark h3 { color: var(--sp-ink); }
+
+/* --- Dark card --- */
+.card--dark.card--dark,
+.card--dark.card--dark p,
+.card--dark.card--dark li { color: rgba(20, 41, 61, .88); }
+.card--dark.card--dark h3 { color: var(--sp-ink); }
+
+/* --- Stats band --- */
+.stats.stats { color: var(--sp-ink); }
+.stats.stats .stat b { color: var(--sp-brass-deep); }
+.stats.stats .stat span { color: var(--sp-ink-78); }
+
+/* --- Dashboard panel --- */
+.dash.dash { color: var(--sp-ink); }
+.dash.dash .dash-head h4 { color: var(--sp-ink); }
+.dash.dash .dash-stat b { color: var(--sp-ink); }
+.dash.dash .dash-stat span { color: var(--sp-ink-68); }
+.dash.dash .dash-row { color: rgba(20, 41, 61, .88); }
+.dash.dash .dash-row span:first-child { color: rgba(20, 41, 61, .88); }
+
+/* --- Closing CTA banner --- */
+.cta-banner.cta-banner,
+.cta-banner.cta-banner p { color: rgba(20, 41, 61, .90); }
+.cta-banner.cta-banner h2 { color: var(--sp-ink); }
+
+/* --- Training perk band --- */
+.training-perk.training-perk,
+.training-perk.training-perk p { color: rgba(20, 41, 61, .90); }
+.training-perk.training-perk h2 { color: var(--sp-ink); }
+.training-perk.training-perk .kicker {
+  background: transparent;
+  color: var(--sp-brass-deep);
+}
+.tp-card.tp-card { color: var(--sp-ink); }
+.tp-card.tp-card .tp-title { color: var(--sp-ink); }
+.tp-card.tp-card .tp-meta { color: var(--sp-ink-68); }
+.tp-counter.tp-counter { color: var(--sp-ink); }
+.tp-list.tp-list li { color: rgba(20, 41, 61, .90); }
+.tp-list.tp-list li::before,
+.tp-card.tp-card .tp-ico { color: var(--sp-brass-deep); background: var(--sp-brass-18); }
+
+/* --- Footer --- */
+.site-footer.site-footer { color: var(--sp-ink-86); }
+.site-footer.site-footer h4 { color: var(--sp-ink); }
+.foot-grid.foot-grid a { color: var(--sp-brass-deep); }
+.foot-grid.foot-grid a:hover { color: var(--sp-brass-dk); }
+.foot-brand.foot-brand p { color: var(--sp-ink-78); }
+.info-list.info-list a { color: var(--sp-brass-deep); }
+.info-list.info-list a:hover { color: var(--sp-brass-dk); }
+.foot-bottom.foot-bottom { color: var(--sp-ink-68); }
+.foot-bottom.foot-bottom a { color: var(--sp-brass-deep); }
+
+/* --- Marks that were white-on-colour --- */
+.client-logo .cl-mark,
+.accred-mark,
+.avatar { color: var(--sp-brass-deep); }
+.avatar { color: var(--sp-ink); }
+
+/* --- Sticky mobile CTA --- */
+.float-cta.float-cta { color: var(--sp-ink); }
+
+/* ============================================================
+   25. Hero headline — the design's three deliberate lines
+   Each line is its own block, so the rotating word can never
+   drop its full stop onto the next line. Line 3 carries the
+   brass-to-navy gradient, as in the reference.
+   ============================================================ */
+.hero h1 {
+  font-size: clamp(44px, 5.4vw, 80px);
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  max-width: 16ch;
+  margin: 0 0 24px;
+}
+.hero h1 .h1-line {
+  display: block;
+  animation: sp-rise .8s cubic-bezier(.2, .7, .3, 1) both;
+}
+.hero h1 .h1-line:nth-child(1) { animation-delay: .12s; }
+.hero h1 .h1-line:nth-child(2) { animation-delay: .22s; }
+.hero h1 .h1-line:nth-child(3) { animation-delay: .32s; }
+
+/* the rotating word stays solid brass so it does not compete
+   with the gradient on line three */
+.hero h1 .accent,
+.hero h1 .ip-rotator {
+  background: none;
+  -webkit-background-clip: initial; background-clip: initial;
+  color: var(--sp-brass-deep);
+  -webkit-text-fill-color: var(--sp-brass-deep);
+}
+.hero h1 .h1-line.text-gradient {
+  background: linear-gradient(100deg, var(--sp-brass), var(--sp-ink) 55%, var(--sp-brass-lt));
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 .h1-line { animation: none !important; }
+}
+
+/* ============================================================
+   26. Hero scene — Training Hub course reader
+   The three-pane reader (contents · module · AI tutor) that
+   learners actually see, added to the hero's training sequence.
+   ============================================================ */
+.tpr-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #14293d, #1d3a54);
+  color: #f3f7fc;
+}
+.tpr-head .grow { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.tpr-head b { font-size: .74rem; line-height: 1.25; color: #fff; }
+.tpr-head small { font-size: .55rem; color: rgba(255, 255, 255, .68); }
+.tpr-free {
+  flex: none;
+  font-size: .48rem; font-weight: 800; letter-spacing: .08em;
+  padding: 4px 8px; border-radius: 999px;
+  color: #14293d; background: #b8892b;
+}
+.tpr-ring {
+  flex: none;
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: conic-gradient(#c39c4e 0 91%, rgba(255, 255, 255, .18) 91% 100%);
+}
+.tpr-ring i {
+  display: grid; place-items: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #14293d;
+  font-style: normal; font-weight: 800; font-size: .52rem; color: #fff;
+}
+.tpr-ring em { font-style: normal; font-size: .38rem; opacity: .8; }
+
+.tpr-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.5fr 0.95fr;
+  gap: 7px;
+  margin-top: 7px;
+  flex: 1; min-height: 0;
+}
+.tpr-side, .tpr-tutor {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 8px;
+  border-radius: 11px;
+  background: rgba(20, 41, 61, .045);
+  border: 1px solid rgba(20, 41, 61, .08);
+  min-width: 0;
+}
+.tpr-side-t {
+  font-size: .44rem; font-weight: 800; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(20, 41, 61, .6);
+  margin-bottom: 2px;
+}
+.tpr-mod {
+  display: flex; align-items: center; gap: 5px;
+  font-size: .55rem; line-height: 1.2; color: rgba(20, 41, 61, .82);
+  padding: 4px 6px; border-radius: 7px;
+}
+.tpr-mod .n {
+  flex: none;
+  display: grid; place-items: center;
+  width: 12px; height: 12px; border-radius: 4px;
+  font-size: .42rem; font-weight: 800;
+  color: rgba(20, 41, 61, .7); background: rgba(20, 41, 61, .08);
+}
+.tpr-mod.now { background: #14293d; color: #fff; }
+.tpr-mod.now .n { background: #b8892b; color: #14293d; }
+.tpr-mod.todo { opacity: .5; }
+.tpr-mod .tk { width: 9px; height: 9px; margin-left: auto; flex: none; }
+.tpr-mod .tk path { stroke: #6f5522; }
+
+.tpr-main {
+  display: flex; flex-direction: column; gap: 6px;
+  min-width: 0;
+}
+.tpr-strip {
+  display: flex; align-items: center; gap: 7px;
+  padding: 6px 8px; border-radius: 10px;
+  background: rgba(184, 137, 43, .12);
+  border: 1px solid rgba(184, 137, 43, .28);
+}
+.tpr-strip .grow { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.tpr-strip b { font-size: .55rem; color: #14293d; }
+.tpr-strip small { font-size: .44rem; color: rgba(20, 41, 61, .68); }
+.tpr-face {
+  flex: none; width: 17px; height: 17px; border-radius: 50%;
+  background: linear-gradient(140deg, #c39c4e, #2f6f9e);
+  border: 1px solid rgba(20, 41, 61, .14);
+}
+.tpr-ask {
+  flex: none;
+  font-size: .46rem; font-weight: 700;
+  padding: 4px 8px; border-radius: 999px;
+  color: #14293d; background: #b8892b;
+}
+.tpr-h {
+  font-family: var(--ff-display);
+  font-weight: 600; font-size: .8rem; color: #14293d;
+}
+.tpr-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.tpr-list li {
+  position: relative;
+  padding-left: 12px;
+  font-size: .55rem; line-height: 1.35;
+  color: rgba(20, 41, 61, .84);
+}
+.tpr-list li::before {
+  content: ""; position: absolute; left: 0; top: .38em;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #b8892b;
+}
+
+.tpr-bubble {
+  font-size: .5rem; line-height: 1.4;
+  color: rgba(20, 41, 61, .84);
+  padding: 6px 8px; border-radius: 9px;
+  background: rgba(47, 111, 158, .12);
+  border: 1px solid rgba(47, 111, 158, .2);
+}
+.tpr-chip {
+  font-size: .48rem; text-align: center;
+  padding: 4px 7px; border-radius: 999px;
+  color: #6f5522; background: rgba(184, 137, 43, .14);
+  border: 1px solid rgba(184, 137, 43, .28);
+  opacity: 0;
+  animation: sp-pop .45s cubic-bezier(.2, .9, .3, 1) var(--at, 0s) both;
+}
+@keyframes sp-pop {
+  from { opacity: 0; transform: translateY(6px) scale(.9); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* the reader needs a little more room than the other scenes */
+.demo-frame--hero .tpr-head { padding: 7px 9px; }
+.demo-frame--hero .tpr-grid { gap: 5px; }
+.demo-frame--hero .tpr-side,
+.demo-frame--hero .tpr-tutor { padding: 6px; }
+
+@media (max-width: 620px) {
+  .tpr-grid { grid-template-columns: 1fr; }
+  .tpr-side, .tpr-tutor { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tpr-chip { animation: none !important; opacity: 1; }
+}
+
+/* The rotating word changes length (audit-ready -> BS7858 compliant), so
+   each headline line is held on one line above mobile. Otherwise the
+   longest word reflows the h1 from three lines to four mid-rotation. */
+.hero h1 { max-width: none; }
+@media (min-width: 720px) {
+  .hero h1 .h1-line { white-space: nowrap; }
+}
+
+/* ============================================================
+   27. Cross-sell band + the last two hard-coded CTAs
+   ============================================================ */
+
+/* The "need staff training too?" band was the one remaining dark
+   navy strip. It becomes a brass-tinted rule between sections. */
+.xlink-band {
+  background: linear-gradient(90deg, var(--sp-bg-3), var(--sp-bg-4) 50%, var(--sp-bg-3));
+  color: var(--sp-ink-86);
+  border-top: 1px solid var(--sp-line);
+  border-bottom: 1px solid var(--sp-line);
+}
+.xlink-band a {
+  color: var(--sp-brass-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(184, 137, 43, .5);
+}
+.xlink-band a:hover { color: var(--sp-brass-dk); text-decoration-color: var(--sp-brass); }
+
+/* brass-outlined variant, replaces the inline gold on the
+   Director's Blueprint CTA */
+.btn--brass {
+  border-color: rgba(184, 137, 43, .6);
+  color: var(--sp-brass-deep);
+  background: var(--sp-brass-08);
+}
+.btn--brass:hover {
+  background: var(--sp-brass-18);
+  border-color: var(--sp-brass);
+  color: var(--sp-brass-dk);
+}
+
+/* ============================================================
+   28. Training Hub band
+   The reference renders this as brass fading into sky, not a
+   navy slab. Section 24 already flipped the ink; the surface
+   underneath has to flip with it.
+   ============================================================ */
+.training-perk {
+  background: linear-gradient(135deg, #5f4820 0%, #a98a4e 22%, var(--sp-bg-3) 58%, var(--sp-bg) 100%);
+  color: var(--sp-ink);
+  border-top: 1px solid var(--sp-line);
+  border-bottom: 1px solid var(--sp-line);
+}
+.training-perk::before {
+  background-image:
+    linear-gradient(rgba(20, 41, 61, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 41, 61, .05) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(900px 420px at 50% 50%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(900px 420px at 50% 50%, #000 30%, transparent 80%);
+}
+/* brass orb, matching the other feature bands */
+.training-perk::after {
+  content: "";
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 44vw; height: 44vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 137, 43, .30), transparent 62%);
+  filter: blur(28px);
+  pointer-events: none;
+  animation: sp-orb 20s ease-in-out infinite;
+}
+
+.tp-card {
+  background: rgba(255, 255, 255, .82);
+  border: 1px solid rgba(20, 41, 61, .12);
+  box-shadow: 0 24px 60px rgba(20, 41, 61, .18);
+}
+.tp-card .tp-ico {
+  background: linear-gradient(135deg, var(--sp-brass-lt), var(--sp-brass-dk));
+  color: var(--sp-ink);
+}
+.tp-card .tp-tag {
+  color: var(--sp-brass-deep);
+  background: var(--sp-brass-18);
+  border: 1px solid var(--sp-brass-32);
+}
+.tp-list li { color: rgba(20, 41, 61, .90); }
+
+@media (prefers-reduced-motion: reduce) {
+  .training-perk::after { animation: none !important; }
+}
+
+/* ============================================================
+   29. Sector tab visual + dashboard timestamp
+   ============================================================ */
+.tab-visual {
+  background: linear-gradient(160deg, #fff, var(--sp-bg-2));
+  border: 1px solid var(--sp-line);
+  color: var(--sp-ink);
+  box-shadow: 0 12px 30px rgba(20, 41, 61, .05);
+}
+.tv-stat {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--sp-brass-deep);
+}
+.tv-cap {
+  margin-top: 8px;
+  font-size: .92rem;
+  color: var(--sp-ink-78);
+}
+.dash-when {
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--sp-ink-68);
+}
+
+/* ============================================================
+   30. Brass bands on narrow screens
+   The 135deg brass-to-sky gradient is built for a two-column
+   desktop band. Stacked on mobile the section becomes tall and
+   narrow, so the brass end covers the copy. Below 900px the
+   brass is pulled back to a top edge and the text sits on sky.
+   ============================================================ */
+@media (max-width: 900px) {
+  .section--dark,
+  .training-perk {
+    background: linear-gradient(180deg, #5f4820 0%, #a98a4e 9%, var(--sp-bg-3) 26%, var(--sp-bg) 100%);
+  }
+  .section--dark::before,
+  .training-perk::after { display: none; }
+
+  /* the kicker is the only thing still sitting on brass */
+  .section--dark .kicker,
+  .training-perk .kicker {
+    color: #f7f1e3;
+    background: rgba(20, 41, 61, .28);
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+}
+
+/* The hero / dark-card / dark-section variants of the tick marker
+   carry their own brighter mint. All three need the brass glyph. */
+.card--dark .feature-list li::before,
+.section--dark .feature-list li::before,
+.training-perk .feature-list li::before,
+.hero .feature-list li::before {
+  background: var(--sp-brass-18) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236f5522' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat;
+}
+
+/* ============================================================
+   31. Last old-palette holdouts
+   ============================================================ */
+
+/* scroll progress bar, on every page */
+#ip-progress {
+  background: linear-gradient(90deg, var(--sp-brass-lt), var(--sp-brass), var(--sp-brass-dk)) !important;
+}
+
+/* the current page in the nav is marked with .is-active, not
+   aria-current, so section 3 missed it */
+.nav-list a.is-active,
+.nav-list > li > a.is-active {
+  background: rgba(20, 41, 61, .09);
+  color: var(--sp-ink);
+}
+
+/* course tags on the Training Hub cards: one brass family, with
+   the tier carried by fill rather than hue */
+.tp-tag,
+.tp-tag.free,
+.tp-tag.trial,
+.tp-tag.iso {
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.tp-card .tp-tag.free {
+  color: var(--sp-ink);
+  background: var(--sp-brass);
+  border: 1px solid var(--sp-brass-dk);
+}
+.tp-card .tp-tag.trial {
+  color: var(--sp-brass-deep);
+  background: var(--sp-brass-18);
+  border: 1px solid var(--sp-brass-32);
+}
+.tp-card .tp-tag.iso {
+  color: rgba(20, 41, 61, .88);
+  background: rgba(20, 41, 61, .08);
+  border: 1px solid var(--sp-line-2);
+}
+
+/* ============================================================
+   32. Brand lockup
+   Matches assets/brand/logo-lockup.svg: mark, then the wordmark
+   with a brass "Portal", then the descender rule and strapline.
+   ============================================================ */
+.brand { gap: 13px; align-items: center; }
+.brand-word {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.brand-name {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 1.42rem;
+  line-height: 1;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--sp-ink);
+  white-space: nowrap;
+}
+.brand-name > span { color: var(--sp-brass-deep); }
+.brand-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-sans);
+  font-weight: 400;
+  font-size: .58rem;
+  line-height: 1;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--sp-ink-68);
+  white-space: nowrap;
+}
+.brand-tag i {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: rgba(184, 137, 43, .7);
+  flex: none;
+}
+/* below the tablet breakpoint the strapline would crowd the burger */
+@media (max-width: 700px) {
+  .brand-tag { display: none; }
+  .brand-name { font-size: 1.22rem; }
+}
+
+/* ============================================================
+   33. Design fidelity, shared across every page
+   Consolidated from a per-page audit of the 6 inner pages.
+   ============================================================ */
+
+/* --- 33a. The last old-palette leak -----------------------
+   premium.css paints a 54px rule under every .section-head h2
+   in the retired blue-to-orange pair. It renders on the
+   homepage too, so this is a sitewide fix, not an inner-page one. */
+.section-head h2::after {
+  background: linear-gradient(90deg, var(--sp-brass-lt), var(--sp-brass)) !important;
+  width: 44px;
+  height: 2px;
+  border-radius: 2px;
+  opacity: .9;
+}
+
+/* --- 33b. Page intro, to the reference scale --------------
+   The inner pages kept the legacy 32-58px h1 while the homepage
+   moved to 44-80px, so they read a size behind the rest of the site. */
+.page-intro.page-intro h1 {
+  font-size: clamp(36px, 4.4vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -.025em;
+  max-width: 26ch;
+  margin: 20px 0 0;
+}
+.page-intro.page-intro p {
+  font-size: 1.06rem;
+  line-height: 1.65;
+  max-width: 62ch;
+  margin-top: 20px;
+}
+.page-intro.page-intro .breadcrumb {
+  font-size: .8rem;
+  letter-spacing: .04em;
+}
+/* the live brass pulse dot, previously only on the homepage badge */
+.page-intro .kicker { padding: 8px 18px 8px 12px; gap: 11px; }
+.page-intro .kicker::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--sp-brass);
+  box-shadow: 0 0 0 0 rgba(184, 137, 43, .6);
+  flex: none;
+  animation: sp-pulse 2.4s ease-out infinite;
+}
+/* the gradient closing line, as on the homepage h1 */
+.page-intro h1 .text-gradient,
+.page-intro h1 .h1-line.text-gradient {
+  background: linear-gradient(100deg, var(--sp-brass), var(--sp-ink) 55%, var(--sp-brass-lt));
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.page-intro h1 .h1-line { display: block; }
+
+/* --- 33c. Section header block, 62ch column --------------- */
+.section-head.section-head p {
+  font-size: 1.06rem;
+  line-height: 1.65;
+  max-width: 62ch;
+}
+.section-head.section-head:not(.section-head--left):not(.section-head--flush) p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- 33d. Stat band numerals ------------------------------ */
+.stats.stats .stat b {
+  font-size: clamp(34px, 4.2vw, 60px);
+  line-height: 1;
+  letter-spacing: -.015em;
+}
+
+/* --- 33e. Pillar cards ------------------------------------
+   The reference gives its three lead cards a 3px brass rule
+   across the top edge and a numbered brass eyebrow. Opt in by
+   adding .is-pillars to the grid; the numbers come from a CSS
+   counter so no per-card markup is needed. */
+.row.is-pillars { counter-reset: sp-pillar; }
+.row.is-pillars > .card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  padding-top: 34px;
+}
+.row.is-pillars > .card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sp-brass-lt), var(--sp-brass));
+}
+.row.is-pillars > .card::after {
+  counter-increment: sp-pillar;
+  content: "0" counter(sp-pillar);
+  position: absolute;
+  top: 22px; right: 24px;
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: .8rem;
+  letter-spacing: .2em;
+  color: var(--sp-brass-deep);
+}
+
+/* --- 33f. Closing CTA ------------------------------------- */
+.cta-banner.cta-banner h2 {
+  font-size: clamp(32px, 4vw, 58px);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  max-width: 20ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-banner.cta-banner p {
+  font-size: 1.06rem;
+  line-height: 1.65;
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* the reassurance line under the buttons */
+.cta-banner .cta-reassure {
+  margin: 24px 0 0;
+  font-size: .88rem;
+  color: var(--sp-ink-68);
+}
+
+/* --- 33g. Deep-link anchors ------------------------------
+   The homepage industry tabs deep-link into solutions.html
+   (#security #labour #hospitality #construction #care). The
+   header is sticky, so without this the target lands beneath it. */
+:target,
+section[id],
+.card[id],
+[id]:not(body):not(html) {
+  scroll-margin-top: 132px;
+}
+
+/* --- 33h. Trial modal ------------------------------------
+   Present on every page and never retheme, so opening it
+   reverted the viewport to the retired navy. */
+.modal-backdrop { background: rgba(20, 41, 61, .58); backdrop-filter: blur(3px); }
+.modal {
+  border-radius: 22px;
+  border: 1px solid var(--sp-line);
+  background: #fff;
+  color: var(--sp-ink);
+  box-shadow: 0 30px 70px rgba(20, 41, 61, .24);
+}
+.modal h3 { color: var(--sp-ink); font-family: var(--ff-display); font-weight: 600; }
+.modal p { color: var(--sp-ink-86); }
+.modal .close { color: var(--sp-ink-68); }
+.modal .close:hover { color: var(--sp-brass-deep); }
+
+/* --- 33i. Accordion --------------------------------------- */
+.acc-item { border-color: var(--sp-line); }
+.acc-item.is-open { background: var(--sp-brass-08); }
+.acc-trigger { font-size: 1.02rem; }
+.acc-panel p { color: var(--sp-ink-86); }
+
+/* --- 33j. Price cards ------------------------------------- */
+.price-card .price-tag {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  letter-spacing: -.01em;
+  color: var(--sp-ink);
+}
+/* the caption sat on an inline style="display:block" that was stripped
+   with the rest of the old-palette inline overrides, so it has to be
+   re-declared here or it runs on the same line as the price */
+.price-card .price-tag small {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--ff-sans);
+  font-size: .85rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--sp-ink-68);
+  letter-spacing: 0;
+}
+.price-card .price-tag { line-height: 1.15; margin: 12px 0; }
+.price-card .badge {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--sp-brass-deep);
+}
+.price-card:hover { transform: translateY(-6px); box-shadow: 0 26px 54px rgba(20, 41, 61, .12); }
+.price-card.is-featured:hover { box-shadow: 0 36px 80px rgba(20, 41, 61, .30); }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-intro .kicker::before { animation: none !important; }
+}
+
+/* ============================================================
+   34. Opt-in components the pages use
+   ============================================================ */
+
+/* --- Pillar card, per-card opt-in ------------------------
+   Same treatment as .row.is-pillars but applied to a single
+   card, for pages where only some cards are flagship. The
+   number is explicit markup here (.card-num) because these
+   cards are not always siblings in one grid. */
+.card--pillar {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  padding-top: 34px;
+}
+.card--pillar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sp-brass-lt), var(--sp-brass));
+}
+.card--pillar:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(20, 41, 61, .14);
+}
+.card-num {
+  position: absolute;
+  top: 22px; right: 24px;
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: .8rem;
+  letter-spacing: .2em;
+  color: var(--sp-brass-deep);
+}
+
+/* --- Section header modifiers ---------------------------- */
+.section-head--left { text-align: left; }
+.section-head--left h2::after { margin-left: 0; }
+.section-head--left p { margin-left: 0; margin-right: 0; }
+.section-head--flush { margin-bottom: var(--s-5); text-align: left; }
+.section-head--flush h2::after { margin-left: 0; }
+.section-head--flush p { margin-left: 0; margin-right: 0; }
+
+/* --- Closing CTA reassurance line ------------------------ */
+.cta-banner .cta-reassure,
+.cta-banner .cta-note,
+.cta-banner .hero-cta + p {
+  margin: 24px 0 0;
+  font-size: .88rem;
+  color: var(--sp-ink-68);
+  text-align: center;
+}
+
+/* --- Brass note panel ------------------------------------
+   Replaces the peach inline panel left over from the old
+   identity on the pricing page. */
+.sp-note {
+  background: linear-gradient(160deg, rgba(184, 137, 43, .14), rgba(184, 137, 43, .05));
+  border: 1px solid var(--sp-brass-32);
+  text-align: center;
+  padding: 22px 26px;
+}
+.sp-note.is-static:hover { transform: none; box-shadow: none; }
+
+/* --- Comparison table ------------------------------------ */
+.card table { width: 100%; border-collapse: collapse; }
+.card table thead th {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--sp-ink-68);
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--sp-line-2);
+}
+.card table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--sp-line);
+  color: var(--sp-ink-86);
+  font-size: .94rem;
+}
+.card table tbody tr:hover td { background: var(--sp-brass-08); }
+.tbl-yes { color: var(--sp-brass-deep); font-weight: 700; }
+.tbl-no  { color: rgba(20, 41, 61, .38); font-weight: 600; }
+.card:has(table):hover { transform: none; box-shadow: 0 12px 30px rgba(20, 41, 61, .05); }
+
+/* --- Pull quote inside a card ---------------------------- */
+.card-quote {
+  margin: 0;
+  padding-left: 16px;
+  border-left: 2px solid var(--sp-brass-32);
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  font-style: normal;
+  color: var(--sp-ink-78);
+}
+
+/* --- "more" link, brass with the injected arrow ---------- */
+.card .more { color: var(--sp-brass-deep); font-weight: 600; }
+.card .more:hover { color: var(--sp-brass-dk); }
+
+/* premium.css sets .section-head h2 to inline-block so its underline can
+   hug the text. That makes the h2 share a line with the inline-flex kicker
+   that precedes it in the design's header block, so the kicker ends up
+   beside the heading instead of above it. The underline is a fixed 44px
+   with auto side margins, so it does not need inline-block to sit right. */
+.section-head h2 { display: block; }
+.section-head .kicker { margin-bottom: 14px; }

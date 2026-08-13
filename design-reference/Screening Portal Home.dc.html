@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/industry-07c3cccc-803b-4e22-9512-95562bc349f3/styles.css">
+<script src="_ds/industry-07c3cccc-803b-4e22-9512-95562bc349f3/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; overflow-x: hidden; background: #eaf3fc; }
+  a { color: #6f5522; text-decoration: none; }
+  a:hover { color: #8a6a2e; }
+  @keyframes v2-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @keyframes v2-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes v2-panel { from { opacity: 0; transform: translateY(34px) scale(.97); } to { opacity: 1; transform: none; } }
+  @keyframes v2-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes v2-orb { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(5%,-4%) scale(1.12); } 66% { transform: translate(-4%,5%) scale(.94); } }
+  @keyframes v2-ring { 0% { transform: scale(.85); opacity: .75; } 100% { transform: scale(1.9); opacity: 0; } }
+  @keyframes v2-draw { from { stroke-dashoffset: 240; } to { stroke-dashoffset: 0; } }
+  @keyframes v2-tick { from { stroke-dashoffset: 26; } to { stroke-dashoffset: 0; } }
+  @keyframes v2-sweep { 0% { transform: translateX(-140%); } 100% { transform: translateX(360%); } }
+  @keyframes v2-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes v2-spin { to { transform: rotate(360deg); } }
+  @keyframes v2-lid { from { transform: rotateX(-88deg); opacity: 0; } 60% { opacity: 1; } to { transform: rotateX(0); opacity: 1; } }
+  @keyframes v2-stamp { from { opacity: 0; transform: translate(-50%,-50%) rotate(-9deg) scale(1.5); } to { opacity: 1; transform: translate(-50%,-50%) rotate(-9deg) scale(1); } }
+  @keyframes v2-draw2 { from { stroke-dashoffset: 200; } to { stroke-dashoffset: 0; } }
+  @keyframes v2-pop { from { opacity: 0; transform: translateY(9px) scale(.86); } to { opacity: 1; transform: none; } }
+  @keyframes v2-reveal { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: none; } }
+  @keyframes v2-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  [data-reveal] { animation: v2-reveal linear both; animation-timeline: view(); animation-range: entry 2% cover 26%; }
+  @supports not (animation-timeline: view()) { [data-reveal] { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { * { animation-duration: .001s !important; animation-iteration-count: 1 !important; } }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; overflow:hidden; font-family:var(--font-body); color:#14293d; background:radial-gradient(120% 90% at 78% 8%, #cfe1f4 0%, #dfebf8 42%, #eaf3fc 100%)">
+
+  <div style="position:absolute; top:-18%; right:-8%; width:56vw; height:56vw; border-radius:50%; pointer-events:none; background:radial-gradient(circle, color-mix(in srgb, #c39c4e 42%, transparent) 0%, transparent 62%); filter:blur(24px); animation:v2-orb 18s ease-in-out infinite"></div>
+  <div style="position:absolute; bottom:-26%; left:-14%; width:48vw; height:48vw; border-radius:50%; pointer-events:none; background:radial-gradient(circle, color-mix(in srgb, #c9a24a 26%, transparent) 0%, transparent 64%); filter:blur(30px); animation:v2-orb 24s ease-in-out 3s infinite reverse"></div>
+  <div style="position:absolute; inset:0; pointer-events:none; opacity:.5; background-image:linear-gradient(to right, rgba(20,41,61,.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,41,61,.05) 1px, transparent 1px); background-size:88px 88px; mask-image:radial-gradient(100% 80% at 60% 20%, #000 25%, transparent 80%)"></div>
+
+
+  <header style="position:relative; z-index:3; max-width:1340px; margin:0 auto; padding:26px 44px; display:flex; flex-wrap:wrap; align-items:center; gap:20px 28px; animation:v2-fade .7s ease both">
+    <a href="#" style="display:flex; align-items:center; gap:15px; margin-right:auto; color:inherit; white-space:nowrap">
+      <span style="position:relative; display:grid; place-items:center; width:56px; height:56px">
+        <span style="position:absolute; inset:2px; border-radius:50%; border:1px solid rgba(184,137,43,.5); animation:v2-ring 4s ease-out infinite"></span>
+        <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
+          <path d="M13.9 51.2a26 26 0 1 1 36.2 0" stroke="#b8892b" stroke-width="5.4" stroke-linecap="round" stroke-dasharray="200" style="animation:v2-draw2 1.5s cubic-bezier(.3,.8,.3,1) .15s both"></path>
+          <path d="M18.2 33.6a14 14 0 0 0 27.6 0" stroke="rgba(184,137,43,.28)" stroke-width="1.2" stroke-linecap="round"></path>
+          <g style="transform-origin:32px 46px; animation:v2-pop .6s cubic-bezier(.2,.9,.3,1) .95s both">
+            <circle cx="32" cy="26.4" r="7.7" fill="#14293d"></circle>
+            <path d="M18.6 56v-4.1c0-6.6 5.7-10.7 13.4-10.7s13.4 4.1 13.4 10.7V56z" fill="#2f6f9e"></path>
+            <path d="M32 41.2l4.6 2.1-2.6 2.4 1.9 10.3h-7.8l1.9-10.3-2.6-2.4z" fill="#14293d"></path>
+            <path d="M32 41.2l-4.6 2.1 2.6 2.4zM32 41.2l4.6 2.1-2.6 2.4z" fill="#f7fbff" opacity=".9"></path>
+          </g>
+        </svg>
+      </span>
+      <span style="display:flex; flex-direction:column; gap:5px">
+        <span style="font-family:var(--font-heading); font-weight:600; font-size:24px; line-height:1; letter-spacing:.04em; text-transform:uppercase">Screening <span style="color:#6f5522">Portal</span></span>
+        <span style="display:flex; align-items:center; gap:9px; font-size:9.5px; letter-spacing:.26em; text-transform:uppercase; color:rgba(20,41,61,0.73)">
+          <span style="display:block; width:22px; height:1px; background:rgba(184,137,43,.7)"></span>
+          Est. 2014 · Vetted in Britain
+        </span>
+      </span>
+    </a>
+    <nav style="display:flex; align-items:center; gap:6px; font-size:15px; font-weight:500">
+      <a href="#" style="padding:9px 16px; border-radius:999px; color:#14293d; background:rgba(20,41,61,.1)">Home</a>
+      <a href="#" style="padding:9px 16px; border-radius:999px; white-space:nowrap; color:rgba(20,41,61,0.92); transition:background .25s ease, color .25s ease" style-hover="background:rgba(20,41,61,.08); color:#14293d">Platform</a>
+      <a href="#" style="padding:9px 16px; border-radius:999px; white-space:nowrap; color:rgba(20,41,61,0.92); transition:background .25s ease, color .25s ease" style-hover="background:rgba(20,41,61,.08); color:#14293d">Staff Training</a>
+      <a href="#" style="padding:9px 16px; border-radius:999px; white-space:nowrap; color:rgba(20,41,61,0.92); transition:background .25s ease, color .25s ease" style-hover="background:rgba(20,41,61,.08); color:#14293d">Pricing</a>
+      <a href="#" style="padding:9px 16px; border-radius:999px; white-space:nowrap; color:rgba(20,41,61,0.92); transition:background .25s ease, color .25s ease" style-hover="background:rgba(20,41,61,.08); color:#14293d">Company</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px">
+      <a href="#" style="padding:11px 22px; border-radius:999px; white-space:nowrap; font-weight:500; font-size:15px; color:#14293d; border:1px solid rgba(20,41,61,.28); transition:background .25s ease, border-color .25s ease" style-hover="background:rgba(20,41,61,.1); border-color:rgba(20,41,61,0.68)">Log in</a>
+      <a href="#" style="position:relative; overflow:hidden; padding:11px 24px; border-radius:999px; white-space:nowrap; font-weight:600; font-size:15px; color:#14293d; background:linear-gradient(135deg, #c39c4e, #8a6a2e); box-shadow:0 12px 28px rgba(150,116,48,.4); transition:transform .25s ease, box-shadow .25s ease" style-hover="transform:translateY(-2px); box-shadow:0 16px 34px rgba(150,116,48,.55)">Start free trial</a>
+    </div>
+  </header>
+
+  <div style="position:relative; z-index:2; max-width:1340px; margin:0 auto; padding:0 44px; display:grid; grid-template-columns:repeat(auto-fit, minmax(440px, 1fr)); gap:60px; align-items:center; min-height:calc(100vh - 232px)">
+
+    <section style="padding:40px 0">
+      <div style="display:inline-flex; align-items:center; gap:11px; padding:8px 18px 8px 12px; border-radius:999px; background:rgba(20,41,61,.07); border:1px solid rgba(20,41,61,.14); backdrop-filter:blur(8px); font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#6f5522; animation:v2-rise .7s ease .05s both">
+        <span style="position:relative; display:block; width:8px; height:8px; border-radius:50%; background:#b8892b">
+          <span style="position:absolute; inset:0; border-radius:50%; background:#b8892b; animation:v2-ring 2.4s ease-out infinite"></span>
+        </span>
+        BS7858 · SIA ACS · COP119 ready
+      </div>
+
+      <h1 style="font-size:clamp(48px,5.4vw,80px); line-height:1.02; letter-spacing:-.025em; margin:26px 0 0; max-width:16ch">
+        <span style="display:block; animation:v2-rise .8s cubic-bezier(.2,.7,.3,1) .12s both">Screen, onboard &amp;</span>
+        <span style="display:block; animation:v2-rise .8s cubic-bezier(.2,.7,.3,1) .22s both">stay compliant.</span>
+        <span style="display:block; background:linear-gradient(100deg, #b8892b, #14293d 55%, #c9a24a); -webkit-background-clip:text; background-clip:text; color:transparent; animation:v2-rise .8s cubic-bezier(.2,.7,.3,1) .32s both">No more paperwork.</span>
+      </h1>
+
+      <p style="font-size:17.5px; line-height:1.65; max-width:56ch; margin-top:24px; color:rgba(20,41,61,0.90); animation:v2-rise .8s ease .45s both">
+        Screening Portal is the cloud platform built for security firms, care providers and labour suppliers who can't afford a single compliance gap. Process BS7858:2019 background checks in days, automate site-specific inductions, and pass your SIA ACS audit with one click.
+      </p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; animation:v2-rise .8s ease .58s both">
+        <a href="#" style="position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:10px; padding:18px 34px; border-radius:999px; font-size:17px; font-weight:600; color:#14293d; background:linear-gradient(135deg, #c39c4e, #8a6a2e); box-shadow:0 18px 40px rgba(150,116,48,.45); transition:transform .28s ease, box-shadow .28s ease" style-hover="transform:translateY(-3px); box-shadow:0 24px 50px rgba(150,116,48,.6)">
+          <span style="position:absolute; top:0; bottom:0; left:0; width:34%; background:linear-gradient(90deg, transparent, rgba(20,41,61,.34), transparent); animation:v2-sweep 3.6s ease-in-out 1.4s infinite"></span>
+          Start free 14-day trial
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+        </a>
+        <a href="#" style="display:inline-flex; align-items:center; gap:10px; padding:18px 32px; border-radius:999px; font-size:17px; font-weight:500; color:#14293d; background:rgba(20,41,61,.06); border:1px solid rgba(20,41,61,.24); backdrop-filter:blur(8px); transition:background .28s ease, transform .28s ease" style-hover="background:rgba(20,41,61,.12); transform:translateY(-3px)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m10 8 6 4-6 4z"></path><circle cx="12" cy="12" r="9"></circle></svg>
+          Book a live demo
+        </a>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:26px; margin-top:34px; font-size:14px; color:rgba(20,41,61,0.78); animation:v2-fade .9s ease .8s both">
+        <span style="display:inline-flex; align-items:center; gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b8892b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>No credit card required</span>
+        <span style="display:inline-flex; align-items:center; gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b8892b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Setup in under 24 hours</span>
+        <span style="display:inline-flex; align-items:center; gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#b8892b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>UK data residency</span>
+      </div>
+    </section>
+
+    <section style="position:relative; padding:36px 0; animation:v2-panel 1s cubic-bezier(.2,.7,.3,1) .35s both">
+      <div style="position:relative; border-radius:26px; padding:8px; background:linear-gradient(160deg, rgba(20,41,61,.22), rgba(20,41,61,.04)); box-shadow:0 40px 90px rgba(20,41,61,.55)">
+        <div style="border-radius:20px; overflow:hidden; background:linear-gradient(170deg, rgba(255,255,255,.97), rgba(234,243,252,.97)); backdrop-filter:blur(14px)">
+
+          <div style="display:flex; align-items:center; gap:12px; padding:18px 22px; border-bottom:1px solid rgba(20,41,61,.08)">
+            <span style="position:relative; display:block; width:9px; height:9px; border-radius:50%; background:#b8892b">
+              <span style="position:absolute; inset:0; border-radius:50%; background:#b8892b; animation:v2-ring 2s ease-out infinite"></span>
+            </span>
+            <span style="font-family:var(--font-heading); font-weight:600; font-size:17px; letter-spacing:.01em">Screening Dashboard</span>
+            <span style="margin-left:auto; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:rgba(20,41,61,0.68)">Live · {{ clock }}</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:20px 22px">
+            <div style="border-radius:16px; padding:16px 18px; background:rgba(20,41,61,.05); border:1px solid rgba(20,41,61,.07)">
+              <div style="font-family:var(--font-heading); font-weight:600; font-size:36px; line-height:1">{{ inProgress }}</div>
+              <div style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-top:7px; color:rgba(20,41,61,0.68)">In progress</div>
+            </div>
+            <div style="border-radius:16px; padding:16px 18px; background:rgba(20,41,61,.05); border:1px solid rgba(20,41,61,.07)">
+              <div style="font-family:var(--font-heading); font-weight:600; font-size:36px; line-height:1">{{ clearedMo }}</div>
+              <div style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-top:7px; color:rgba(20,41,61,0.68)">Cleared this mo.</div>
+            </div>
+            <div style="border-radius:16px; padding:16px 18px; background:linear-gradient(150deg, rgba(184,137,43,.22), rgba(184,137,43,.06)); border:1px solid rgba(184,137,43,.28)">
+              <div style="font-family:var(--font-heading); font-weight:600; font-size:36px; line-height:1; color:#6f5522">{{ sla }}</div>
+              <div style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-top:7px; color:rgba(20,41,61,0.68)">SLA met</div>
+            </div>
+          </div>
+
+          <div style="padding:0 22px 6px; display:flex; flex-direction:column; gap:9px">
+            <sc-for list="{{ rows }}" as="row" hint-placeholder-count="5">
+              <div style="{{ row.style }}">
+                <span style="{{ row.avatarStyle }}">{{ row.initials }}</span>
+                <span style="display:flex; flex-direction:column; gap:2px; min-width:0">
+                  <span style="font-size:14.5px; font-weight:500">{{ row.name }}</span>
+                  <span style="font-size:12.5px; color:rgba(20,41,61,0.68)">{{ row.check }}</span>
+                </span>
+                <span style="{{ row.tagStyle }}">{{ row.status }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:14px; padding:18px 22px; margin-top:8px; border-top:1px solid rgba(20,41,61,.08); font-size:13px; color:rgba(20,41,61,0.78)">
+            <span>Audit pack</span>
+            <span style="flex:1; height:6px; border-radius:999px; background:rgba(20,41,61,.09); overflow:hidden">
+              <span style="display:block; height:100%; border-radius:999px; background:linear-gradient(90deg, #c39c4e, #b8892b); width:{{ auditPct }}%"></span>
+            </span>
+            <span style="color:#6f5522; font-weight:500">{{ auditLabel }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:absolute; top:14px; right:-18px; display:flex; align-items:center; gap:10px; padding:12px 18px; border-radius:999px; background:rgba(255,255,255,.97); color:#14293d; box-shadow:0 18px 40px rgba(20,41,61,.4); animation:v2-float 5s ease-in-out 1.2s infinite">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6f5522" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+        <span style="font-size:14px; font-weight:600">BS7858 cleared</span>
+      </div>
+
+      <div style="position:absolute; bottom:12px; left:-26px; display:flex; align-items:center; gap:10px; padding:12px 18px; border-radius:999px; background:rgba(255,255,255,.97); color:#14293d; box-shadow:0 18px 40px rgba(20,41,61,.4); animation:v2-float 5.8s ease-in-out 2.2s infinite">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8a6a2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"></path></svg>
+        <span style="font-size:14px; font-weight:600">Audit pack exported</span>
+      </div>
+    </section>
+  </div>
+
+  <div style="position:relative; z-index:2; animation:v2-fade 1.1s ease 1s both">
+    <div style="max-width:1340px; margin:0 auto; padding:0 44px 34px">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:14px">
+        <div style="border-radius:18px; padding:18px 22px; background:rgba(20,41,61,.05); border:1px solid rgba(20,41,61,.09); display:flex; align-items:baseline; gap:10px">
+          <span style="font-family:var(--font-heading); font-weight:600; font-size:26px">4.8 / 5</span>
+          <span style="font-size:13px; color:rgba(20,41,61,0.73)">from 212 verified UK reviews</span>
+        </div>
+        <div style="border-radius:18px; padding:18px 22px; background:rgba(20,41,61,.05); border:1px solid rgba(20,41,61,.09); display:flex; align-items:baseline; gap:10px">
+          <span style="font-family:var(--font-heading); font-weight:600; font-size:26px">184,000</span>
+          <span style="font-size:13px; color:rgba(20,41,61,0.73)">Checks processed since 2014</span>
+        </div>
+        <div style="border-radius:18px; padding:18px 22px; background:rgba(20,41,61,.05); border:1px solid rgba(20,41,61,.09); display:flex; align-items:baseline; gap:10px">
+          <span style="font-family:var(--font-heading); font-weight:600; font-size:26px">9 days</span>
+          <span style="font-size:13px; color:rgba(20,41,61,0.73)">Median BS7858 clearance</span>
+        </div>
+        <div style="border-radius:18px; padding:18px 22px; background:rgba(20,41,61,.05); border:1px solid rgba(20,41,61,.09); display:flex; align-items:baseline; gap:10px">
+          <span style="font-family:var(--font-heading); font-weight:600; font-size:26px">ISO 27001</span>
+          <span style="font-size:13px; color:rgba(20,41,61,0.73)">Certified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div style="position:relative; background:#eaf3fc; color:#14293d; font-family:var(--font-body); overflow:hidden; border-top:1px solid rgba(20,41,61,.08)">
+  <div style="max-width:1340px; margin:0 auto; padding:34px 44px; display:flex; align-items:center; gap:34px">
+    <span style="flex:none; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:rgba(20,41,61,0.68); max-width:22ch; line-height:1.5">Trusted by SIA ACS contractors, CQC-registered care providers &amp; labour suppliers</span>
+    <span style="flex:1; overflow:hidden; mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)">
+      <span style="display:flex; width:max-content; gap:52px; animation:v2-marquee 34s linear infinite">
+        <sc-for list="{{ clients }}" as="client" hint-placeholder-count="12">
+          <span style="display:flex; align-items:center; gap:11px; white-space:nowrap; font-family:var(--font-heading); font-weight:600; font-size:19px; letter-spacing:.06em; text-transform:uppercase; color:rgba(20,41,61,0.80)">
+            <span style="display:grid; place-items:center; width:34px; height:34px; border-radius:10px; font-size:12px; letter-spacing:.04em; color:#6f5522; background:rgba(184,137,43,.14); border:1px solid rgba(184,137,43,.24)">{{ client.mark }}</span>
+            {{ client.name }}
+          </span>
+        </sc-for>
+      </span>
+    </span>
+  </div>
+</div>
+
+<section style="background:#f8fbff; color:#14293d; font-family:var(--font-body)">
+  <div style="max-width:1340px; margin:0 auto; padding:110px 44px">
+    <div data-reveal style="max-width:62ch">
+      <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#6f5522">Accredited &amp; recognised</span>
+      <h2 style="font-size:clamp(34px,3.6vw,52px); line-height:1.06; letter-spacing:-.02em; margin:16px 0 14px">Built on the standards your auditors care about.</h2>
+      <p style="font-size:17px; line-height:1.65; color:rgba(20,41,61,0.86); margin:0">Every workflow, every record and every export is mapped directly to a recognised UK compliance framework.</p>
+    </div>
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px; margin-top:44px">
+      <sc-for list="{{ standards }}" as="std" hint-placeholder-count="6">
+        <div style="border-radius:18px; padding:24px; background:#fff; border:1px solid rgba(20,41,61,.08); box-shadow:0 12px 30px rgba(20,41,61,.05); transition:transform .3s ease, box-shadow .3s ease" style-hover="transform:translateY(-5px); box-shadow:0 24px 50px rgba(20,41,61,.12)">
+          <div style="display:grid; place-items:center; width:42px; height:42px; border-radius:12px; background:rgba(150,116,48,.12); color:#6f5522; font-family:var(--font-heading); font-weight:600; font-size:15px">{{ std.mark }}</div>
+          <div style="font-family:var(--font-heading); font-weight:600; font-size:22px; margin-top:18px">{{ std.name }}</div>
+          <div style="font-size:14px; color:rgba(20,41,61,0.78); margin-top:4px">{{ std.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p data-reveal style="margin:26px 0 0; font-size:14px; color:rgba(20,41,61,0.78)">Affiliated with Construction Line · CHAS · NSI Gold · SafeContractor — <a href="#" style="color:#6f5522; font-weight:500">see full compliance map</a></p>
+  </div>
+</section>
+
+<section style="background:#f8fbff; color:#14293d; font-family:var(--font-body)">
+  <div style="max-width:1340px; margin:0 auto; padding:0 44px 110px">
+    <div data-reveal style="max-width:62ch">
+      <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#6f5522">Why Screening Portal</span>
+      <h2 style="font-size:clamp(34px,3.6vw,52px); line-height:1.06; letter-spacing:-.02em; margin:16px 0 14px">One platform for every screening, induction and audit obligation.</h2>
+      <p style="font-size:17px; line-height:1.65; color:rgba(20,41,61,0.86); margin:0">Replace spreadsheets, scanned ID and email chains with a single secure record per worker, built around BS7858:2019, SIA ACS and COP119 from day one.</p>
+    </div>
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:20px; margin-top:44px">
+      <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
+        <div style="position:relative; overflow:hidden; border-radius:22px; padding:32px; background:#fff; border:1px solid rgba(20,41,61,.08); box-shadow:0 14px 34px rgba(20,41,61,.06); transition:transform .35s ease, box-shadow .35s ease" style-hover="transform:translateY(-6px); box-shadow:0 30px 60px rgba(20,41,61,.14)">
+          <span style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, #c39c4e, #b8892b)"></span>
+          <div style="font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#6f5522">{{ p.no }}</div>
+          <h3 style="font-size:27px; line-height:1.15; margin:14px 0 12px">{{ p.title }}</h3>
+          <p style="font-size:15.5px; line-height:1.6; color:rgba(20,41,61,0.86); margin:0 0 18px">{{ p.body }}</p>
+          <div style="display:flex; flex-direction:column; gap:10px">
+            <sc-for list="{{ p.points }}" as="pt" hint-placeholder-count="3">
+              <span style="display:flex; align-items:flex-start; gap:10px; font-size:14.5px; color:rgba(20,41,61,0.92)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6f5522" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:3px; flex:none"><path d="M20 6 9 17l-5-5"></path></svg>
+                {{ pt }}
+              </span>
+            </sc-for>
+          </div>
+          <a href="#" style="display:inline-flex; align-items:center; gap:8px; margin-top:22px; font-weight:600; font-size:15px; color:#6f5522">{{ p.cta }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+          </a>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative; overflow:hidden; background:linear-gradient(150deg, #dfebf8, #eaf3fc 60%); color:#14293d; font-family:var(--font-body)">
+  <div style="position:absolute; inset:0; opacity:.4; background-image:linear-gradient(to right, rgba(20,41,61,.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,41,61,.05) 1px, transparent 1px); background-size:88px 88px; mask-image:radial-gradient(80% 100% at 50% 50%, #000, transparent 85%)"></div>
+  <div style="position:relative; max-width:1340px; margin:0 auto; padding:74px 44px; display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:24px">
+    <sc-for list="{{ bigStats }}" as="s" hint-placeholder-count="4">
+      <div style="text-align:center">
+        <div style="font-family:var(--font-heading); font-weight:600; font-size:clamp(42px,4.4vw,62px); line-height:1; color:#6f5522">{{ s.value }}</div>
+        <div style="font-size:13px; letter-spacing:.16em; text-transform:uppercase; margin-top:12px; color:rgba(20,41,61,0.78)">{{ s.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="background:#eaf3fc; color:#14293d; font-family:var(--font-body)">
+  <div style="max-width:1340px; margin:0 auto; padding:110px 44px">
+    <div data-reveal style="max-width:60ch">
+      <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#6f5522">How it works</span>
+      <h2 style="font-size:clamp(34px,3.6vw,52px); line-height:1.06; letter-spacing:-.02em; margin:16px 0 14px">From offer letter to first shift in four steps.</h2>
+      <p style="font-size:17px; line-height:1.65; color:rgba(20,41,61,0.86); margin:0">Every step is digital, time-stamped and exportable as evidence. No chasing references or hunting for documents.</p>
+    </div>
+    <div data-reveal style="position:relative; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px; margin-top:52px">
+      <sc-for list="{{ howSteps }}" as="h" hint-placeholder-count="4">
+        <div style="position:relative; border-radius:20px; padding:30px 26px; background:rgba(20,41,61,.045); border:1px solid rgba(20,41,61,.09); transition:background .35s ease, transform .35s ease, border-color .35s ease" style-hover="background:rgba(184,137,43,.12); border-color:rgba(184,137,43,.34); transform:translateY(-6px)">
+          <div style="display:grid; place-items:center; width:46px; height:46px; border-radius:50%; font-family:var(--font-heading); font-weight:600; font-size:19px; color:#14293d; background:#b8892b">{{ h.no }}</div>
+          <h3 style="font-size:23px; line-height:1.2; margin:20px 0 10px">{{ h.title }}</h3>
+          <p style="font-size:15px; line-height:1.6; color:rgba(20,41,61,0.82); margin:0">{{ h.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f8fbff; color:#14293d; font-family:var(--font-body)">
+  <div style="max-width:1340px; margin:0 auto; padding:110px 44px">
+    <div data-reveal style="max-width:60ch">
+      <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#6f5522">Built for your sector</span>
+      <h2 style="font-size:clamp(34px,3.6vw,52px); line-height:1.06; letter-spacing:-.02em; margin:16px 0 14px">Sector-specific workflows out of the box.</h2>
+      <p style="font-size:17px; line-height:1.65; color:rgba(20,41,61,0.86); margin:0">From SIA ACS audits to CQC inspections. The rules vary, the platform adapts.</p>
+    </div>
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:18px; margin-top:44px">
+      <sc-for list="{{ sectors }}" as="s" hint-placeholder-count="5">
+        <div style="display:flex; flex-direction:column; border-radius:20px; padding:28px; background:#fff; border:1px solid rgba(20,41,61,.08); transition:transform .35s ease, box-shadow .35s ease" style-hover="transform:translateY(-6px); box-shadow:0 26px 54px rgba(20,41,61,.12)">
+          <span style="font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#6f5522">{{ s.kicker }}</span>
+          <h3 style="font-size:24px; line-height:1.2; margin:12px 0 10px">{{ s.title }}</h3>
+          <p style="font-size:15px; line-height:1.6; color:rgba(20,41,61,0.84); margin:0 0 20px">{{ s.body }}</p>
+          <div style="margin-top:auto; display:flex; align-items:baseline; gap:10px; padding-top:18px; border-top:1px solid rgba(20,41,61,.08)">
+            <span style="font-family:var(--font-heading); font-weight:600; font-size:32px; color:#6f5522">{{ s.stat }}</span>
+            <span style="font-size:13px; color:rgba(20,41,61,0.78)">{{ s.statLabel }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative; overflow:hidden; background:linear-gradient(135deg, #5f4820, #eaf3fc 65%); color:#14293d; font-family:var(--font-body)">
+  <div style="position:absolute; top:-30%; right:-10%; width:44vw; height:44vw; border-radius:50%; background:radial-gradient(circle, rgba(184,137,43,.3), transparent 62%); filter:blur(28px); animation:v2-orb 20s ease-in-out infinite"></div>
+  <div style="position:relative; max-width:1340px; margin:0 auto; padding:100px 44px; display:grid; grid-template-columns:repeat(auto-fit, minmax(380px,1fr)); gap:52px; align-items:center">
+    <div data-reveal>
+      <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#6f5522">Included with every account</span>
+      <h2 style="font-size:clamp(32px,3.4vw,48px); line-height:1.08; letter-spacing:-.02em; margin:16px 0 14px">Your workforce's training hub. Included. For free.</h2>
+      <p style="font-size:17px; line-height:1.65; color:rgba(20,41,61,0.90); margin:0 0 26px">Every subscription unlocks the Training Hub for your whole team. Scenario-led courses on the standards your auditors care about — officers earn certificates while you screen them.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:14px">
+        <a href="#" style="padding:15px 28px; border-radius:999px; white-space:nowrap; font-weight:600; font-size:16px; color:#14293d; background:#b8892b; transition:transform .28s ease" style-hover="transform:translateY(-3px)">Explore the Training Hub</a>
+        <a href="#" style="padding:15px 28px; border-radius:999px; white-space:nowrap; font-weight:500; font-size:16px; color:#14293d; border:1px solid rgba(20,41,61,.28); transition:background .28s ease" style-hover="background:rgba(20,41,61,.1)">Try BS 7858 free</a>
+      </div>
+    </div>
+    <div data-reveal style="display:flex; flex-direction:column; gap:14px">
+      <sc-for list="{{ courses }}" as="c" hint-placeholder-count="3">
+        <div style="display:flex; align-items:center; gap:18px; border-radius:18px; padding:20px 24px; background:rgba(20,41,61,.07); border:1px solid rgba(20,41,61,.12); backdrop-filter:blur(8px)">
+          <span style="display:flex; flex-direction:column; gap:4px; min-width:0; flex:1">
+            <span style="font-family:var(--font-heading); font-weight:600; font-size:21px">{{ c.title }}</span>
+            <span style="font-size:13.5px; color:rgba(20,41,61,0.78)">{{ c.meta }}</span>
+          </span>
+          <span style="font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:6px 14px; border-radius:999px; color:#6f5522; background:rgba(184,137,43,.18); border:1px solid rgba(184,137,43,.32)">{{ c.tag }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f8fbff; color:#14293d; font-family:var(--font-body)">
+  <div style="max-width:1340px; margin:0 auto; padding:110px 44px">
+    <div data-reveal style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px">
+      <div style="max-width:52ch">
+        <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#6f5522">Customer reviews</span>
+        <h2 style="font-size:clamp(34px,3.6vw,52px); line-height:1.06; letter-spacing:-.02em; margin:16px 0 0">Loved by operations &amp; compliance teams.</h2>
+      </div>
+      <div style="display:flex; gap:30px">
+        <span style="display:flex; flex-direction:column"><span style="font-family:var(--font-heading); font-weight:600; font-size:34px">4.8 / 5</span><span style="font-size:13px; color:rgba(20,41,61,0.78)">212 verified reviews</span></span>
+        <span style="display:flex; flex-direction:column"><span style="font-family:var(--font-heading); font-weight:600; font-size:34px">98%</span><span style="font-size:13px; color:rgba(20,41,61,0.78)">would recommend</span></span>
+        <span style="display:flex; flex-direction:column"><span style="font-family:var(--font-heading); font-weight:600; font-size:34px">5+ yrs</span><span style="font-size:13px; color:rgba(20,41,61,0.78)">average customer lifetime</span></span>
+      </div>
+    </div>
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:20px; margin-top:44px">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+        <figure style="margin:0; border-radius:20px; padding:30px; background:#fff; border:1px solid rgba(20,41,61,.08); transition:transform .35s ease, box-shadow .35s ease" style-hover="transform:translateY(-6px); box-shadow:0 26px 54px rgba(20,41,61,.12)">
+          <div style="font-size:15px; letter-spacing:.3em; color:#6f5522">★★★★★</div>
+          <blockquote style="margin:16px 0 22px; font-size:17px; line-height:1.6">{{ r.quote }}</blockquote>
+          <figcaption style="display:flex; align-items:center; gap:13px; font-size:14px; color:rgba(20,41,61,0.88)">
+            <span style="display:grid; place-items:center; width:42px; height:42px; border-radius:50%; font-weight:600; font-size:13px; color:#14293d; background:linear-gradient(140deg, #c39c4e, #8a6a2e)">{{ r.initials }}</span>
+            <span style="display:flex; flex-direction:column"><span style="font-weight:600; color:#14293d">{{ r.name }}</span><span>{{ r.role }}</span></span>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f8fbff; color:#14293d; font-family:var(--font-body)">
+  <div style="max-width:1340px; margin:0 auto; padding:0 44px 110px">
+    <div data-reveal style="max-width:58ch">
+      <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#6f5522">Simple, scalable pricing</span>
+      <h2 style="font-size:clamp(34px,3.6vw,52px); line-height:1.06; letter-spacing:-.02em; margin:16px 0 14px">Pay per active worker. Cancel any time.</h2>
+      <p style="font-size:17px; line-height:1.65; color:rgba(20,41,61,0.86); margin:0">Credit-based pricing — you only pay when you screen or onboard a worker. Initial use is free. Every plan includes BS7858 workflows, audit packs and UK-based support.</p>
+    </div>
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:20px; margin-top:44px">
+      <sc-for list="{{ plans }}" as="pl" hint-placeholder-count="3">
+        <div style="{{ pl.cardStyle }}">
+          <span style="{{ pl.kickerStyle }}">{{ pl.kicker }}</span>
+          <div style="font-family:var(--font-heading); font-weight:600; font-size:34px; margin:14px 0 8px">{{ pl.price }}</div>
+          <p style="{{ pl.bodyStyle }}">{{ pl.body }}</p>
+          <div style="display:flex; flex-direction:column; gap:11px; margin-bottom:26px">
+            <sc-for list="{{ pl.points }}" as="pt" hint-placeholder-count="3">
+              <span style="{{ pl.pointStyle }}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:3px; flex:none"><path d="M20 6 9 17l-5-5"></path></svg>
+                {{ pt }}
+              </span>
+            </sc-for>
+          </div>
+          <a href="#" style="{{ pl.ctaStyle }}">{{ pl.cta }}</a>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative; overflow:hidden; background:radial-gradient(110% 130% at 20% 10%, #cfe1f4, #eaf3fc 62%); color:#14293d; font-family:var(--font-body)">
+  <div style="position:absolute; bottom:-40%; left:30%; width:50vw; height:50vw; border-radius:50%; background:radial-gradient(circle, rgba(184,137,43,.26), transparent 62%); filter:blur(30px); animation:v2-orb 26s ease-in-out infinite reverse"></div>
+  <div data-reveal style="position:relative; max-width:1340px; margin:0 auto; padding:110px 44px; text-align:center">
+    <span style="font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#6f5522">Free 14-day trial</span>
+    <h2 style="font-size:clamp(38px,4.6vw,68px); line-height:1.04; letter-spacing:-.025em; margin:18px auto 18px; max-width:20ch">Stop chasing paperwork. Start passing audits.</h2>
+    <p style="font-size:17.5px; line-height:1.65; margin:0 auto 34px; max-width:62ch; color:rgba(20,41,61,0.90)">Join SIA ACS contractors, CQC-registered providers and labour suppliers using Screening Portal to screen, induct and audit a compliant workforce at scale.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center">
+      <a href="#" style="position:relative; overflow:hidden; padding:18px 36px; border-radius:999px; white-space:nowrap; font-size:17px; font-weight:600; color:#14293d; background:linear-gradient(135deg, #c39c4e, #8a6a2e); box-shadow:0 18px 40px rgba(150,116,48,.45); transition:transform .28s ease, box-shadow .28s ease" style-hover="transform:translateY(-3px); box-shadow:0 24px 50px rgba(150,116,48,.6)">
+        <span style="position:absolute; top:0; bottom:0; left:0; width:34%; background:linear-gradient(90deg, transparent, rgba(20,41,61,.34), transparent); animation:v2-sweep 3.6s ease-in-out 1.4s infinite"></span>
+        Start free trial
+      </a>
+      <a href="#" style="padding:18px 34px; border-radius:999px; white-space:nowrap; font-size:17px; font-weight:500; color:#14293d; border:1px solid rgba(20,41,61,.26); transition:background .28s ease, transform .28s ease" style-hover="background:rgba(20,41,61,.1); transform:translateY(-3px)">Book a live demo</a>
+    </div>
+    <p style="margin:26px 0 0; font-size:14px; color:rgba(20,41,61,0.73)">No credit card. No commitment. UK team sets you up the same business day.</p>
+  </div>
+</section>
+
+<footer style="background:#d8e6f5; color:rgba(20,41,61,0.86); font-family:var(--font-body); border-top:1px solid rgba(20,41,61,.07)">
+  <div style="max-width:1340px; margin:0 auto; padding:64px 44px; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:40px">
+    <div>
+      <div style="display:flex; align-items:center; gap:12px; color:#14293d">
+        <svg width="42" height="42" viewBox="0 0 64 64" fill="none">
+          <path d="M13.9 51.2a26 26 0 1 1 36.2 0" stroke="#b8892b" stroke-width="5.4" stroke-linecap="round"></path>
+          <circle cx="32" cy="26.4" r="7.7" fill="#14293d"></circle>
+          <path d="M18.6 56v-4.1c0-6.6 5.7-10.7 13.4-10.7s13.4 4.1 13.4 10.7V56z" fill="#2f6f9e"></path>
+          <path d="M32 41.2l4.6 2.1-2.6 2.4 1.9 10.3h-7.8l1.9-10.3-2.6-2.4z" fill="#14293d"></path>
+        </svg>
+        <span style="font-family:var(--font-heading); font-weight:600; font-size:21px; letter-spacing:.04em; text-transform:uppercase">Screening <span style="color:#6f5522">Portal</span></span>
+      </div>
+      <p style="margin:18px 0 0; font-size:14.5px; line-height:1.6; max-width:34ch">BS7858:2019 screening, SIA ACS audit trails and COP119-ready onboarding. UK data residency, ISO 27001 certified.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px">
+      <span style="font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:#14293d">Company</span>
+      <a href="#">Screening services</a><a href="#">Compliance map</a><a href="#">Industry solutions</a><a href="#">About us</a><a href="#">Contact &amp; demo</a>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px">
+      <span style="font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:#14293d">Training</span>
+      <a href="#">Training Hub</a><a href="#">Security guard training</a><a href="#">Facilities management</a><a href="#">Care sector training</a>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:11px; font-size:14.5px">
+      <span style="font-family:var(--font-heading); font-weight:600; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:#14293d">Contact</span>
+      <a href="mailto:info@inductionportal.co.uk">info@inductionportal.co.uk</a>
+      <a href="tel:02085755544">020 8575 5544</a>
+      <span>Cyber Essentials · ISO 9001 · ISO 27001</span>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(20,41,61,.07)">
+    <div style="max-width:1340px; margin:0 auto; padding:20px 44px; display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; font-size:13.5px; color:rgba(20,41,61,0.68)">
+      <span>© 2026 Screening Portal</span>
+      <span style="display:flex; gap:18px"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { t: 0, active: 0, clock: '', stage: 0 };
+  }
+
+  componentDidMount() {
+    const tick = (now) => {
+      if (this._t0 == null) this._t0 = now;
+      const t = Math.min(1, Math.max(0, (now - this._t0) / 1800));
+      this.setState({ t });
+      if (t < 1) this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+    this._settle = setTimeout(() => this.setState({ t: 1 }), 2600);
+    this._int = setInterval(() => this.setState(s => ({ active: (s.active + 1) % 5 })), 1900);
+    this._demo = setInterval(() => this.setState(s => ({ stage: (s.stage + 1) % 7 })), 1800);
+    const clock = () => {
+      const d = new Date();
+      this.setState({ clock: String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0') });
+    };
+    clock();
+    this._clk = setInterval(clock, 20000);
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this._raf); clearInterval(this._int); clearInterval(this._clk); clearTimeout(this._settle); clearInterval(this._demo);
+  }
+
+  renderVals() {
+    const e = 1 - Math.pow(1 - this.state.t, 3);
+    const data = [
+      ['AB', 'A. Bashir', 'BS7858 · 5-yr history', 'Cleared'],
+      ['SO', "S. O'Reilly", 'Right-to-Work', 'Verified'],
+      ['MP', 'M. Patel', 'Credit check', 'Pending'],
+      ['KN', 'K. Nowak', '5-yr address', 'Cleared'],
+      ['RA', 'R. Adeyemi', 'Reference 3 of 3', 'Action req.']
+    ];
+    const rows = data.map(([initials, name, check, status], i) => {
+      const on = i === this.state.active;
+      const warm = status === 'Pending' || status === 'Action req.';
+      return {
+        initials, name, check, status,
+        style: 'display:grid; grid-template-columns:38px 1fr auto; align-items:center; gap:13px; padding:11px 14px; border-radius:14px;'
+          + 'border:1px solid ' + (on ? 'rgba(184,137,43,.34)' : 'rgba(20,41,61,.06)') + ';'
+          + 'background:' + (on ? 'rgba(184,137,43,.14)' : 'rgba(20,41,61,.035)') + ';'
+          + 'transform:' + (on ? 'translateX(4px)' : 'none') + ';'
+          + 'transition:background .5s ease, border-color .5s ease, transform .5s cubic-bezier(.2,.7,.3,1);',
+        avatarStyle: 'display:grid; place-items:center; width:38px; height:38px; border-radius:50%; font-size:12.5px; font-weight:600; letter-spacing:.04em;'
+          + 'color:#14293d; background:linear-gradient(140deg, rgba(184,137,43,.42), rgba(65,97,128,.5)); border:1px solid rgba(20,41,61,.14);',
+        tagStyle: 'justify-self:end; font-size:12px; font-weight:600; letter-spacing:.03em; padding:5px 13px; border-radius:999px; white-space:nowrap;'
+          + (warm
+            ? 'color:rgba(20,41,61,0.90); background:rgba(20,41,61,.08); border:1px solid rgba(20,41,61,.14);'
+            : 'color:#6f5522; background:rgba(184,137,43,.16); border:1px solid rgba(184,137,43,.3);')
+      };
+    });
+    const auditPct = Math.round(18 + 74 * e);
+
+    const stageNames = ['Application invited', 'Documents uploaded', 'Right-to-work verified', '5-yr history checked', 'References returned', 'Induction complete', 'Cleared for site'];
+    const stage = this.state.stage;
+    const steps = stageNames.map((label, i) => {
+      const done = i < stage, now = i === stage;
+      return {
+        label,
+        style: 'font-size:13px; letter-spacing:.02em; padding:6px 14px; border-radius:999px; white-space:nowrap; transition:all .6s ease;'
+          + (done ? 'color:#6f5522; background:rgba(184,137,43,.2); border:1px solid rgba(184,137,43,.36);'
+            : now ? 'color:#14293d; background:rgba(184,137,43,.42); border:1px solid rgba(20,41,61,.5);'
+              : 'color:rgba(20,41,61,0.70); background:rgba(20,41,61,.05); border:1px solid rgba(20,41,61,.1);')
+      };
+    });
+    const complete = stage === stageNames.length - 1;
+
+    const money = (n) => Math.round(n * e).toLocaleString();
+    const clientList = [
+      ['SG', 'SecuriGuard'], ['CM', 'Caremark Group'], ['VL', 'VeriLabour'], ['NF', 'Northern FM'],
+      ['CP', 'CityPro Security'], ['HR', 'HiremarkUK']
+    ].map(([mark, name]) => ({ mark, name }));
+
+    const pillar = (no, title, body, points, cta) => ({ no, title, body, points, cta });
+    const cardBase = 'display:flex; flex-direction:column; border-radius:22px; padding:32px; transition:transform .35s ease, box-shadow .35s ease;';
+
+    return {
+      steps,
+      clients: clientList.concat(clientList),
+      standards: [
+        { mark: 'BS', name: 'BS7858:2019', desc: 'UK screening standard' },
+        { mark: 'SIA', name: 'SIA ACS', desc: 'Approved Contractor' },
+        { mark: 'CP', name: 'COP119', desc: 'Security Code of Practice' },
+        { mark: 'ISO', name: 'ISO 27001', desc: 'Information security' },
+        { mark: 'GD', name: 'UK GDPR', desc: 'Data Protection Act 2018' },
+        { mark: 'CQC', name: 'CQC aligned', desc: 'Care Quality Commission' }
+      ],
+      pillars: [
+        pillar('01', 'BS7858 Protect Package', 'Full government-standard screening: ID, RTW, 5-year employment, 5-year address, criminal & credit.',
+          ['Digital ID & document verification', 'Automated gap-analysis', 'Tamper-proof audit pack'], 'Explore services'),
+        pillar('02', 'Smart inductions & sign-off', 'Mobile-friendly site-specific inductions with mandatory modules, e-signatures and instant pass / fail reporting.',
+          ['H&S, GDPR, site rules', 'Role-based content rules', 'Refresher reminders'], 'See workflow'),
+        pillar('03', 'Audit-ready in one click', 'Export a complete SIA ACS / COP119 evidence pack per worker. Inspectors love it. Your operations team will love it more.',
+          ['Full chronological evidence', '140+ compliance checkpoints', 'Client-facing reporting portal'], 'View compliance')
+      ],
+      bigStats: [
+        { value: money(184000), label: 'Background checks / year' },
+        { value: money(12), label: 'Years of expertise' },
+        { value: money(3), label: 'Countries covered' },
+        { value: money(140) + '+', label: 'Compliance checkpoints' }
+      ],
+      howSteps: [
+        { no: '1', title: 'Invite the candidate', body: 'Trigger a branded onboarding link by email or SMS. They complete identity, right-to-work and consent on any device.' },
+        { no: '2', title: 'Automated BS7858 vetting', body: 'The platform requests 5-year history, references, criminal and credit checks in parallel, and flags every gap.' },
+        { no: '3', title: 'Site induction & sign-off', body: 'Push role and site-specific modules. The worker e-signs, and you receive a real-time pass/fail notification.' },
+        { no: '4', title: 'Deploy & stay audit-ready', body: 'Live status board, refresher reminders, and one-click ACS / COP119 evidence pack on demand.' }
+      ],
+      sectors: [
+        { kicker: 'SIA ACS · BS7858:2019 · COP119', title: 'Security & manned guarding', body: 'Run every officer through full BS7858:2019 vetting before deployment, with licence expiry tracking and a client-facing audit portal.', stat: '98.7%', statLabel: 'first-time ACS audit pass rate' },
+        { kicker: 'CQC · DBS · Right-to-Work', title: 'Care providers & staffing', body: 'Enhanced DBS, right-to-work, vaccinations and training records in one worker profile. Built for inspection day.', stat: '9 hrs', statLabel: 'saved per new starter' },
+        { kicker: 'GLAA · REC · Master Vendor', title: 'Labour suppliers & agencies', body: 'Place workers faster and prove compliance to every end client, with bulk onboarding and master-vendor reporting.', stat: '3 days', statLabel: 'typical time-to-deploy' },
+        { kicker: 'CSCS · CHAS · Construction Line', title: 'Construction & FM', body: 'CSCS card validation, site inductions and equipment custody for every contractor, every visit.', stat: '62%', statLabel: 'less induction admin' },
+        { kicker: 'Hospitality · Warehousing', title: 'High-turnover workforces', body: 'Onboard in minutes, not days. Auto-renew expiring documents and keep a real-time clearance headcount.', stat: '4×', statLabel: 'faster bulk onboarding' }
+      ],
+      courses: [
+        { title: 'BS 7858:2019 Vetting', meta: '3 to 6 hours · framable certificate', tag: 'Free' },
+        { title: 'ACS Criterion 7 Leadership', meta: '4 hours · directors & PSCs', tag: 'Trial' },
+        { title: 'ISO 27001 Information Security', meta: '60 minutes · ISMS awareness', tag: 'ISO' }
+      ],
+      reviews: [
+        { initials: 'LM', name: 'Lisa M.', role: 'Compliance Director · Manned Guarding', quote: 'We passed our SIA ACS re-approval with zero non-conformances. The audit pack alone saved our compliance manager two full weeks.' },
+        { initials: 'RA', name: 'Rafiq A.', role: 'Operations Manager · Security Group', quote: 'BS7858 used to take us four to six weeks per officer. With Screening Portal we are consistently inside seven to ten days, with a full audit trail.' },
+        { initials: 'SP', name: 'Sarah P.', role: 'Registered Manager · Home Care', quote: 'Onboarding 200 seasonal carers used to be chaos. Now they self-serve, and our CQC evidence is permanently inspection-ready.' }
+      ],
+      plans: [
+        {
+          kicker: 'Starter', price: 'Price on request', cta: 'Full pricing & credit packs',
+          body: 'For teams under 50 workers needing core screening and onboarding. Initial use free.',
+          points: ['BS7858 workflow & audit pack', 'Right-to-Work digital share codes', 'Up to 3 induction templates'],
+          cardStyle: cardBase + 'background:#fff; color:#14293d; border:1px solid rgba(20,41,61,.09);',
+          kickerStyle: 'font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:#6f5522;',
+          bodyStyle: 'font-size:15px; line-height:1.6; color:rgba(20,41,61,0.84); margin:0 0 22px;',
+          pointStyle: 'display:flex; align-items:flex-start; gap:10px; font-size:14.5px; color:rgba(20,41,61,0.92);',
+          ctaStyle: 'margin-top:auto; text-align:center; padding:14px 22px; border-radius:999px; font-weight:600; font-size:15px; color:#6f5522; border:1px solid rgba(150,116,48,.4);'
+        },
+        {
+          kicker: 'Professional · Most popular', price: 'Price on request', cta: 'Get a quote',
+          body: 'For growing SIA ACS contractors and care providers needing full automation. Volume credit discounts.',
+          points: ['Everything in Starter', 'SIA ACS evidence pack & client portal', 'Unlimited induction templates', 'API & bulk import'],
+          cardStyle: cardBase + 'background:linear-gradient(160deg, #f7e8c8, #f0dcb0); color:#14293d; border:1px solid rgba(184,137,43,.5); box-shadow:0 30px 70px rgba(20,41,61,.28);',
+          kickerStyle: 'font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:#6f5522;',
+          bodyStyle: 'font-size:15px; line-height:1.6; color:rgba(20,41,61,0.88); margin:0 0 22px;',
+          pointStyle: 'display:flex; align-items:flex-start; gap:10px; font-size:14.5px; color:rgba(20,41,61,0.92);',
+          ctaStyle: 'margin-top:auto; text-align:center; padding:14px 22px; border-radius:999px; font-weight:600; font-size:15px; color:#14293d; background:#b8892b;'
+        },
+        {
+          kicker: 'Enterprise', price: 'Bespoke pricing', cta: 'Talk to sales',
+          body: 'Multi-site labour suppliers, master vendors and groups with 500+ workers.',
+          points: ['Dedicated screening team', 'SSO, custom SLAs, white-label', 'Procurement & security packs'],
+          cardStyle: cardBase + 'background:#fff; color:#14293d; border:1px solid rgba(20,41,61,.09);',
+          kickerStyle: 'font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:#6f5522;',
+          bodyStyle: 'font-size:15px; line-height:1.6; color:rgba(20,41,61,0.84); margin:0 0 22px;',
+          pointStyle: 'display:flex; align-items:flex-start; gap:10px; font-size:14.5px; color:rgba(20,41,61,0.92);',
+          ctaStyle: 'margin-top:auto; text-align:center; padding:14px 22px; border-radius:999px; font-weight:600; font-size:15px; color:#6f5522; border:1px solid rgba(150,116,48,.4);'
+        }
+      ],
+      stageLabel: stageNames[stage],
+      demoPct: Math.round(((stage + 1) / stageNames.length) * 100),
+      stampStyle: 'position:absolute; top:38%; left:50%; padding:14px 30px; border-radius:14px; font-family:var(--font-heading); font-weight:600; font-size:30px; letter-spacing:.14em; text-transform:uppercase; color:#14293d; border:2px solid rgba(184,137,43,.85); background:rgba(184,137,43,.16); transform:translate(-50%,-50%) rotate(-9deg);'
+        + (complete ? 'animation:v2-stamp .5s cubic-bezier(.2,.9,.3,1) both;' : 'opacity:0;'),
+      rows,
+      clock: this.state.clock,
+      inProgress: Math.round(248 * e).toLocaleString(),
+      clearedMo: Math.round(1893 * e).toLocaleString(),
+      sla: (99.4 * e).toFixed(1) + '%',
+      auditPct,
+      auditLabel: auditPct + '% ready'
+    };
+  }
+}
+
+</script>
+</body>
+</html>

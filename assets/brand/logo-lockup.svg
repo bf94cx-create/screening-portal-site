@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" width="420" height="72" fill="none" role="img" aria-label="Screening Portal">
+  <g transform="translate(0,4) scale(1)">
+    <path d="M13.9 51.2a26 26 0 1 1 36.2 0" stroke="#b8892b" stroke-width="5.4" stroke-linecap="round"></path>
+    <path d="M18.2 33.6a14 14 0 0 0 27.6 0" stroke="#b8892b" stroke-opacity=".28" stroke-width="1.2" stroke-linecap="round"></path>
+    <circle cx="32" cy="26.4" r="7.7" fill="#14293d"></circle>
+    <path d="M18.6 56v-4.1c0-6.6 5.7-10.7 13.4-10.7s13.4 4.1 13.4 10.7V56z" fill="#2f6f9e"></path>
+    <path d="M32 41.2l4.6 2.1-2.6 2.4 1.9 10.3h-7.8l1.9-10.3-2.6-2.4z" fill="#14293d"></path>
+    <path d="M32 41.2l-4.6 2.1 2.6 2.4zM32 41.2l4.6 2.1-2.6 2.4z" fill="#f7fbff" fill-opacity=".9"></path>
+  </g>
+  <text x="76" y="36" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="600" font-size="30" letter-spacing="1.2" fill="#14293d">SCREENING <tspan fill="#6f5522">PORTAL</tspan></text>
+  <path d="M76 48h22" stroke="#b8892b" stroke-width="1.4"></path>
+  <text x="106" y="52" font-family="Barlow, Arial, sans-serif" font-size="10.5" letter-spacing="2.6" fill="#14293d" fill-opacity=".75">EST. 2014 · VETTED IN BRITAIN</text>
+</svg>
