@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Screening Portal — Solution Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+  :root{
+    --ink:#14293d; --ink86:rgba(20,41,61,.86); --ink70:rgba(20,41,61,.70); --ink55:rgba(20,41,61,.55);
+    --brass:#b8892b; --brass-deep:#6f5522; --brass-lt:#c39c4e; --brass-dk:#8a6a2e;
+    --bg:#eaf3fc; --bg2:#f8fbff; --bg3:#dfebf8; --bg4:#cfe1f4;
+    --line:rgba(20,41,61,.10); --line2:rgba(20,41,61,.16); --fill:rgba(20,41,61,.05);
+    --ff:"Barlow",Arial,sans-serif; --fd:"Barlow Condensed","Barlow",Arial,sans-serif;
+  }
+  @page{ size:A4; margin:0; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{ font-family:var(--ff); color:var(--ink); background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+  .page{
+    position:relative; width:210mm; min-height:297mm; padding:18mm 16mm 16mm;
+    page-break-after:always; break-after:page; overflow:hidden; background:#fff;
+  }
+  .page:last-child{ page-break-after:auto; break-after:auto; }
+
+  /* blueprint ground, as on the site */
+  .grid-bg::before{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+    background-image:linear-gradient(to right,rgba(20,41,61,.05) 1px,transparent 1px),
+                     linear-gradient(to bottom,rgba(20,41,61,.05) 1px,transparent 1px);
+    background-size:22mm 22mm;
+  }
+  .orb{ position:absolute; border-radius:50%; pointer-events:none;
+        background:radial-gradient(circle,rgba(195,156,78,.34) 0%,transparent 62%); }
+
+  h1,h2,h3,h4{ font-family:var(--fd); font-weight:600; letter-spacing:-.015em; margin:0; }
+  p{ margin:0; line-height:1.6; color:var(--ink86); }
+
+  .kicker{ font-size:8.5pt; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--brass-deep); }
+  .rule{ width:44px; height:2px; background:linear-gradient(90deg,var(--brass-lt),var(--brass)); border-radius:2px; margin:8px 0 0; }
+
+  /* ---------- cover ---------- */
+  .cover{ background:radial-gradient(120% 90% at 78% 8%,var(--bg4) 0%,var(--bg3) 42%,var(--bg) 100%); }
+  .lockup{ display:flex; align-items:center; gap:12px; }
+  .lockup svg{ width:56px; height:56px; flex:none; }
+  .wordmark{ font-family:var(--fd); font-weight:600; font-size:24pt; line-height:1; letter-spacing:.04em; text-transform:uppercase; }
+  .wordmark span{ color:var(--brass-deep); }
+  .strap{ display:flex; align-items:center; gap:8px; margin-top:5px; font-size:7pt; letter-spacing:.26em; text-transform:uppercase; color:var(--ink70); }
+  .strap i{ display:block; width:20px; height:1px; background:rgba(184,137,43,.7); }
+
+  .cover h1{ font-size:40pt; line-height:1.02; letter-spacing:-.03em; margin-top:26mm; max-width:15ch; }
+  .cover h1 .g{ background:linear-gradient(100deg,var(--brass),var(--ink) 55%,var(--brass-lt));
+                -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .cover .lead{ font-size:12pt; line-height:1.6; max-width:60ch; margin-top:9mm; color:rgba(20,41,61,.9); }
+  .cover .badge{ display:inline-flex; align-items:center; gap:9px; padding:6px 14px; border-radius:999px;
+                 background:rgba(20,41,61,.07); border:1px solid var(--line2);
+                 font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:var(--brass-deep); }
+  .cover .badge b{ width:7px; height:7px; border-radius:50%; background:var(--brass); }
+
+  .cover-foot{ position:absolute; left:16mm; right:16mm; bottom:14mm; }
+  .capacity{ display:grid; grid-template-columns:repeat(4,1fr); gap:6mm; padding-top:6mm; border-top:1px solid var(--line); }
+  .capacity .n{ font-family:var(--fd); font-weight:600; font-size:21pt; line-height:1; color:var(--brass-deep); }
+  .capacity .l{ font-size:7pt; letter-spacing:.14em; text-transform:uppercase; color:var(--ink70); margin-top:4px; line-height:1.35; }
+
+  /* ---------- interior ---------- */
+  .page-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:10mm;
+              padding-bottom:5mm; border-bottom:1px solid var(--line); margin-bottom:8mm; }
+  .page-head h2{ font-size:23pt; line-height:1.06; letter-spacing:-.02em; margin-top:6px; max-width:22ch; }
+  .page-no{ font-family:var(--fd); font-weight:600; font-size:9pt; letter-spacing:.2em; color:var(--ink55); white-space:nowrap; }
+
+  .intro{ font-size:10.5pt; line-height:1.65; max-width:64ch; margin-bottom:8mm; }
+
+  .cards{ display:grid; gap:5mm; }
+  .cards.c2{ grid-template-columns:repeat(2,1fr); }
+  .cards.c3{ grid-template-columns:repeat(3,1fr); }
+  .card{ position:relative; border:1px solid var(--line); border-radius:5mm; padding:6mm 6mm 6mm; background:#fff; }
+  .card.pillar{ padding-top:7mm; }
+  .card.pillar::before{ content:""; position:absolute; top:0; left:0; right:0; height:2.5px;
+                        background:linear-gradient(90deg,var(--brass-lt),var(--brass)); border-radius:5mm 5mm 0 0; }
+  .card .num{ position:absolute; top:5mm; right:6mm; font-family:var(--fd); font-weight:600; font-size:8pt; letter-spacing:.2em; color:var(--brass-deep); }
+  .card h3{ font-size:13pt; line-height:1.2; margin-bottom:3mm; }
+  .card p{ font-size:9pt; line-height:1.55; }
+  .card .tag{ display:inline-block; font-size:7pt; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+              color:var(--brass-deep); background:rgba(184,137,43,.14); border:1px solid rgba(184,137,43,.3);
+              border-radius:999px; padding:3px 9px; margin-bottom:3mm; }
+  .card .stat{ display:flex; align-items:baseline; gap:7px; margin-top:4mm; padding-top:3mm; border-top:1px solid var(--line); }
+  .card .stat b{ font-family:var(--fd); font-weight:600; font-size:16pt; color:var(--brass-deep); }
+  .card .stat span{ font-size:8pt; color:var(--ink70); line-height:1.3; }
+
+  ul.ticks{ list-style:none; margin:0; padding:0; display:grid; gap:2.5mm; }
+  ul.ticks li{ position:relative; padding-left:7mm; font-size:9.5pt; line-height:1.5; color:var(--ink86); }
+  ul.ticks li::before{ content:""; position:absolute; left:0; top:1.6mm; width:4mm; height:4mm; border-radius:50%;
+    background:rgba(184,137,43,.16) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236f5522' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/2.4mm no-repeat; }
+
+  .steps{ display:grid; gap:4mm; }
+  .step{ display:grid; grid-template-columns:12mm 1fr; gap:5mm; align-items:start;
+         border:1px solid var(--line); border-radius:5mm; padding:5mm 6mm; background:var(--bg2); }
+  .step .n{ display:grid; place-items:center; width:11mm; height:11mm; border-radius:50%;
+            background:var(--brass); color:var(--ink); font-family:var(--fd); font-weight:600; font-size:13pt; }
+  .step h3{ font-size:12.5pt; margin-bottom:2mm; }
+  .step p{ font-size:9pt; }
+
+  .band{ border:1px solid var(--line); border-radius:5mm; padding:6mm; background:linear-gradient(150deg,var(--bg3),var(--bg) 60%); }
+
+  table{ width:100%; border-collapse:collapse; }
+  th{ font-family:var(--fd); font-weight:600; font-size:8.5pt; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--ink70); text-align:left; padding:3mm 3mm; border-bottom:1px solid var(--line2); }
+  td{ padding:3mm 3mm; border-bottom:1px solid var(--line); font-size:9pt; color:var(--ink86); vertical-align:top; }
+  td b{ color:var(--ink); font-weight:600; }
+
+  .foot{ position:absolute; left:16mm; right:16mm; bottom:10mm;
+         display:flex; justify-content:space-between; align-items:center;
+         padding-top:4mm; border-top:1px solid var(--line); font-size:7.5pt; color:var(--ink55); }
+
+  /* ---------- back page ---------- */
+  .contact{ display:grid; grid-template-columns:repeat(2,1fr); gap:5mm; margin-top:6mm; }
+  .contact .box{ border:1px solid var(--line); border-radius:5mm; padding:6mm; }
+  .contact .box h3{ font-size:11pt; margin-bottom:3mm; }
+  .contact .box p{ font-size:9.5pt; line-height:1.7; }
+  .contact a{ color:var(--brass-deep); text-decoration:none; }
+  .legal{ margin-top:6mm; border:1px solid var(--line); border-radius:5mm; padding:6mm; background:var(--bg2); }
+  .legal p{ font-size:8pt; line-height:1.6; color:var(--ink70); }
+  .legal p+p{ margin-top:2.5mm; }
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<section class="page cover grid-bg">
+  <div class="orb" style="width:120mm;height:120mm;top:-40mm;right:-30mm;"></div>
+
+  <div class="lockup" style="position:relative;">
+    <svg viewBox="0 0 64 64" fill="none">
+      <path d="M13.9 51.2a26 26 0 1 1 36.2 0" stroke="#b8892b" stroke-width="5.4" stroke-linecap="round"></path>
+      <path d="M18.2 33.6a14 14 0 0 0 27.6 0" stroke="#b8892b" stroke-opacity=".28" stroke-width="1.2" stroke-linecap="round"></path>
+      <circle cx="32" cy="26.4" r="7.7" fill="#14293d"></circle>
+      <path d="M18.6 56v-4.1c0-6.6 5.7-10.7 13.4-10.7s13.4 4.1 13.4 10.7V56z" fill="#2f6f9e"></path>
+      <path d="M32 41.2l4.6 2.1-2.6 2.4 1.9 10.3h-7.8l1.9-10.3-2.6-2.4z" fill="#14293d"></path>
+      <path d="M32 41.2l-4.6 2.1 2.6 2.4zM32 41.2l4.6 2.1-2.6 2.4z" fill="#f7fbff" fill-opacity=".9"></path>
+    </svg>
+    <div>
+      <div class="wordmark">Screening <span>Portal</span></div>
+      <div class="strap"><i></i>Est. 2014 &middot; Vetted in Britain</div>
+    </div>
+  </div>
+
+  <div style="position:relative;margin-top:22mm;">
+    <span class="badge"><b></b>BS7858 &middot; SIA ACS &middot; COP119 ready</span>
+    <h1>Screen, onboard &amp; stay compliant.<br><span class="g">No more paperwork.</span></h1>
+    <p class="lead">The cloud platform built for security firms, care providers and labour suppliers
+      who cannot afford a single compliance gap. Process BS7858:2019 background checks in days,
+      automate site-specific inductions, and produce your SIA ACS audit evidence on demand.</p>
+  </div>
+
+  <div class="cover-foot">
+    <span class="kicker">Platform capacity</span>
+    <div class="capacity">
+      <div><div class="n">375,000+</div><div class="l">Annual screening capacity</div></div>
+      <div><div class="n">17+</div><div class="l">Years of expertise</div></div>
+      <div><div class="n">30+</div><div class="l">Countries supported</div></div>
+      <div><div class="n">140+</div><div class="l">Compliance checkpoints</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 1. THE PROBLEM ======================== -->
+<section class="page">
+  <div class="page-head">
+    <div>
+      <span class="kicker">The platform</span>
+      <h2>One record per worker, from offer letter to audit.</h2>
+      <div class="rule"></div>
+    </div>
+    <span class="page-no">01</span>
+  </div>
+
+  <p class="intro">Regulated workforces are still run on spreadsheets, scanned ID and email chains.
+    Screening Portal replaces all of it with a single secure record per worker, built around
+    BS7858:2019, SIA ACS and COP119 from day one.</p>
+
+  <div class="cards c3">
+    <div class="card pillar"><span class="num">01</span>
+      <h3>BS7858 Protect Package</h3>
+      <p>Full government-standard screening: identity, right-to-work, five-year employment and
+         address history, criminal record and financial probity, evidenced in one tamper-proof file.</p>
+    </div>
+    <div class="card pillar"><span class="num">02</span>
+      <h3>Smart inductions &amp; sign-off</h3>
+      <p>Mobile-friendly, site-specific inductions with mandatory modules, e-signatures and
+         instant pass or fail reporting, so nobody reaches site un-inducted.</p>
+    </div>
+    <div class="card pillar"><span class="num">03</span>
+      <h3>Evidence on demand</h3>
+      <p>Export a complete SIA ACS or COP119 evidence pack per worker, in chronological order,
+         with a client-facing reporting portal for your end customers.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:8mm;">
+    <span class="kicker">What the Protect Package covers</span>
+    <div class="rule" style="margin-bottom:5mm;"></div>
+    <div class="cards c2">
+      <ul class="ticks">
+        <li><b>Identity verification.</b> Document, biometric and liveness checks against passport,
+            driving licence and Home Office digital identity standards.</li>
+        <li><b>Right-to-Work.</b> Home Office share-code validation, IDSP-aligned digital RTW,
+            and automated re-checks before expiry.</li>
+        <li><b>5-year address history.</b> Automated gap-analysis flags every unexplained period,
+            with worker-supplied evidence requested in-app.</li>
+      </ul>
+      <ul class="ticks">
+        <li><b>5-year employment history.</b> Reference requests, chase-ups and consolidated
+            employer responses, with a full audit trail of attempts.</li>
+        <li><b>Criminal record (DBS).</b> Basic, Standard and Enhanced DBS applied for, tracked
+            and stored against the worker profile.</li>
+        <li><b>Credit &amp; CCJ check.</b> Where BS7858 financial probity applies, soft-search
+            credit reference and CCJ identification.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot"><span>Screening Portal &middot; Solution brochure</span><span>screeningportal.co.uk</span></div>
+</section>
+
+<!-- ======================= 2. HOW IT WORKS ======================= -->
+<section class="page">
+  <div class="page-head">
+    <div>
+      <span class="kicker">How it works</span>
+      <h2>From offer letter to first shift in four steps.</h2>
+      <div class="rule"></div>
+    </div>
+    <span class="page-no">02</span>
+  </div>
+
+  <p class="intro">Every step is digital, time-stamped and exportable as evidence.
+    No chasing references, no hunting for documents.</p>
+
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div>
+      <h3>Invite the candidate</h3>
+      <p>Trigger a branded onboarding link by email or SMS. The candidate completes identity,
+         right-to-work and consent on any device, with no account to create.</p></div></div>
+    <div class="step"><div class="n">2</div><div>
+      <h3>Automated BS7858 vetting</h3>
+      <p>The platform requests five-year history, references, criminal record and credit checks
+         in parallel, and flags every gap for action rather than waiting in sequence.</p></div></div>
+    <div class="step"><div class="n">3</div><div>
+      <h3>Site induction &amp; sign-off</h3>
+      <p>Push role and site-specific modules. The worker e-signs, and your team receives a
+         real-time pass or fail notification against that assignment.</p></div></div>
+    <div class="step"><div class="n">4</div><div>
+      <h3>Deploy and stay compliant</h3>
+      <p>A live status board, automatic refresher and expiry reminders, and a one-click
+         ACS or COP119 evidence pack whenever an auditor or client asks.</p></div></div>
+  </div>
+
+  <div class="band" style="margin-top:8mm;">
+    <span class="kicker">Included with every account</span>
+    <h3 style="font-size:15pt;margin:3mm 0 3mm;">Your workforce's training hub. Included.</h3>
+    <p style="font-size:9.5pt;">Every subscription unlocks the Training Hub for your whole team.
+      Scenario-led courses on the standards your auditors care about, with framable certificates,
+      so officers earn their training record while you screen them. The BS 7858:2019 vetting course
+      is free to all users.</p>
+  </div>
+
+  <div class="foot"><span>Screening Portal &middot; Solution brochure</span><span>screeningportal.co.uk</span></div>
+</section>
+
+<!-- ========================= 3. SECTORS ========================== -->
+<section class="page">
+  <div class="page-head">
+    <div>
+      <span class="kicker">Built for your sector</span>
+      <h2>Sector-specific workflows out of the box.</h2>
+      <div class="rule"></div>
+    </div>
+    <span class="page-no">03</span>
+  </div>
+
+  <p class="intro">From SIA ACS audits to CQC inspections, the rules vary and the platform adapts.
+    Sector packs arrive pre-built with the right screening, induction and audit workflows.</p>
+
+  <div class="cards c2">
+    <div class="card">
+      <span class="tag">SIA ACS &middot; BS7858 &middot; COP119</span>
+      <h3>Security &amp; manned guarding</h3>
+      <p>Run every officer through full BS7858:2019 vetting before deployment, with SIA licence
+         expiry tracking, assignment instructions and a client-facing audit portal.</p>
+      <div class="stat"><b>98.7%</b><span>first-time SIA ACS audit pass rate among clients</span></div>
+    </div>
+    <div class="card">
+      <span class="tag">CQC &middot; DBS &middot; KLOEs</span>
+      <h3>Care providers &amp; staffing</h3>
+      <p>Enhanced DBS, right-to-work, vaccination and training records in one worker profile,
+         organised the way an inspector expects to be shown them.</p>
+      <div class="stat"><b>9 hrs</b><span>saved per new starter onboarded</span></div>
+    </div>
+    <div class="card">
+      <span class="tag">GLAA &middot; REC &middot; Master Vendor</span>
+      <h3>Labour suppliers &amp; agencies</h3>
+      <p>Place workers faster and prove compliance to every end client, with bulk onboarding
+         and master-vendor reporting across multiple contracts.</p>
+      <div class="stat"><b>3 days</b><span>typical time-to-deploy a screened worker</span></div>
+    </div>
+    <div class="card">
+      <span class="tag">CSCS &middot; CHAS &middot; ConstructionLine</span>
+      <h3>Construction &amp; facilities</h3>
+      <p>CSCS card validation, site inductions and equipment custody for every contractor,
+         on every visit, with subcontractor packs kept current.</p>
+      <div class="stat"><b>62%</b><span>less induction admin on average</span></div>
+    </div>
+  </div>
+
+  <div style="margin-top:7mm;">
+    <span class="kicker">Also supported</span>
+    <div class="rule" style="margin-bottom:4mm;"></div>
+    <p style="font-size:9.5pt;">Hospitality and licensed premises (personal licence, allergens, health and safety),
+      professional services (legal, finance and corporate), and industrial operations
+      (manufacturing, waste and wholesale).</p>
+  </div>
+
+  <div class="foot"><span>Screening Portal &middot; Solution brochure</span><span>screeningportal.co.uk</span></div>
+</section>
+
+<!-- ====================== 4. COMPLIANCE + PRICING ================= -->
+<section class="page">
+  <div class="page-head">
+    <div>
+      <span class="kicker">Accredited &amp; recognised</span>
+      <h2>Built on the standards your auditors care about.</h2>
+      <div class="rule"></div>
+    </div>
+    <span class="page-no">04</span>
+  </div>
+
+  <p class="intro">Every workflow, record and export is mapped directly to a recognised
+    UK compliance framework.</p>
+
+  <table>
+    <thead><tr><th style="width:32%">Framework</th><th>What the platform does with it</th></tr></thead>
+    <tbody>
+      <tr><td><b>BS7858:2019</b></td><td>The UK standard for vetting personnel in secure environments. Full workflow, gap analysis and re-screen intervals at 36 months, configurable.</td></tr>
+      <tr><td><b>SIA ACS</b></td><td>Pre-built Approved Contractor Scheme evidence pack, assignment instructions, licence expiry tracking and a continuous improvement record.</td></tr>
+      <tr><td><b>BSI COP119</b></td><td>Best-practice guidance for the security guarding industry. Workflows aligned clause by clause.</td></tr>
+      <tr><td><b>UK GDPR &amp; DPA 2018</b></td><td>Lawful processing, retention controls, DSAR support and consent-based screening.</td></tr>
+      <tr><td><b>ISO 27001</b></td><td>UK-hosted on ISO 27001 certified data centre infrastructure with role-based access control.</td></tr>
+      <tr><td><b>Sector regulators</b></td><td>Care Quality Commission, Disclosure and Barring Service, and Gangmasters and Labour Abuse Authority.</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:9mm;">
+    <span class="kicker">Simple, scalable pricing</span>
+    <h3 style="font-size:17pt;margin:3mm 0 4mm;">Pay per active worker. Cancel any time.</h3>
+    <p style="font-size:9.5pt;margin-bottom:5mm;">Credit-based pricing: you buy credits and spend them
+      when you screen or onboard a worker. Initial use is free, so you can run the full platform
+      before committing. Every plan includes BS7858 workflows, evidence packs and UK-based support.</p>
+
+    <div class="cards c3">
+      <div class="card">
+        <span class="kicker" style="font-size:7.5pt;">Starter</span>
+        <h3 style="margin-top:2mm;">For small teams</h3>
+        <p>Core screening and onboarding for teams up to 50 active workers, with the BS7858
+           workflow, digital right-to-work and up to three induction templates.</p>
+      </div>
+      <div class="card pillar">
+        <span class="kicker" style="font-size:7.5pt;">Professional</span>
+        <h3 style="margin-top:2mm;">For growing operators</h3>
+        <p>Everything in Starter plus the SIA ACS evidence pack and client portal, unlimited
+           induction templates, API access and bulk import. Volume credit discounts apply.</p>
+      </div>
+      <div class="card">
+        <span class="kicker" style="font-size:7.5pt;">Enterprise</span>
+        <h3 style="margin-top:2mm;">For multi-site groups</h3>
+        <p>Dedicated screening team, single sign-on, custom SLAs, white-label client portals
+           and procurement and security packs for 500+ active workers.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Screening Portal &middot; Solution brochure</span><span>screeningportal.co.uk</span></div>
+</section>
+
+<!-- ========================== 5. CONTACT ========================= -->
+<section class="page cover grid-bg">
+  <div class="orb" style="width:110mm;height:110mm;bottom:-30mm;left:-25mm;"></div>
+
+  <div class="page-head" style="border-color:var(--line);">
+    <div>
+      <span class="kicker">Next steps</span>
+      <h2>Stop chasing paperwork. Start passing audits.</h2>
+      <div class="rule"></div>
+    </div>
+    <span class="page-no">05</span>
+  </div>
+
+  <p class="intro">Start a free trial, or talk to the UK team about a tailored demo and a
+    procurement pack. Initial use is free and there is no card required to begin.</p>
+
+  <div class="contact">
+    <div class="box">
+      <h3>Talk to us</h3>
+      <p>
+        020 8575 5544 &middot; sales and demos<br>
+        0752 167 7053 &middot; direct mobile<br>
+        <a href="mailto:info@screeningportal.co.uk">info@screeningportal.co.uk</a><br>
+        <a href="mailto:sales@screeningportal.co.uk">sales@screeningportal.co.uk</a><br>
+        <a href="mailto:support@screeningportal.co.uk">support@screeningportal.co.uk</a>
+      </p>
+    </div>
+    <div class="box">
+      <h3>Online</h3>
+      <p>
+        screeningportal.co.uk<br>
+        Book a live demo or start a free trial from any page.<br><br>
+        Available 9am to 6pm Monday to Friday for sales,<br>
+        and 24/7 for existing-customer technical support.
+      </p>
+    </div>
+  </div>
+
+  <div class="band" style="margin-top:6mm;">
+    <span class="kicker">Accredited &amp; affiliated</span>
+    <p style="font-size:9.5pt;margin-top:3mm;">Cyber Essentials certified &middot; ISO 9001, ISO 14001 and ISO 45001
+      certified &middot; ISO 27001 certified &middot; The CPD Group Approved Provider (member 790706)
+      &middot; Registered with the Information Commissioner's Office &middot; ConstructionLine</p>
+  </div>
+
+  <div class="legal">
+    <p><b>Screening Portal is a trading name and product of SISQS Ltd</b>, a company registered in
+      England and Wales under company number 12165409, whose registered office is at
+      412 Allied Sainif House, Greenford Road, Greenford, Middlesex, UB6 9AH.</p>
+    <p>All services described in this brochure are supplied by SISQS Ltd. References to
+      "Screening Portal", "we", "us" and "our" mean SISQS Ltd trading as Screening Portal,
+      and any contract for the supply of services is entered into with SISQS Ltd.
+      SISQS Ltd is the data controller for personal data processed through the platform.</p>
+    <p>This brochure is provided for information only and does not form part of any contract.
+      Figures shown describe platform capacity and typical customer outcomes rather than
+      guaranteed results. Screening services are delivered in accordance with BS7858:2019 and
+      applicable UK data protection law.</p>
+  </div>
+
+  <div class="foot"><span>&copy; 2026 SISQS Ltd trading as Screening Portal</span><span>screeningportal.co.uk</span></div>
+</section>
+
+</body>
+</html>

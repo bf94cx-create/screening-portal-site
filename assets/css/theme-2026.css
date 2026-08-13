@@ -1693,3 +1693,15 @@ section[id],
    with auto side margins, so it does not need inline-block to sit right. */
 .section-head h2 { display: block; }
 .section-head .kicker { margin-bottom: 14px; }
+
+/* ============================================================
+   35. CPD Group Approved Provider badge
+   It is a ~3:1 banner carrying small print (membership number
+   and verify URL), not a compact mark like the other logos, so
+   the shared 42px cap renders its text unreadable. A larger cap
+   keeps the wording legible while the width stays in proportion.
+   ============================================================ */
+.accred-logo.accred-cpd img { max-height: 58px; }
+@media (max-width: 780px) {
+  .accred-logo.accred-cpd img { max-height: 46px; }
+}
