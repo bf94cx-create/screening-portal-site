@@ -1705,3 +1705,234 @@ section[id],
 @media (max-width: 780px) {
   .accred-logo.accred-cpd img { max-height: 46px; }
 }
+
+
+/* ============================================================
+   36. Resources hub + long-form guides (2026-09-06)
+   Article pages live under /resources/ and use root-absolute
+   asset paths. Everything here composes the existing tokens;
+   nothing below touches the legacy stylesheets.
+   ============================================================ */
+
+/* --- Hub cards ------------------------------------------- */
+.res-grid .res-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+.res-card h3 { font-size: 1.22rem; line-height: 1.25; }
+.res-card p { flex: 1 1 auto; }
+.res-card .res-meta {
+  display: block;
+  margin: 14px 0 8px;
+  font-family: var(--ff-display);
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--sp-ink-68);
+}
+.res-card--soon { opacity: .82; }
+.res-card--soon:hover { transform: none; }
+.row.cols-3 a.card { text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+.row.cols-3 a.card p { flex: 1 1 auto; }
+
+/* --- Article hero ---------------------------------------- */
+.art-hero h1 { max-width: 20ch; }
+.art-hero p { max-width: 62ch; }
+.art-meta {
+  display: flex; flex-wrap: wrap; gap: 10px 28px;
+  margin-top: 22px;
+  font-size: .9rem;
+  color: var(--sp-ink-68);
+}
+.art-meta b { color: var(--sp-ink); font-weight: 600; margin-right: 6px; }
+
+/* --- Two-column article layout --------------------------- */
+.art-section { padding-top: 40px; }
+.art-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+.art-toc {
+  position: sticky;
+  top: 132px;
+  padding: 22px 22px 24px;
+  border-radius: 18px;
+  background: var(--sp-bg-2);
+  border: 1px solid var(--sp-line);
+}
+.art-toc ol { margin: 12px 0 0; padding-left: 0; list-style: none; counter-reset: toc; }
+.art-toc li { counter-increment: toc; margin: 0; }
+.art-toc li a {
+  display: flex; gap: 10px;
+  padding: 6px 0;
+  font-size: .88rem;
+  line-height: 1.35;
+  color: var(--sp-ink-78);
+  text-decoration: none;
+  border-bottom: 1px solid var(--sp-line);
+}
+.art-toc li a::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: var(--ff-display);
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--sp-brass-deep);
+  flex: 0 0 26px;
+}
+.art-toc li:last-child a { border-bottom: 0; }
+.art-toc li a:hover { color: var(--sp-ink); }
+.art-toc .art-toc-cta { margin-top: 18px; width: 100%; justify-content: center; }
+
+/* --- Body typography ------------------------------------- */
+.art-body { max-width: 74ch; min-width: 0; }
+.art-layout > * { min-width: 0; }
+.art-body > h2 {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+  line-height: 1.12;
+  letter-spacing: .005em;
+  color: var(--sp-ink);
+  margin: 52px 0 14px;
+  padding-top: 6px;
+  scroll-margin-top: 132px;
+  text-wrap: balance;
+}
+.art-body > h2:first-of-type { margin-top: 36px; }
+.art-body > h2::after {
+  content: "";
+  display: block;
+  width: 44px; height: 3px;
+  margin-top: 12px;
+  background: linear-gradient(90deg, var(--sp-brass-lt), var(--sp-brass));
+  border-radius: 2px;
+}
+.art-body p, .art-body li { font-size: 1.02rem; line-height: 1.68; color: var(--sp-ink-86); }
+.art-body p { margin: 0 0 16px; }
+.art-body p b, .art-body li b { color: var(--sp-ink); font-weight: 600; }
+.art-body ul, .art-body ol { margin: 0 0 18px; padding-left: 22px; }
+.art-body li { margin: 0 0 8px; }
+.art-body li::marker { color: var(--sp-brass-deep); font-weight: 600; }
+.art-body a { color: var(--sp-brass-deep); text-decoration: underline; text-underline-offset: 3px; }
+.art-body a:hover { color: var(--sp-brass-dk); }
+.art-body .card { margin: 22px 0 26px; }
+.art-body .card:hover { transform: none; }
+
+/* --- Key facts panel ------------------------------------- */
+.art-keyfacts { padding: 24px 26px 18px; }
+.art-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 22px;
+  margin-top: 12px;
+}
+.art-facts > div { padding: 12px 0 8px; border-top: 1px solid var(--sp-line); }
+.art-facts b {
+  display: block;
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--sp-brass-deep);
+  font-variant-numeric: tabular-nums;
+}
+.art-facts span { display: block; margin-top: 6px; font-size: .86rem; line-height: 1.4; color: var(--sp-ink-68); }
+
+/* --- Stages, callouts, tables ---------------------------- */
+.art-stages { padding: 8px 26px; }
+.art-stage { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--sp-line); }
+.art-stage:last-child { border-bottom: 0; }
+.art-stage-num {
+  flex: 0 0 38px; width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--sp-brass-14);
+  color: var(--sp-brass-deep);
+  font-family: var(--ff-display);
+  font-weight: 700;
+}
+.art-stage > div > b { display: block; font-size: 1.05rem; color: var(--sp-ink); margin-bottom: 4px; }
+.art-stage p b { color: var(--sp-ink); font-weight: 600; }
+.art-stage p { margin: 0; font-size: .96rem; }
+.art-callout { text-align: left; font-size: .98rem; line-height: 1.6; }
+.art-callout b { color: var(--sp-ink); }
+.art-table { padding: 8px 10px; overflow-x: auto; }
+.art-table table { min-width: 520px; }
+.art-table td { vertical-align: top; line-height: 1.5; }
+.art-table td:first-child { font-weight: 600; color: var(--sp-ink); white-space: nowrap; }
+
+/* --- Timeline -------------------------------------------- */
+.art-timeline { padding: 10px 26px; }
+.art-tl { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--sp-line); }
+.art-tl:last-child { border-bottom: 0; }
+.art-tl > span {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--sp-brass-deep);
+  padding-top: 3px;
+}
+.art-tl > div { font-size: .96rem; line-height: 1.6; color: var(--sp-ink-86); }
+.art-tl > div b { color: var(--sp-ink); }
+
+/* --- Failures + checklist -------------------------------- */
+.art-failures li, .art-checklist li { padding-left: 4px; margin-bottom: 12px; }
+.art-checklist { counter-reset: chk; list-style: none; padding-left: 0; }
+.art-checklist li { counter-increment: chk; position: relative; padding-left: 44px; }
+.art-checklist li::before {
+  content: counter(chk);
+  position: absolute; left: 0; top: 1px;
+  width: 30px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: var(--sp-bg-3);
+  color: var(--sp-ink);
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+/* --- In-article CTA -------------------------------------- */
+.art-cta { text-align: left; padding: 28px 30px; }
+.art-cta h3 { font-family: var(--ff-display); font-size: 1.5rem; margin: 10px 0 8px; color: var(--sp-ink); }
+.art-cta p { margin-bottom: 18px; }
+.art-cta .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; }
+
+/* --- FAQ ------------------------------------------------- */
+.art-faq details { border-bottom: 1px solid var(--sp-line); padding: 4px 0; }
+.art-faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 34px 14px 0;
+  position: relative;
+  font-weight: 600;
+  color: var(--sp-ink);
+  font-size: 1.02rem;
+}
+.art-faq summary::-webkit-details-marker { display: none; }
+.art-faq summary::after {
+  content: "+";
+  position: absolute; right: 4px; top: 10px;
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  color: var(--sp-brass-deep);
+}
+.art-faq details[open] summary::after { content: "\2212"; }
+.art-faq details p { margin: 0 0 16px; }
+.art-foot { margin-top: 36px; font-size: .88rem; color: var(--sp-ink-68); }
+
+/* --- Responsive ------------------------------------------ */
+@media (max-width: 980px) {
+  .art-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .art-toc { position: static; }
+  .art-toc ol { columns: 2; column-gap: 24px; }
+  .art-toc li { break-inside: avoid; }
+}
+@media (max-width: 640px) {
+  .art-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .art-toc ol { columns: 1; }
+  .art-tl { grid-template-columns: 1fr; gap: 6px; }
+  .art-body p, .art-body li { font-size: 1rem; }
+  .art-cta { padding: 22px 20px; }
+}
