@@ -1,2 +1,5 @@
 # Kept in git for future design work, but not served from the public site.
 design-reference/
+
+# Server config for the Fasthosts VPS, not part of the public site.
+deploy/

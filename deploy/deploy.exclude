@@ -1,0 +1,8 @@
+.git
+.gitignore
+.vercelignore
+vercel.json
+design-reference/
+deploy/
+.github/
+*.md
