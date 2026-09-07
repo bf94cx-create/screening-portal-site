@@ -3,7 +3,7 @@
    Drives the "See it in action" walkthroughs: cycles each demo's
    .ip-scene panels on a per-scene timer, keeps the step chips in
    the copy column highlighted in sync, updates the app chrome
-   (SISQS breadcrumb / Training Hub tab bar) per scene, lets
+   (Screening Portal breadcrumb / Training Hub tab bar) per scene, lets
    visitors click a chip to jump, and only plays while on screen.
    Under prefers-reduced-motion it pins the final outcome, static.
    ================================================================= */
@@ -11,7 +11,7 @@
   "use strict";
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Update the persistent shell around a scene: SISQS breadcrumb text
+  /* Update the persistent shell around a scene: Screening Portal breadcrumb text
      and the Training Hub's active bottom tab. */
   function syncChrome(scene) {
     var root = scene.closest ? scene.closest(".ip-demo") : null;
@@ -109,7 +109,7 @@
     if (!visual || !dash || !srcV || !srcT) return;
 
     var URLS = {
-      vetting: "🔒 <b>sisqs.co.uk</b>/vetting/cases",
+      vetting: "🔒 <b>screeningportal.co.uk</b>/screening/cases",
       training: "🔒 <b>inductionportal.co.uk</b>/training"
     };
     var frame = document.createElement("div");

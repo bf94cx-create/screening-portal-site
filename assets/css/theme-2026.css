@@ -1936,3 +1936,10 @@ section[id],
   .art-body p, .art-body li { font-size: 1rem; }
   .art-cta { padding: 22px 20px; }
 }
+
+/* ============================================================
+   37. Demo 1 sidebar mark: the Screening Portal mark replaces
+   the old blue "S" tile (demo.css is legacy, override here).
+   ============================================================ */
+.ip-demo--vx .vx-logo { background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,.35); }
+.ip-demo--vx .vx-logo svg { width: 20px; height: 20px; display: block; }
