@@ -195,52 +195,102 @@
   on(modal, "click", (e) => { if (e.target === modal) closeModal(); });
   on(document, "keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
-  /* ---------- Form fake submit handlers ---------- */
+  /* ---------- Enquiry forms ----------
+     These used to be "fake submit handlers": preventDefault, a 900 ms pause,
+     then "Thanks, we'll be in touch within one business day." and form.reset().
+     No request was ever made, so EVERY enquiry and trial request typed into the
+     website was silently discarded while the visitor was told it had been sent
+     (QA campaign, 2026-09-08). The trial form additionally claimed "Trial
+     active" and linked to training/index.html, which does not exist on this
+     site (404).
+
+     Until a lead backend is chosen, the form hands the enquiry to the visitor's
+     own mail client, fully composed, and the on-screen text never claims a
+     delivery the page cannot make. The email address and phone number are shown
+     so there is always a route that works. */
+  const ENQUIRY_TO = "info@screeningportal.co.uk";
+  const ENQUIRY_TEL = "020 8575 5544";
+  const REGISTRATION_URL = "https://app.inductionportal.co.uk/user/registration/steptwo";
+
+  const fieldValue = (form, id, label) => {
+    const el = form.querySelector("#" + id);
+    const v = el && typeof el.value === "string" ? el.value.trim() : "";
+    return v ? label + ": " + v + "\n" : "";
+  };
+
   $$("form[data-form]").forEach((form) => {
     on(form, "submit", (e) => {
       e.preventDefault();
       const status = $(".form-status", form);
       const btn = $("button[type='submit']", form);
-      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Sending…"; }
-      setTimeout(() => {
-        // === Unified trial signup ===
-        // If this is the trial form, also start the Training Hub trial so a single signup
-        // unlocks BOTH the screening software AND the training catalogue.
-        if (form.matches("[data-trial-form]")) {
-          try {
-            const lead = {
-              name: form.querySelector("#t-name")?.value || "",
-              company: form.querySelector("#t-company")?.value || "",
-              email: form.querySelector("#t-email")?.value || "",
-              phone: form.querySelector("#t-phone")?.value || "",
-              sector: form.querySelector("#t-sector")?.value || "",
-              source: "website-trial",
-              at: Date.now()
-            };
-            localStorage.setItem("ip_lead", JSON.stringify(lead));
-            if (!localStorage.getItem("ip_trial_started_at")) {
-              localStorage.setItem("ip_trial_started_at", String(Date.now()));
-            }
-            localStorage.setItem("ip_screening_trial", "1");
-            // TODO: replace with real CRM/backend POST
-            // fetch("/api/leads", { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(lead) });
-            if (status) {
-              status.innerHTML = '✅ Trial active. Our team will email you shortly. <br/>Meanwhile, <a href="training/index.html" style="color:var(--c-blue-500);font-weight:700">jump into your free training hub →</a>';
-              status.style.color = "var(--c-accent-d)";
-            }
-          } catch(err) {
-            if (status) status.textContent = "Thanks, we'll be in touch within one business day.";
-          }
+      const isTrial = form.matches("[data-trial-form]") || !!form.closest("#trial-modal");
+      const prefix = isTrial ? "t-" : "c-";
+
+      // Required fields, checked here because the form carries novalidate.
+      const missing = [];
+      Array.prototype.forEach.call(form.querySelectorAll("[required]"), (el) => {
+        if (!el.value || !el.value.trim()) {
+          const lbl = form.querySelector('label[for="' + el.id + '"]');
+          missing.push(lbl ? lbl.textContent.trim() : (el.name || "a required field"));
+          el.setAttribute("aria-invalid", "true");
         } else {
-          if (status) {
-            status.textContent = "Thanks, we'll be in touch within one business day.";
-            status.style.color = "var(--c-accent-d)";
-          }
+          el.removeAttribute("aria-invalid");
         }
+      });
+      const emailEl = form.querySelector('input[type="email"]');
+      const emailBad = emailEl && emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailEl.value.trim());
+      if (emailBad) emailEl.setAttribute("aria-invalid", "true");
+
+      if (missing.length || emailBad) {
+        if (status) {
+          status.textContent = missing.length
+            ? "Please complete: " + missing.join(", ") + "."
+            : "Please check the email address.";
+          status.style.color = "#a3271f";
+          status.setAttribute("role", "alert");
+        }
+        const firstBad = form.querySelector('[aria-invalid="true"]');
+        if (firstBad) firstBad.focus();
+        return;
+      }
+
+      const body =
+        (isTrial ? "Free trial request from screeningportal.co.uk\n\n" : "Enquiry from screeningportal.co.uk\n\n") +
+        fieldValue(form, prefix + "name", "Name") +
+        fieldValue(form, prefix + "company", "Company") +
+        fieldValue(form, prefix + "email", "Email") +
+        fieldValue(form, prefix + "phone", "Phone") +
+        fieldValue(form, prefix + "sector", "Sector") +
+        fieldValue(form, prefix + "size", "Active workers") +
+        fieldValue(form, prefix + "msg", "Message") +
+        "\nSent from " + window.location.href + "\n";
+
+      const subject = isTrial ? "Free trial request" : "Website enquiry";
+      const mailto = "mailto:" + ENQUIRY_TO +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Opening your email…"; }
+
+      try { window.location.href = mailto; } catch (err) { /* no mail client */ }
+
+      if (status) {
+        status.style.color = "";
+        status.setAttribute("role", "status");
+        status.innerHTML =
+          "Your email app should open with this enquiry ready to send. " +
+          "If nothing opened, email <a href=\"mailto:" + ENQUIRY_TO + "\">" + ENQUIRY_TO + "</a> " +
+          "or call <a href=\"tel:02085755544\">" + ENQUIRY_TEL + "</a>." +
+          (isTrial
+            ? " <br>To start straight away, <a href=\"" + REGISTRATION_URL + "\" target=\"_blank\" rel=\"noopener\">create your account here</a>."
+            : "");
+      }
+
+      setTimeout(() => {
         if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; }
-        // Only reset non-trial forms (we want the trial form to show the success state)
-        if (!form.matches("[data-trial-form]")) form.reset();
-      }, 900);
+      }, 1200);
+      // The form is deliberately NOT reset: the visitor may need to copy the
+      // details if their mail client did not open.
     });
   });
 

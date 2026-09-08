@@ -1943,3 +1943,50 @@ section[id],
    ============================================================ */
 .ip-demo--vx .vx-logo { background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,.35); }
 .ip-demo--vx .vx-logo svg { width: 20px; height: 20px; display: block; }
+
+/* ============================================================
+   38. Accessibility and layout fixes from the QA campaign
+   (2026-09-08). Skip link, and the hidden nav dropdown must not
+   widen the document.
+   ============================================================ */
+
+/* Keyboard users land on a skip link before the whole nav. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  padding: 12px 18px;
+  background: var(--sp-ink);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0;
+  outline: 3px solid var(--sp-brass);
+  outline-offset: 2px;
+}
+
+/* The dropdown is absolutely positioned with left:0 and a 260px min-width.
+   The rightmost nav item ("Company") therefore projected past the right edge
+   and widened the document by ~95px, giving every desktop page a horizontal
+   scrollbar even though the menu was closed. Anchor the last dropdown to the
+   right instead, and stop the closed menu from catching pointer events. */
+.nav-list .has-dropdown:last-of-type .nav-dropdown { left: auto; right: 0; }
+.nav-dropdown { pointer-events: none; }
+.has-dropdown:hover > .nav-dropdown,
+.has-dropdown:focus-within > .nav-dropdown,
+.has-dropdown.is-open > .nav-dropdown { pointer-events: auto; }
+
+/* Visible keyboard focus everywhere (several controls had none). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--sp-brass);
+  outline-offset: 2px;
+}

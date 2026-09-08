@@ -127,7 +127,24 @@
     var clones = {};
     function adopt(src, group) {
       var c = src.cloneNode(true);
+      // Cloning the demo duplicated every id in the document (the SVG gradient
+      // ids in particular), which is invalid HTML and makes url(#id) paint
+      // references ambiguous. Give the clone its own namespace and rewrite the
+      // references that point at them, so the gradients still render.
       c.removeAttribute("id");
+      var suffix = "-hero-" + group;
+      Array.prototype.forEach.call(c.querySelectorAll("[id]"), function (n) {
+        var old = n.id;
+        var fresh = old + suffix;
+        n.id = fresh;
+        Array.prototype.forEach.call(c.querySelectorAll("*"), function (el) {
+          Array.prototype.forEach.call(el.attributes, function (attr) {
+            if (attr.value.indexOf("url(#" + old + ")") !== -1) {
+              attr.value = attr.value.split("url(#" + old + ")").join("url(#" + fresh + ")");
+            }
+          });
+        });
+      });
       Array.prototype.forEach.call(c.querySelectorAll(".ip-scene"), function (s) {
         s.classList.remove("is-active");
         s.setAttribute("data-group", group);

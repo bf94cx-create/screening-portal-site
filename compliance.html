@@ -23,10 +23,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap">
 <link rel="stylesheet" href="assets/css/style.css?v=202607112130">
 <link rel="stylesheet" href="assets/css/premium.css?v=202607120100">
-<link rel="stylesheet" href="assets/css/theme-2026.css?v=2026090702">
+<link rel="stylesheet" href="assets/css/theme-2026.css?v=2026090801">
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 64 64" width="100%" height="100%" fill="none" role="img" aria-label="Screening Portal"><path d="M13.9 51.2a26 26 0 1 1 36.2 0" stroke="#b8892b" stroke-width="5.4" stroke-linecap="round"></path><path d="M18.2 33.6a14 14 0 0 0 27.6 0" stroke="#b8892b" stroke-opacity=".28" stroke-width="1.2" stroke-linecap="round"></path><circle cx="32" cy="26.4" r="7.7" fill="#14293d"></circle><path d="M18.6 56v-4.1c0-6.6 5.7-10.7 13.4-10.7s13.4 4.1 13.4 10.7V56z" fill="#2f6f9e"></path><path d="M32 41.2l4.6 2.1-2.6 2.4 1.9 10.3h-7.8l1.9-10.3-2.6-2.4z" fill="#14293d"></path><path d="M32 41.2l-4.6 2.1 2.6 2.4zM32 41.2l4.6 2.1-2.6 2.4z" fill="#f7fbff" fill-opacity=".9"></path></svg></span><span class="brand-word">  <span class="brand-name">Screening <span>Portal</span></span>  <span class="brand-tag"><i aria-hidden="true"></i>Est. 2014 &middot; Vetted in Britain</span></span></a>
@@ -61,7 +63,7 @@
   </div>
 </header>
 
-<section class="page-intro">
+<section id="main-content" role="main" class="page-intro">
   <div class="container">
     <div class="breadcrumb"><a href="index.html">Home</a> · Compliance</div>
     <span class="kicker">COMPLIANCE FRAMEWORKS</span>
@@ -286,16 +288,16 @@
     <h3>Start screening in under 24 hours.</h3>
     <p class="cta-reassure">No credit card. No commitment. Cancel any time.</p>
     <form class="form" data-form novalidate>
-      <div class="form-row"><div class="field"><label>Full name</label><input type="text" required></div><div class="field"><label>Company</label><input type="text" required></div></div>
-      <div class="form-row"><div class="field"><label>Work email</label><input type="email" required></div><div class="field"><label>Phone</label><input type="tel"></div></div>
-      <div class="field"><label>Primary sector</label><select><option>Security (SIA ACS)</option><option>Health &amp; Social Care</option><option>Labour supplier / Recruitment</option><option>Construction &amp; FM</option><option>Hospitality / Warehousing</option><option>Other</option></select></div>
+      <div class="form-row"><div class="field"><label for="t-name">Full name</label><input id="t-name" name="name" autocomplete="name" type="text" required></div><div class="field"><label for="t-company">Company</label><input id="t-company" name="organization" autocomplete="organization" type="text" required></div></div>
+      <div class="form-row"><div class="field"><label for="t-email">Work email</label><input id="t-email" name="email" autocomplete="email" type="email" required></div><div class="field"><label for="t-phone">Phone</label><input id="t-phone" name="tel" autocomplete="tel" type="tel"></div></div>
+      <div class="field"><label for="t-sector">Primary sector</label><select id="t-sector" name="sector"><option>Security (SIA ACS)</option><option>Health &amp; Social Care</option><option>Labour supplier / Recruitment</option><option>Construction &amp; FM</option><option>Hospitality / Warehousing</option><option>Other</option></select></div>
       <button class="btn btn--primary btn--block" type="submit">Create my free trial →</button>
       <p class="tiny center form-status">GDPR-compliant, never shared.</p>
     </form>
   </div>
 </div>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=2026090801" defer></script>
 <script src="assets/js/premium.js?v=202607120100" defer></script>
 </body>
 </html>
