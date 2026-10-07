@@ -502,6 +502,7 @@ body.wave-home .cta-banner .wave-cta-art {
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .35));
 }
 body.wave-home .cta-banner .hero-cta { justify-content: flex-start; }
+body.wave-home .cta-banner .kicker { justify-self: start; width: auto; }
 body.wave-home .cta-banner::before, body.wave-home .cta-banner::after { display: none; }
 body.wave-home .cta-banner h2 { color: #fff; }
 body.wave-home .cta-banner p { color: var(--w-lavender); font-size: 20px; }
