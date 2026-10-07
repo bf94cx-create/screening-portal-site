@@ -57,7 +57,7 @@
 </script>
 <link rel="stylesheet" href="assets/css/theme-2026.css?v=2026090801">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/theme-wave.css?v=2026100701">
+<link rel="stylesheet" href="assets/css/theme-wave.css?v=2026100702">
 </head>
 <body class="wave-home">
 
@@ -170,7 +170,19 @@
 
     <!-- Dashboard mock, with the illustration above it -->
     <div class="hero-visual reveal" data-delay="2">
-      <img class="wave-hero-art" src="assets/img/illus/hero-scene.svg" width="640" height="520" alt="A screening officer clears a candidate file: identity, right to work and five year history all ticked, two signatures on the file" fetchpriority="high">
+      <figure class="wave-shot wave-shot--main">
+        <div class="wave-shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>screeningportal.co.uk/screening-in-progress</span></div>
+        <picture>
+          <source srcset="assets/img/app/queue.webp" type="image/webp">
+          <img src="assets/img/app/queue.jpg" width="1600" height="1000" alt="Screening Portal: the Screening in progress list, every applicant with status, deadlines, officer and reviewer" fetchpriority="high">
+        </picture>
+      </figure>
+      <figure class="wave-shot wave-shot--second">
+        <picture>
+          <source srcset="assets/img/app/file.webp" type="image/webp">
+          <img src="assets/img/app/file.jpg" width="1600" height="1000" alt="Screening Portal: a candidate file with screening progress, officer and reviewer, timers and section tabs" loading="lazy">
+        </picture>
+      </figure>
       <div class="float-card tl">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
         BS7858 cleared
@@ -342,7 +354,14 @@
   <div class="container">
     <div class="wave-numbers">
     <div class="wave-chart reveal">
-      <img src="assets/img/illus/chart-clearance.svg" width="560" height="320" alt="Chart: files cleared per week rising over eight weeks, with five year history coverage at one hundred percent" loading="lazy">
+      <figure class="wave-shot wave-shot--flat">
+        <div class="wave-shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>screeningportal.co.uk/dashboard</span></div>
+        <picture>
+          <source srcset="assets/img/app/dashboard.webp" type="image/webp">
+          <img src="assets/img/app/dashboard.jpg" width="1600" height="1000" alt="Screening Portal dashboard: this week's tasks, referred files and the vetting pipeline against the BS 7858 sequence" loading="lazy">
+        </picture>
+      </figure>
+      <img class="wave-chart-art" src="assets/img/illus/chart-clearance.svg" width="560" height="320" alt="Chart: files cleared per week rising over eight weeks, with five year history coverage at one hundred percent" loading="lazy">
     </div>
     <div class="stats reveal">
       <div class="stat"><b data-count="12" data-suffix=" yrs">0</b><span>Screening since 2014</span></div>
@@ -978,6 +997,7 @@
 <section class="section" id="demo">
   <div class="container">
     <div class="cta-banner reveal">
+      <img class="wave-cta-art" src="assets/img/illus/hero-scene.svg" width="640" height="520" alt="" loading="lazy" aria-hidden="true">
       <span class="kicker">FREE 14-DAY TRIAL</span>
       <h2>Stop chasing paperwork. Start passing audits.</h2>
       <p>Join SIA ACS contractors, CQC-registered providers and labour suppliers using Screening Portal to screen, induct and audit a compliant workforce at scale.</p>

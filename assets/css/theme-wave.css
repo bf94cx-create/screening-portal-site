@@ -204,29 +204,68 @@ body.wave-home .rating-bar {
 }
 body.wave-home .rating-bar b { color: var(--w-navy); font-family: var(--wf-body); font-weight: 700; }
 
-/* the visual: illustration on top, product card tucked beneath */
-body.wave-home .hero-grid { grid-template-columns: 1.02fr 1fr; }
+/* the visual: real product screens in browser frames, layered */
+/* minmax(0, ...) so the headline's long words cannot force the text column
+   wide and squeeze the product screens (owner 2026-10-07: "too squeezed") */
+body.wave-home .hero-grid { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr); gap: 44px; }
+body.wave-home .hero h1 { font-size: clamp(40px, 4.7vw, 68px); }
+body.wave-home .hero h1 .h1-line { white-space: normal; }
 body.wave-home .hero-visual {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   min-height: 0;
-}
-body.wave-home .hero-visual .wave-hero-art {
-  display: block;
+  padding: 10px 0 70px 6%;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
   width: 100%;
-  height: auto;
-  filter: drop-shadow(0 24px 40px rgba(12, 29, 90, .18));
+  max-width: none;
+  justify-self: stretch;
 }
-body.wave-home .hero-visual .dash {
-  position: relative;
-  width: 96%;
-  margin: -70px 0 0;
-  font-size: 14px;
-  border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(12, 29, 90, .28);
-  transform: none;
+body.wave-home .hero-visual .dash { display: none; }
+body.wave-home .wave-shot {
+  margin: 0;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(12, 29, 90, .28);
+}
+body.wave-home .wave-shot img { display: block; width: 100%; height: auto; }
+body.wave-home .wave-shot-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  background: #eef2ff;
+  border-bottom: 1px solid rgba(12, 29, 90, .08);
+}
+body.wave-home .wave-shot-bar i { width: 9px; height: 9px; border-radius: 50%; background: #c7d2fe; }
+body.wave-home .wave-shot-bar i:nth-child(1) { background: #ff7a1a; }
+body.wave-home .wave-shot-bar i:nth-child(2) { background: #ffd36b; }
+body.wave-home .wave-shot-bar i:nth-child(3) { background: #5be3a3; }
+body.wave-home .wave-shot-bar span {
+  margin-left: 10px;
+  flex: 1 1 auto;
+  background: #fff;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 11.5px;
+  color: rgba(12, 29, 90, .7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body.wave-home .wave-shot--main { width: 100%; }
+body.wave-home .wave-shot--second {
+  position: absolute;
+  left: -4%;
+  bottom: 0;
+  width: 54%;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(12, 29, 90, .32);
+  transform: rotate(-3deg);
+  border: 4px solid #fff;
 }
 body.wave-home .float-card {
   background: #fff;
@@ -237,8 +276,8 @@ body.wave-home .float-card {
   font-weight: 700;
 }
 body.wave-home .float-card svg { color: var(--w-blue); }
-body.wave-home .float-card.tl { top: 8px; left: -6px; }
-body.wave-home .float-card.br { bottom: 36%; right: -10px; }
+body.wave-home .float-card.tl { top: -8px; left: 2%; }
+body.wave-home .float-card.br { bottom: 110px; right: -14px; }
 
 /* ---------- 7. Logo bar ---------- */
 body.wave-home .logo-bar { border: 0; background: transparent; padding: 0; }
@@ -308,8 +347,19 @@ body.wave-home .wave-numbers {
   gap: 32px;
   align-items: stretch;
 }
-body.wave-home .wave-chart { border-radius: var(--w-radius); overflow: hidden; box-shadow: var(--w-shadow); background: #fff; }
-body.wave-home .wave-chart img { display: block; width: 100%; height: auto; }
+body.wave-home .wave-chart { position: relative; padding: 0 0 48px 0; }
+body.wave-home .wave-chart .wave-shot--flat { border-radius: 16px; }
+body.wave-home .wave-chart-art {
+  position: absolute;
+  right: -18px;
+  bottom: 0;
+  width: 48%;
+  max-width: 330px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(12, 29, 90, .22);
+  background: #fff;
+}
+body.wave-home .wave-chart .wave-shot img { display: block; width: 100%; height: auto; }
 body.wave-home .stats {
   background: var(--w-navy);
   border: 0;
@@ -429,7 +479,24 @@ body.wave-home .cta-banner {
   border-radius: 28px;
   box-shadow: none;
   padding: 72px 40px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: center;
 }
+body.wave-home .cta-banner > * { position: relative; z-index: 1; grid-column: 1; }
+body.wave-home .cta-banner .wave-cta-art {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  width: 100%;
+  max-width: 480px;
+  justify-self: end;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .35));
+}
+body.wave-home .cta-banner .hero-cta { justify-content: flex-start; }
 body.wave-home .cta-banner::before, body.wave-home .cta-banner::after { display: none; }
 body.wave-home .cta-banner h2 { color: #fff; }
 body.wave-home .cta-banner p { color: var(--w-lavender); font-size: 20px; }
@@ -467,8 +534,17 @@ body.wave-home .hero .reveal[data-delay="2"] { animation-delay: .25s; }
 /* ---------- 22. Small screens ---------- */
 @media (max-width: 900px) {
   body.wave-home .hero { padding-top: 40px; }
-  body.wave-home .hero-visual { margin-top: 12px; }
-  body.wave-home .hero-visual .dash { width: 100%; margin-top: -30px; }
+  body.wave-home .hero-grid { grid-template-columns: 1fr; }
+  body.wave-home .hero-visual { margin-top: 12px; padding: 0 0 20px; }
+  body.wave-home .wave-shot--second { display: none; }
+  body.wave-home .float-card.tl { top: -14px; left: 0; }
+  body.wave-home .float-card.br { bottom: -4px; right: 0; }
+  body.wave-home .wave-chart { padding-bottom: 0; }
+  body.wave-home .wave-chart-art { display: none; }
+  body.wave-home .cta-banner { grid-template-columns: 1fr; text-align: center; padding: 48px 22px; }
+  body.wave-home .cta-banner > * { grid-column: 1; }
+  body.wave-home .cta-banner .wave-cta-art { grid-column: 1; grid-row: auto; max-width: 320px; justify-self: center; }
+  body.wave-home .cta-banner .hero-cta { justify-content: center; }
   body.wave-home .float-card.br { bottom: auto; top: 40%; }
   body.wave-home .wave-numbers { grid-template-columns: 1fr; }
   body.wave-home .section { padding: 64px 0; }
