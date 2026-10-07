@@ -223,6 +223,11 @@ body.wave-home .hero-visual {
   justify-self: stretch;
 }
 body.wave-home .hero-visual .dash { display: none; }
+/* demo.js swaps an animated training-hub mock into the hero after a few
+   seconds; the real product screens stay, so the swap never shows here */
+body.wave-home .hero-visual .demo-frame,
+body.wave-home .hero-visual.is-swapped .demo-frame--hero { display: none !important; opacity: 0 !important; }
+body.wave-home .hero-visual.is-swapped .wave-shot { opacity: 1 !important; }
 body.wave-home .wave-shot {
   margin: 0;
   background: #fff;
