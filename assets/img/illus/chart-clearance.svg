@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" role="img" aria-label="Chart: files cleared per week rising over eight weeks, with the BS 7858 twelve week clock and five year history coverage">
+  <rect width="560" height="320" rx="24" fill="#ffffff"/>
+  <text x="32" y="44" font-family="'Source Sans 3', Arial, sans-serif" font-size="13" font-weight="700" fill="#1f4bff" letter-spacing="2">FILES CLEARED PER WEEK</text>
+  <text x="32" y="78" font-family="'STIX Two Text', Georgia, serif" font-size="30" fill="#0c1d5a">Every file on the clock</text>
+  <!-- grid -->
+  <g stroke="#e8eefc" stroke-width="1.5">
+    <line x1="32" y1="124" x2="360" y2="124"/><line x1="32" y1="164" x2="360" y2="164"/><line x1="32" y1="204" x2="360" y2="204"/><line x1="32" y1="244" x2="360" y2="244"/>
+  </g>
+  <!-- bars -->
+  <g>
+    <rect x="40" y="214" width="26" height="30" rx="8" fill="#a3b8ff"/>
+    <rect x="80" y="200" width="26" height="44" rx="8" fill="#a3b8ff"/>
+    <rect x="120" y="186" width="26" height="58" rx="8" fill="#a3b8ff"/>
+    <rect x="160" y="196" width="26" height="48" rx="8" fill="#a3b8ff"/>
+    <rect x="200" y="166" width="26" height="78" rx="8" fill="#1f4bff"/>
+    <rect x="240" y="150" width="26" height="94" rx="8" fill="#1f4bff"/>
+    <rect x="280" y="134" width="26" height="110" rx="8" fill="#1f4bff"/>
+    <rect x="320" y="118" width="26" height="126" rx="8" fill="#ff7a1a"/>
+  </g>
+  <!-- trend line -->
+  <polyline points="53,206 93,192 133,178 173,186 213,158 253,142 293,126 333,110" fill="none" stroke="#0c1d5a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#0c1d5a"><circle cx="53" cy="206" r="4"/><circle cx="133" cy="178" r="4"/><circle cx="213" cy="158" r="4"/><circle cx="293" cy="126" r="4"/><circle cx="333" cy="110" r="5.5" fill="#ff7a1a" stroke="#0c1d5a" stroke-width="2.5"/></g>
+  <g font-family="'Source Sans 3', Arial, sans-serif" font-size="12" fill="#0c1d5a" opacity=".65" text-anchor="middle">
+    <text x="53" y="266">W1</text><text x="93" y="266">W2</text><text x="133" y="266">W3</text><text x="173" y="266">W4</text><text x="213" y="266">W5</text><text x="253" y="266">W6</text><text x="293" y="266">W7</text><text x="333" y="266">W8</text>
+  </g>
+  <text x="32" y="298" font-family="'Source Sans 3', Arial, sans-serif" font-size="13" fill="#0c1d5a" opacity=".7">Limited screening cleared before deployment, full screening inside the 12 week clock.</text>
+  <!-- donut: coverage -->
+  <g transform="translate(455 170)">
+    <circle r="58" fill="none" stroke="#e8eefc" stroke-width="18"/>
+    <circle r="58" fill="none" stroke="#1f4bff" stroke-width="18" stroke-dasharray="364.4" stroke-dashoffset="0" transform="rotate(-90)" stroke-linecap="round"/>
+    <circle r="36" fill="none" stroke="#ead6ff" stroke-width="12"/>
+    <circle r="36" fill="none" stroke="#6f3fb0" stroke-width="12" stroke-dasharray="226.2" stroke-dashoffset="18" transform="rotate(-90)" stroke-linecap="round"/>
+    <text y="8" text-anchor="middle" font-family="'STIX Two Text', Georgia, serif" font-size="26" fill="#0c1d5a">100%</text>
+  </g>
+  <g font-family="'Source Sans 3', Arial, sans-serif" font-size="12" fill="#0c1d5a">
+    <circle cx="404" cy="258" r="5" fill="#1f4bff"/><text x="414" y="262">5 year history</text>
+    <circle cx="404" cy="278" r="5" fill="#6f3fb0"/><text x="414" y="282">References received</text>
+  </g>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-label="A screening officer clears a candidate file: identity, right to work and five year history all ticked">
+  <defs>
+    <clipPath id="screen"><rect x="238" y="214" width="214" height="134" rx="8"/></clipPath>
+  </defs>
+  <!-- ground blob -->
+  <ellipse cx="330" cy="470" rx="290" ry="34" fill="#8fa6ff" opacity=".55"/>
+  <!-- big card behind: the file -->
+  <rect x="118" y="46" width="404" height="300" rx="26" fill="#ffffff"/>
+  <rect x="118" y="46" width="404" height="64" rx="26" fill="#0c1d5a"/>
+  <rect x="118" y="84" width="404" height="26" fill="#0c1d5a"/>
+  <circle cx="156" cy="78" r="8" fill="#ff7a1a"/><circle cx="182" cy="78" r="8" fill="#ffd36b"/><circle cx="208" cy="78" r="8" fill="#5be3a3"/>
+  <text x="246" y="84" font-family="'Source Sans 3', Arial, sans-serif" font-size="17" font-weight="700" fill="#ffffff">Candidate file · BS 7858:2019</text>
+  <!-- rows -->
+  <g font-family="'Source Sans 3', Arial, sans-serif" font-size="16" fill="#0c1d5a">
+    <rect x="146" y="130" width="170" height="40" rx="12" fill="#cfe6ff"/>
+    <circle cx="168" cy="150" r="11" fill="#1f4bff"/><path d="M162 150l4 4 8-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="188" y="156" font-weight="600">Identity verified</text>
+    <rect x="146" y="180" width="170" height="40" rx="12" fill="#cfe6ff"/>
+    <circle cx="168" cy="200" r="11" fill="#1f4bff"/><path d="M162 200l4 4 8-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="188" y="206" font-weight="600">Right to work</text>
+    <rect x="146" y="230" width="170" height="40" rx="12" fill="#ead6ff"/>
+    <circle cx="168" cy="250" r="11" fill="#6f3fb0"/><path d="M162 250l4 4 8-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="188" y="256" font-weight="600">5 year history</text>
+    <rect x="146" y="280" width="170" height="40" rx="12" fill="#ffe3cf"/>
+    <circle cx="168" cy="300" r="11" fill="#ff7a1a"/><path d="M164 300h8" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="188" y="306" font-weight="600">Reference 3 of 3</text>
+  </g>
+  <!-- coverage bars on the right of the card -->
+  <g>
+    <text x="342" y="146" font-family="'Source Sans 3', Arial, sans-serif" font-size="13" font-weight="700" fill="#0c1d5a" letter-spacing="1.5">HISTORY COVERAGE</text>
+    <rect x="342" y="158" width="150" height="14" rx="7" fill="#e8eefc"/><rect x="342" y="158" width="150" height="14" rx="7" fill="#1f4bff"/>
+    <rect x="342" y="182" width="150" height="14" rx="7" fill="#e8eefc"/><rect x="342" y="182" width="131" height="14" rx="7" fill="#1f4bff"/>
+    <rect x="342" y="206" width="150" height="14" rx="7" fill="#e8eefc"/><rect x="342" y="206" width="150" height="14" rx="7" fill="#1f4bff"/>
+    <rect x="342" y="230" width="150" height="14" rx="7" fill="#e8eefc"/><rect x="342" y="230" width="96" height="14" rx="7" fill="#a3b8ff"/>
+    <rect x="342" y="254" width="150" height="14" rx="7" fill="#e8eefc"/><rect x="342" y="254" width="150" height="14" rx="7" fill="#1f4bff"/>
+    <text x="342" y="300" font-family="'STIX Two Text', Georgia, serif" font-size="36" fill="#0c1d5a">100%</text>
+    <text x="430" y="300" font-family="'Source Sans 3', Arial, sans-serif" font-size="14" fill="#0c1d5a" opacity=".7">5 years</text>
+  </g>
+  <!-- shield seal -->
+  <g transform="translate(486 34)">
+    <path d="M44 6l34 13v26c0 24-15 40-34 47C25 85 10 69 10 45V19L44 6z" fill="#1f4bff"/>
+    <path d="M44 14l26 10v21c0 19-11.5 31.5-26 37C29.5 76.5 18 64 18 45V24l26-10z" fill="#ffffff" opacity=".18"/>
+    <path d="M30 46l10 10 20-22" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- officer: body -->
+  <g>
+    <path d="M300 468c-4-62 14-104 62-104s66 42 62 104z" fill="#0c1d5a"/>
+    <path d="M330 398c6 18 24 30 32 30s26-12 32-30c-6-10-14-16-32-16s-26 6-32 16z" fill="#ffffff" opacity=".9"/>
+    <circle cx="362" cy="332" r="38" fill="#f1c6a8"/>
+    <path d="M322 324c0-28 18-46 40-46s40 18 40 46c-8-16-20-20-40-20s-32 4-40 20z" fill="#0c1d5a"/>
+    <circle cx="350" cy="334" r="3.2" fill="#0c1d5a"/><circle cx="374" cy="334" r="3.2" fill="#0c1d5a"/>
+    <path d="M352 352c6 5 14 5 20 0" stroke="#0c1d5a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <!-- arm to laptop -->
+    <path d="M300 420c-30 8-54 10-70 4" stroke="#0c1d5a" stroke-width="22" stroke-linecap="round" fill="none"/>
+    <circle cx="228" cy="422" r="13" fill="#f1c6a8"/>
+  </g>
+  <!-- laptop -->
+  <g>
+    <rect x="160" y="356" width="130" height="86" rx="8" fill="#0c1d5a"/>
+    <rect x="168" y="364" width="114" height="70" rx="5" fill="#cfe6ff"/>
+    <rect x="178" y="376" width="60" height="8" rx="4" fill="#1f4bff"/>
+    <rect x="178" y="392" width="92" height="6" rx="3" fill="#a3b8ff"/>
+    <rect x="178" y="406" width="76" height="6" rx="3" fill="#a3b8ff"/>
+    <rect x="178" y="420" width="40" height="8" rx="4" fill="#ff7a1a"/>
+    <rect x="140" y="440" width="170" height="10" rx="5" fill="#0c1d5a"/>
+  </g>
+  <!-- floating signature stamp -->
+  <g transform="translate(40 300)">
+    <rect x="0" y="0" width="150" height="56" rx="16" fill="#ffffff"/>
+    <circle cx="28" cy="28" r="14" fill="#5be3a3"/><path d="M21 28l5 5 10-10" stroke="#0c1d5a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="50" y="25" font-family="'Source Sans 3', Arial, sans-serif" font-size="13" font-weight="700" fill="#0c1d5a">2 signatures</text>
+    <text x="50" y="42" font-family="'Source Sans 3', Arial, sans-serif" font-size="12" fill="#0c1d5a" opacity=".7">officer + director</text>
+  </g>
+  <!-- sparkle dots -->
+  <circle cx="96" cy="120" r="7" fill="#ff7a1a"/><circle cx="560" cy="200" r="9" fill="#ead6ff"/><circle cx="590" cy="380" r="6" fill="#1f4bff"/>
+</svg>

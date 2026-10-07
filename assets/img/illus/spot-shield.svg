@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="Shield with a tick over a stack of verified documents">
+  <rect x="58" y="44" width="96" height="104" rx="12" fill="#ffffff"/>
+  <rect x="70" y="36" width="96" height="104" rx="12" fill="#cfe6ff"/>
+  <rect x="84" y="56" width="48" height="8" rx="4" fill="#1f4bff"/>
+  <rect x="84" y="74" width="68" height="6" rx="3" fill="#a3b8ff"/>
+  <rect x="84" y="88" width="60" height="6" rx="3" fill="#a3b8ff"/>
+  <rect x="84" y="102" width="40" height="6" rx="3" fill="#a3b8ff"/>
+  <path d="M46 16l32 12v24c0 22-14 37-32 44-18-7-32-22-32-44V28l32-12z" fill="#1f4bff"/>
+  <path d="M32 54l10 10 20-22" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="176" cy="24" r="8" fill="#ff7a1a"/>
+  <circle cx="160" cy="150" r="5" fill="#6f3fb0"/>
+</svg>

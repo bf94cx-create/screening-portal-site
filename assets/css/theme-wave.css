@@ -1,0 +1,480 @@
+/* ============================================================
+   Screening Portal — home page "fresh" layer (2026-10-07)
+   Owner brief: the look of waveapps.com, with our own identity.
+   ------------------------------------------------------------
+   Loaded LAST, on index.html only, scoped to body.wave-home so the
+   other six pages keep the 2026 theme until they are brought over.
+   Restyles existing markup; adds no links, changes no hrefs, no
+   forms, no login targets, no scripts.
+   The product mock-ups (.ip-demo, .demo-frame, .tpc, vx-*, tp-*)
+   keep their own palette on purpose: they show the real product.
+   ============================================================ */
+
+/* ---------- 1. Tokens ---------- */
+body.wave-home {
+  --w-cream:    #faf5f0;
+  --w-cream-2:  #fdfaf7;
+  --w-navy:     #0c1d5a;
+  --w-ink:      #22243a;
+  --w-blue:     #1f4bff;
+  --w-blue-dk:  #1538cc;
+  --w-lavender: #a3b8ff;
+  --w-sky:      #cfe6ff;
+  --w-lilac:    #ead6ff;
+  --w-carrot:   #ff7a1a;
+  --w-peach:    #ffe3cf;
+  --w-fountain: #8fcdfc;
+  --w-mint:     #5be3a3;
+  --w-purple:   #6f3fb0;
+  --w-brass:    #b8892b;
+  --w-line:     rgba(12, 29, 90, .12);
+  --w-shadow:   0 14px 40px rgba(12, 29, 90, .10);
+  --w-radius:   22px;
+  --w-pill:     999px;
+  --wf-display: "STIX Two Text", "Times New Roman", Georgia, serif;
+  --wf-body:    "Source Sans 3", "Segoe UI", Arial, sans-serif;
+
+  /* legacy tokens consumed by inline styles on the page */
+  --c-blue-500: #1f4bff;
+  --c-blue-400: #1f4bff;
+  --c-accent:   #1f4bff;
+  --c-accent-d: #0c1d5a;
+  --c-warn:     #ff7a1a;
+  --c-warn-d:   #d45f08;
+  --c-text:     #22243a;
+  --c-muted:    rgba(34, 36, 58, .72);
+  --c-line:     rgba(12, 29, 90, .12);
+  --c-bg:       #ffffff;
+  --c-bg-soft:  #cfe6ff;
+  --c-bg-dark:  #0c1d5a;
+  --sp-ink:     #0c1d5a;
+  --sp-brass:   #1f4bff;
+  --sp-brass-deep: #0c1d5a;
+}
+
+/* ---------- 2. Base ---------- */
+body.wave-home {
+  background: var(--w-cream);
+  color: var(--w-ink);
+  font-family: var(--wf-body);
+  font-size: 18px;
+  line-height: 1.55;
+}
+body.wave-home h1, body.wave-home h2 {
+  font-family: var(--wf-display);
+  font-weight: 500;
+  color: var(--w-navy);
+  letter-spacing: -.02em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+body.wave-home h1 { font-size: clamp(44px, 6vw, 78px); }
+body.wave-home h2 { font-size: clamp(34px, 4.2vw, 56px); }
+body.wave-home h3, body.wave-home h4 {
+  font-family: var(--wf-body);
+  font-weight: 700;
+  color: var(--w-navy);
+  letter-spacing: -.01em;
+}
+body.wave-home h3 { font-size: 24px; }
+body.wave-home p { color: var(--w-ink); }
+body.wave-home a { color: var(--w-blue); }
+body.wave-home .container { max-width: 1180px; }
+body.wave-home .section { padding: 96px 0; }
+body.wave-home .section-head { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+body.wave-home .section-head h2 { display: block; margin: 14px 0 16px; }
+body.wave-home .section-head h2::after { display: none; }
+body.wave-home .section-head p { font-size: 20px; color: rgba(34, 36, 58, .8); }
+
+/* ---------- 3. Kickers: small blue labels, badges as purple pills ---------- */
+body.wave-home .kicker {
+  display: inline-block;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: var(--wf-body);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--w-blue);
+}
+body.wave-home .hero .kicker,
+body.wave-home .cta-banner .kicker,
+body.wave-home .section--dark .kicker,
+body.wave-home .training-perk .kicker {
+  background: var(--w-purple);
+  color: #fff;
+  padding: 9px 16px;
+  border-radius: 10px;
+  letter-spacing: .16em;
+}
+
+/* ---------- 4. Header ---------- */
+body.wave-home .site-header,
+body.wave-home .site-header.is-scrolled {
+  background: var(--w-cream);
+  border-bottom: 0;
+  box-shadow: none;
+}
+body.wave-home .site-header.is-scrolled { box-shadow: 0 1px 0 var(--w-line); }
+body.wave-home .nav-list > li > a,
+body.wave-home .nav-trigger {
+  font-family: var(--wf-body);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--w-navy);
+}
+body.wave-home .nav-list > li > a:hover, body.wave-home .nav-trigger:hover { color: var(--w-blue); }
+body.wave-home .brand-name { color: var(--w-navy); }
+body.wave-home .brand-name span { color: var(--w-blue); }
+body.wave-home .brand-tag { color: rgba(12, 29, 90, .62); }
+body.wave-home .nav-dropdown { border-radius: 18px; box-shadow: var(--w-shadow); border: 1px solid var(--w-line); }
+
+/* ---------- 5. Buttons: rounded pills ---------- */
+body.wave-home .btn {
+  border-radius: var(--w-pill);
+  font-family: var(--wf-body);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
+  transition: background .15s ease, color .15s ease, transform .15s ease, border-color .15s ease;
+}
+body.wave-home .btn--primary {
+  background: var(--w-blue);
+  border: 2px solid var(--w-blue);
+  color: #fff;
+}
+body.wave-home .btn--primary:hover { background: var(--w-blue-dk); border-color: var(--w-blue-dk); color: #fff; transform: translateY(-1px); }
+body.wave-home .btn--outline, body.wave-home .btn--ghost {
+  background: transparent;
+  border: 2px solid var(--w-navy);
+  color: var(--w-navy);
+}
+body.wave-home .btn--outline:hover, body.wave-home .btn--ghost:hover { background: var(--w-navy); color: #fff; border-color: var(--w-navy); }
+body.wave-home .btn--secondary { background: #fff; border: 2px solid #fff; color: var(--w-navy); }
+body.wave-home .btn--secondary:hover { background: var(--w-navy); color: #fff; border-color: var(--w-navy); }
+body.wave-home .btn--brass { border-color: var(--w-carrot); color: var(--w-navy); }
+body.wave-home .btn--brass:hover { background: var(--w-carrot); border-color: var(--w-carrot); color: var(--w-navy); }
+body.wave-home .btn--lg { padding: 16px 30px; font-size: 18px; }
+body.wave-home .btn--sm { padding: 10px 18px; font-size: 15px; }
+
+/* ---------- 6. Hero: the lavender band ---------- */
+body.wave-home .hero {
+  background: var(--w-lavender);
+  padding: 72px 0 0;
+  overflow: hidden;
+  min-height: 0;
+}
+body.wave-home .hero::before, body.wave-home .hero::after { display: none; }
+body.wave-home .hero-grid { align-items: center; gap: 48px; }
+body.wave-home .hero h1 { margin: 22px 0 20px; color: var(--w-navy); }
+body.wave-home .hero h1 .accent, body.wave-home .hero h1 .ip-rotator { color: var(--w-blue); }
+body.wave-home .hero h1 .text-gradient,
+body.wave-home .text-gradient {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: var(--w-blue);
+  color: var(--w-blue);
+}
+body.wave-home .hero.hero p.lead {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--w-navy);
+  max-width: 560px;
+}
+body.wave-home .hero-cta { margin-top: 28px; gap: 12px; }
+body.wave-home .hero-meta { margin-top: 20px; gap: 10px; flex-wrap: wrap; }
+body.wave-home .hero-meta span {
+  background: rgba(255, 255, 255, .55);
+  color: var(--w-navy);
+  border-radius: var(--w-pill);
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+body.wave-home .rating-bar {
+  background: #fff;
+  border: 0;
+  border-radius: var(--w-pill);
+  box-shadow: none;
+  color: var(--w-navy);
+}
+body.wave-home .rating-bar b { color: var(--w-navy); font-family: var(--wf-body); font-weight: 700; }
+
+/* the visual: illustration on top, product card tucked beneath */
+body.wave-home .hero-grid { grid-template-columns: 1.02fr 1fr; }
+body.wave-home .hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-height: 0;
+}
+body.wave-home .hero-visual .wave-hero-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 40px rgba(12, 29, 90, .18));
+}
+body.wave-home .hero-visual .dash {
+  position: relative;
+  width: 96%;
+  margin: -70px 0 0;
+  font-size: 14px;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(12, 29, 90, .28);
+  transform: none;
+}
+body.wave-home .float-card {
+  background: #fff;
+  color: var(--w-navy);
+  border: 0;
+  border-radius: var(--w-pill);
+  box-shadow: 0 12px 30px rgba(12, 29, 90, .18);
+  font-weight: 700;
+}
+body.wave-home .float-card svg { color: var(--w-blue); }
+body.wave-home .float-card.tl { top: 8px; left: -6px; }
+body.wave-home .float-card.br { bottom: 36%; right: -10px; }
+
+/* ---------- 7. Logo bar ---------- */
+body.wave-home .logo-bar { border: 0; background: transparent; padding: 0; }
+body.wave-home .logo-bar-title { color: rgba(12, 29, 90, .7); font-size: 16px; text-transform: none; letter-spacing: 0; font-weight: 600; line-height: 1.45; }
+body.wave-home .client-logo {
+  background: #fff;
+  border: 1px solid var(--w-line);
+  border-radius: var(--w-pill);
+  color: var(--w-navy);
+  font-weight: 700;
+  padding: 10px 18px 10px 10px;
+}
+body.wave-home .client-logo .cl-mark { background: var(--w-navy); color: #fff; border-radius: var(--w-pill); }
+body.wave-home .client-logo .cl-mark.alt { background: var(--w-blue); }
+body.wave-home .client-logo .cl-mark.warm { background: var(--w-carrot); color: var(--w-navy); }
+
+/* ---------- 8. Surfaces: the pastel bands ---------- */
+body.wave-home .section--soft { background: var(--w-sky); }
+body.wave-home .section--dark { background: var(--w-blue); color: #fff; }
+body.wave-home .section--dark h2, body.wave-home .section--dark p, body.wave-home .section--dark li { color: #fff; }
+body.wave-home .section--dark .feature-list li::before { color: #fff; background: rgba(255, 255, 255, .18); }
+body.wave-home .section--dark .kicker { background: #fff; color: var(--w-blue); }
+body.wave-home .training-perk { background: var(--w-lilac); padding: 96px 0; }
+body.wave-home .training-perk-inner { background: transparent; border: 0; box-shadow: none; padding: 0; }
+body.wave-home .training-perk .kicker { background: var(--w-navy); }
+body.wave-home .training-perk h2 .text-gradient { color: var(--w-purple); -webkit-text-fill-color: var(--w-purple); }
+body.wave-home .xlink-band { background: var(--w-carrot); color: var(--w-navy); font-weight: 600; }
+body.wave-home .xlink-band a { color: var(--w-navy); text-decoration: underline; }
+
+/* ---------- 9. Accreditations ---------- */
+body.wave-home .accred { background: #fff; border-radius: 18px; border: 0; box-shadow: var(--w-shadow); padding: 22px 16px; }
+body.wave-home .accred-mark { color: var(--w-blue); background: var(--w-sky); border-radius: 16px; }
+body.wave-home .accred b { color: var(--w-navy); }
+body.wave-home .accred small { color: rgba(12, 29, 90, .7); }
+
+/* ---------- 10. Cards: white, soft, rounded; value cards tinted ---------- */
+body.wave-home .card {
+  background: #fff;
+  border: 0;
+  border-radius: var(--w-radius);
+  box-shadow: var(--w-shadow);
+  padding: 32px;
+}
+body.wave-home .card:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(12, 29, 90, .14); }
+body.wave-home .card .icon { background: var(--w-navy); color: #fff; border-radius: 16px; width: 54px; height: 54px; }
+body.wave-home .card .icon svg { stroke: #fff; }
+body.wave-home .card h3 { margin-top: 18px; }
+body.wave-home .feature-list li { color: var(--w-ink); }
+body.wave-home .feature-list li::before { color: var(--w-blue); background: var(--w-sky); }
+body.wave-home .card .more, body.wave-home a.more { color: var(--w-blue); font-weight: 700; }
+body.wave-home .wave-value .card:nth-child(1) { background: var(--w-sky); box-shadow: none; }
+body.wave-home .wave-value .card:nth-child(2) { background: var(--w-lilac); box-shadow: none; }
+body.wave-home .wave-value .card:nth-child(3) { background: var(--w-peach); box-shadow: none; }
+body.wave-home .wave-value .card .feature-list li::before { background: #fff; }
+body.wave-home .wave-spot {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: -6px 0 10px;
+}
+
+/* ---------- 11. Numbers band: navy with a chart card ---------- */
+body.wave-home .wave-numbers {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+body.wave-home .wave-chart { border-radius: var(--w-radius); overflow: hidden; box-shadow: var(--w-shadow); background: #fff; }
+body.wave-home .wave-chart img { display: block; width: 100%; height: auto; }
+body.wave-home .stats {
+  background: var(--w-navy);
+  border: 0;
+  border-radius: var(--w-radius);
+  box-shadow: none;
+  grid-template-columns: 1fr 1fr;
+  padding: 36px 32px;
+  margin: 0;
+}
+body.wave-home .stats::before { display: none; }
+body.wave-home .stat b { font-family: var(--wf-display); font-weight: 500; color: #fff; font-size: 48px; background: none; -webkit-text-fill-color: #fff; }
+body.wave-home .stat span { color: var(--w-lavender); font-size: 15px; }
+
+/* ---------- 12. Sector tabs ---------- */
+body.wave-home .industries { background: #fff; border-radius: var(--w-radius); box-shadow: var(--w-shadow); border: 0; overflow: hidden; }
+body.wave-home .tabs { background: #fff; border-bottom: 1px solid var(--w-line); padding: 14px; gap: 8px; }
+body.wave-home .tab {
+  border-radius: var(--w-pill);
+  font-family: var(--wf-body);
+  font-weight: 700;
+  color: var(--w-navy);
+  border: 2px solid transparent;
+  background: transparent;
+}
+body.wave-home .tab.is-active { background: var(--w-navy); color: #fff; border-color: var(--w-navy); }
+body.wave-home .tab:hover:not(.is-active) { background: var(--w-sky); }
+body.wave-home .tab-panel h3 { font-size: 26px; }
+body.wave-home .tab-visual { background: var(--w-sky); border-radius: 18px; border: 0; }
+body.wave-home .tv-stat { font-family: var(--wf-display); font-weight: 500; color: var(--w-navy); font-size: 64px; }
+body.wave-home .tv-cap { color: var(--w-navy); }
+body.wave-home .badge { border-radius: var(--w-pill); font-weight: 700; letter-spacing: .06em; }
+body.wave-home .badge--orange { background: var(--w-carrot); color: var(--w-navy); border: 0; }
+body.wave-home .badge--green { background: var(--w-mint); color: var(--w-navy); border: 0; }
+body.wave-home .badge--navy { background: var(--w-navy); color: #fff; border: 0; }
+
+/* ---------- 13. How it works: numbered cards ---------- */
+body.wave-home .process { counter-reset: wave-step; }
+body.wave-home .step {
+  background: #fff;
+  border: 0;
+  border-radius: var(--w-radius);
+  box-shadow: var(--w-shadow);
+  padding: 30px 26px 26px;
+  position: relative;
+}
+body.wave-home .step::before {
+  counter-increment: wave-step;
+  content: counter(wave-step);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--w-blue);
+  color: #fff;
+  font-family: var(--wf-display);
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+body.wave-home .step h4 { font-size: 20px; }
+
+/* ---------- 14. Product tour frame ---------- */
+body.wave-home .demo-section { background: var(--w-cream-2); }
+body.wave-home .demo-frame { border-radius: 20px; box-shadow: 0 30px 70px rgba(12, 29, 90, .22); }
+body.wave-home .ip-demo-steps li.is-active { color: var(--w-blue); }
+body.wave-home .ip-demo-steps li i { background: var(--w-navy); color: #fff; }
+body.wave-home .ip-demo-steps li.is-active i { background: var(--w-blue); }
+
+/* ---------- 15. BS 7858 spotlight on the blue band ---------- */
+body.wave-home .section--dark .card--dark {
+  background: #fff;
+  color: var(--w-ink);
+  border: 0;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .18);
+}
+body.wave-home .section--dark .card--dark h3, body.wave-home .section--dark .card--dark li { color: var(--w-navy); }
+body.wave-home .section--dark .card--dark .feature-list li::before { color: var(--w-blue); background: var(--w-sky); }
+body.wave-home .section--dark .card--dark .btn--primary { background: var(--w-navy); border-color: var(--w-navy); }
+body.wave-home .section--dark .btn--secondary { background: #fff; color: var(--w-blue); }
+
+/* ---------- 16. Training perk stack ---------- */
+body.wave-home .tp-stack .tp-card { background: #fff; border-radius: 18px; box-shadow: var(--w-shadow); border: 0; }
+body.wave-home .tp-counter { background: var(--w-navy); color: #fff; border-radius: var(--w-pill); }
+body.wave-home .tp-list li strong { color: var(--w-navy); }
+
+/* ---------- 17. Who it is for: pastel quote cards ---------- */
+body.wave-home .quote {
+  border: 0;
+  border-radius: var(--w-radius);
+  box-shadow: none;
+  padding: 30px;
+}
+body.wave-home .testimonials .quote:nth-child(1) { background: var(--w-lilac); }
+body.wave-home .testimonials .quote:nth-child(2) { background: var(--w-carrot); }
+body.wave-home .testimonials .quote:nth-child(3) { background: var(--w-fountain); }
+body.wave-home .quote p { color: var(--w-navy); font-size: 17px; }
+body.wave-home .quote .who b, body.wave-home .quote .who span { color: var(--w-navy); }
+body.wave-home .quote .avatar { background: var(--w-navy); color: #fff; border: 0; }
+
+/* ---------- 18. Pricing ---------- */
+body.wave-home .row.cols-3 .card[style*="border-color"] {
+  background: var(--w-navy) !important;
+  border-color: var(--w-navy) !important;
+  box-shadow: 0 30px 70px rgba(12, 29, 90, .3) !important;
+  color: #fff;
+}
+body.wave-home .row.cols-3 .card[style*="border-color"] h3,
+body.wave-home .row.cols-3 .card[style*="border-color"] p,
+body.wave-home .row.cols-3 .card[style*="border-color"] li { color: #fff; }
+body.wave-home .row.cols-3 .card[style*="border-color"] .feature-list li::before { color: var(--w-navy); background: var(--w-lavender); }
+
+/* ---------- 19. Final CTA ---------- */
+body.wave-home .cta-banner {
+  background: var(--w-navy);
+  border: 0;
+  border-radius: 28px;
+  box-shadow: none;
+  padding: 72px 40px;
+}
+body.wave-home .cta-banner::before, body.wave-home .cta-banner::after { display: none; }
+body.wave-home .cta-banner h2 { color: #fff; }
+body.wave-home .cta-banner p { color: var(--w-lavender); font-size: 20px; }
+body.wave-home .cta-banner .btn--ghost { border-color: #fff; color: #fff; }
+body.wave-home .cta-banner .btn--ghost:hover { background: #fff; color: var(--w-navy); }
+
+/* ---------- 20. Footer ---------- */
+body.wave-home .site-footer { background: var(--w-cream); border-top: 1px solid var(--w-line); color: var(--w-ink); }
+body.wave-home .site-footer h4 { color: var(--w-navy); }
+body.wave-home .site-footer a { color: var(--w-ink); }
+body.wave-home .site-footer a:hover { color: var(--w-blue); }
+body.wave-home .accred-band { background: #fff; border-radius: var(--w-radius); border: 0; box-shadow: var(--w-shadow); }
+body.wave-home .accred-title { color: var(--w-navy); }
+body.wave-home .foot-bottom { color: rgba(34, 36, 58, .7); }
+
+/* ---------- 21. Floating CTA + modal ---------- */
+body.wave-home .float-cta, body.wave-home .float-cta.float-cta {
+  background: var(--w-blue);
+  color: #fff;
+  border-radius: var(--w-pill);
+  box-shadow: 0 18px 40px rgba(31, 75, 255, .4);
+}
+body.wave-home .modal { border-radius: var(--w-radius); }
+body.wave-home .modal h3 { font-family: var(--wf-display); font-weight: 500; font-size: 30px; }
+
+/* ---------- 21b. The hero is never hidden ---------- */
+/* The scroll-reveal observer decides when sections fade in; the hero is
+   on screen from the first frame, so it enters on its own timer and does
+   not depend on the observer firing. */
+@keyframes wave-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+body.wave-home .hero .reveal { opacity: 1 !important; transform: none !important; animation: wave-in .8s cubic-bezier(.2, .7, .2, 1) .05s both; }
+body.wave-home .hero .reveal[data-delay="2"] { animation-delay: .25s; }
+@media (prefers-reduced-motion: reduce) { body.wave-home .hero .reveal { animation: none; } }
+
+/* ---------- 22. Small screens ---------- */
+@media (max-width: 900px) {
+  body.wave-home .hero { padding-top: 40px; }
+  body.wave-home .hero-visual { margin-top: 12px; }
+  body.wave-home .hero-visual .dash { width: 100%; margin-top: -30px; }
+  body.wave-home .float-card.br { bottom: auto; top: 40%; }
+  body.wave-home .wave-numbers { grid-template-columns: 1fr; }
+  body.wave-home .section { padding: 64px 0; }
+  body.wave-home h1 { font-size: clamp(38px, 10vw, 54px); }
+  body.wave-home h2 { font-size: clamp(30px, 7vw, 40px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.wave-home .card:hover, body.wave-home .btn--primary:hover { transform: none; }
+}
