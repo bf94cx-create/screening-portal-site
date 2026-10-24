@@ -366,6 +366,74 @@ p  { margin: 0 0 var(--s-4); color: var(--c-muted); }
   .mobile-panel .nav-list .nav-dropdown a { padding: 10px 12px; font-size: .9rem; }
 }
 
+/* ---------- Log in chooser in the header (customer account or pilot) ---------- */
+.nav-cta .login-menu { position: relative; }
+.nav-cta .login-menu .nav-trigger { display: inline-flex; align-items: center; gap: 6px; }
+.nav-cta .login-menu .caret { width: 12px; height: 7px; transition: transform var(--transition); }
+.nav-cta .login-menu:hover .caret,
+.nav-cta .login-menu.is-open .caret { transform: rotate(180deg); }
+.nav-cta .login-dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 250px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--transition), transform var(--transition), visibility 0s linear var(--transition);
+  z-index: 60;
+}
+.nav-cta .login-menu:hover .login-dropdown,
+.nav-cta .login-menu:focus-within .login-dropdown,
+.nav-cta .login-menu.is-open .login-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity var(--transition), transform var(--transition), visibility 0s;
+}
+.nav-cta .login-dropdown li { margin: 0; }
+.nav-cta .login-dropdown a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .92rem;
+  color: var(--c-text);
+  width: 100%;
+}
+.nav-cta .login-dropdown a small { font-size: .76rem; font-weight: 500; color: var(--c-muted); }
+.nav-cta .login-dropdown a:hover { background: var(--c-bg-soft); color: var(--c-accent-d); }
+@media (max-width: 960px) {
+  .nav-cta .login-menu { display: none; width: 100%; }
+  .mobile-panel.is-open .nav-cta .login-menu { display: block; }
+  .mobile-panel .nav-cta .login-menu .nav-trigger { width: 100%; justify-content: center; }
+  .mobile-panel .nav-cta .login-dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: 0;
+    background: var(--c-bg-soft);
+    border-radius: 10px;
+    margin: 4px 0 6px;
+    padding: 6px;
+    display: none;
+    width: 100%;
+  }
+  .mobile-panel .nav-cta .login-menu.is-open .login-dropdown { display: block; }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
