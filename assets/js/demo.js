@@ -110,7 +110,7 @@
 
     var URLS = {
       vetting: "🔒 <b>screeningportal.co.uk</b>/screening/cases",
-      training: "🔒 <b>inductionportal.co.uk</b>/training"
+      training: "🔒 <b>screeningportal.co.uk</b>/training"
     };
     var frame = document.createElement("div");
     frame.className = "demo-frame demo-frame--hero";

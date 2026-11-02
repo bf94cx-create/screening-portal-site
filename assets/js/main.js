@@ -177,7 +177,7 @@
      Every `[data-trial]` element now sends the user straight to the live app
      registration URL. The modal markup is left in place for fallback use but
      is no longer opened by default. */
-  const TRIAL_URL = "https://app.inductionportal.co.uk/user/registration/steptwo";
+  const TRIAL_URL = "https://portal.screeningportal.co.uk/register";
   $$("[data-trial]").forEach((el) => on(el, "click", (e) => {
     e.preventDefault();
     // Capture a soft lead locally so the admin queue still picks them up,
@@ -210,7 +210,7 @@
      so there is always a route that works. */
   const ENQUIRY_TO = "info@screeningportal.co.uk";
   const ENQUIRY_TEL = "020 8575 5544";
-  const REGISTRATION_URL = "https://app.inductionportal.co.uk/user/registration/steptwo";
+  const REGISTRATION_URL = "https://portal.screeningportal.co.uk/register";
 
   const fieldValue = (form, id, label) => {
     const el = form.querySelector("#" + id);
