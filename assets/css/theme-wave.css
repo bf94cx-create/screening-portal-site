@@ -616,3 +616,24 @@ body.wave-home .brand-mark path[fill="#2f6f9e"] { fill: var(--w-blue); }
 body.wave-home .brand-mark circle[fill="#14293d"],
 body.wave-home .brand-mark path[fill="#14293d"] { fill: var(--w-navy); }
 body.wave-home .brand-tag i { background: var(--w-blue); }
+
+/* ---------- 23. Hero status chips detached (owner 2026-11-02) ---------- */
+/* "BS7858 cleared" and "Audit pack exported" no longer sit on top of the
+   product screenshots: they flow as their own pills under the visual,
+   right-aligned clear of the tilted second screen. */
+body.wave-home .hero-visual { display: flex; flex-direction: column; }
+body.wave-home .hero-visual .wave-shot--main { order: 1; }
+body.wave-home .hero-visual .float-card {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  align-self: flex-end;
+  animation: none;
+  padding: 10px 18px;
+}
+body.wave-home .hero-visual .float-card.tl { order: 2; margin: 18px 0 0; }
+body.wave-home .hero-visual .float-card.br { order: 3; margin: 10px 0 0; }
+@media (max-width: 767.98px) {
+  body.wave-home .hero-visual .float-card.tl, body.wave-home .hero-visual .float-card.br { top: auto; bottom: auto; right: auto; left: auto; align-self: flex-end; }
+}
