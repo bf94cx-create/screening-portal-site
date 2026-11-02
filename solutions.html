@@ -24,8 +24,10 @@
 <link rel="stylesheet" href="assets/css/style.css?v=2026110101">
 <link rel="stylesheet" href="assets/css/premium.css?v=202607120100">
 <link rel="stylesheet" href="assets/css/theme-2026.css?v=2026090801">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/theme-wave.css?v=2026110201">
 </head>
-<body>
+<body class="wave-home">
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 <noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
@@ -39,11 +41,11 @@
           <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false">Platform <svg class="caret" width="12" height="7" viewBox="0 0 12 7" aria-hidden="true"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <ul class="nav-dropdown" role="menu">
             <li><a href="services.html">Screening Services<small>BS 7858, RTW, DBS, references</small></a></li>
-            <li><a href="compliance.html">Compliance Map<small>SIA ACS, COP119, ISO 27001</small></a></li>
+            <li><a href="compliance.html">Compliance Map<small>SIA ACS, BS10119:2026, ISO 27001</small></a></li>
             <li><a href="solutions.html">Industry Solutions<small>Security, Care, Labour, FM</small></a></li>
           </ul>
         </li>
-        <li><a href="https://www.inductionportal.co.uk/training/BS7858-Free-Course.html" title="Free BS 7858 screening training course">🎓 Screening Training</a></li>
+        <li><a href="training.html" title="Free BS 7858 screening training course">🎓 Screening Training</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li class="has-dropdown">
@@ -55,17 +57,8 @@
         </li>
       </ul>
       <div class="nav-cta">
-        <div class="has-dropdown login-menu">
-          <button type="button" class="btn btn--outline btn--sm nav-trigger" aria-haspopup="true" aria-expanded="false">
-            Log in
-            <svg class="caret" width="12" height="7" viewBox="0 0 12 7" aria-hidden="true"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <ul class="nav-dropdown login-dropdown" role="menu">
-            <li><a href="https://app.inductionportal.co.uk" target="_blank" rel="noopener">Customer log in<small>Your live account</small></a></li>
-            <li><a href="https://portal.screeningportal.co.uk/admin/users/login" target="_blank" rel="noopener">Pilot log in<small>Screening Portal pilot programme</small></a></li>
-          </ul>
-        </div>
-        <a class="btn btn--primary btn--sm" href="https://app.inductionportal.co.uk/user/registration/steptwo" target="_blank" rel="noopener" data-trial>Start free trial</a>
+        <a class="btn btn--outline btn--sm" href="https://portal.screeningportal.co.uk/admin/users/login" target="_blank" rel="noopener">Log in</a>
+        <a class="btn btn--primary btn--sm" href="https://portal.screeningportal.co.uk/register/induction-portal" target="_blank" rel="noopener" data-trial>Start free trial</a>
       </div>
     </nav>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -86,19 +79,19 @@
   <div class="container">
     <div class="row cols-2" style="align-items:center;gap:var(--s-8);">
       <div class="reveal">
-        <span class="badge badge--orange">SIA ACS · BS7858 · COP119</span>
+        <span class="badge badge--orange">SIA ACS · BS7858 · BS10119:2026</span>
         <h2 class="mt-4">Security firms &amp; manned-guarding contractors</h2>
-        <p>Pass your SIA ACS audit with confidence. Full BS7858:2019 vetting on every officer, COP119 evidence on demand and a live status portal for your end clients.</p>
+        <p>Pass your SIA ACS audit with confidence. Full BS7858:2019 vetting on every officer, BS10119:2026 evidence on demand and a live status portal for your end clients.</p>
         <ul class="feature-list">
           <li>BS7858:2019 Protect screening with parallel checks</li>
           <li>SIA licence register sync &amp; expiry alerts</li>
           <li>Site-specific assignment instructions (ACS module)</li>
           <li>Lone-working &amp; conflict-management induction templates</li>
           <li>Read-only client portal &amp; branded reporting</li>
-          <li>COP119 evidence pack with one click</li>
+          <li>BS10119:2026 evidence pack with one click</li>
         </ul>
-        <a class="btn btn--primary" href="https://app.inductionportal.co.uk/user/registration/steptwo" target="_blank" rel="noopener" data-trial>Trial the security pack</a>
-        <a class="more" href="https://www.inductionportal.co.uk/security-guard-training.html" style="margin-left:14px">Security guard training courses →</a>
+        <a class="btn btn--primary" href="https://portal.screeningportal.co.uk/register/induction-portal" target="_blank" rel="noopener" data-trial>Trial the security pack</a>
+        <a class="more" href="training.html" style="margin-left:14px">Security guard training courses →</a>
       </div>
       <div class="card card--pillar reveal" data-delay="1">
         <span class="card-num">01</span>
@@ -137,8 +130,8 @@
         <h2 class="mt-4">Care providers &amp; healthcare staffing</h2>
         <p>One worker profile holds every DBS, training, vaccination and reference record, and presents it perfectly to a CQC inspector.</p>
         <p>Built for domiciliary care, residential, nursing, supported living and complex-needs staffing agencies.</p>
-        <a class="btn btn--primary" href="https://app.inductionportal.co.uk/user/registration/steptwo" target="_blank" rel="noopener" data-trial>Trial the care pack</a>
-        <a class="more" href="https://www.inductionportal.co.uk/care-sector-training.html" style="margin-left:14px">Care sector training courses →</a>
+        <a class="btn btn--primary" href="https://portal.screeningportal.co.uk/register/induction-portal" target="_blank" rel="noopener" data-trial>Trial the care pack</a>
+        <a class="more" href="training.html" style="margin-left:14px">Care sector training courses →</a>
       </div>
     </div>
   </div>
@@ -159,7 +152,7 @@
           <li>Master-vendor reporting &amp; subcontractor monitoring</li>
           <li>Auto-renewal of expiring RTW and DBS</li>
         </ul>
-        <a class="btn btn--primary" href="https://app.inductionportal.co.uk/user/registration/steptwo" target="_blank" rel="noopener" data-trial>Trial the labour pack</a>
+        <a class="btn btn--primary" href="https://portal.screeningportal.co.uk/register/induction-portal" target="_blank" rel="noopener" data-trial>Trial the labour pack</a>
       </div>
       <div class="card card--pillar reveal" data-delay="1">
         <span class="card-num">03</span>
@@ -190,7 +183,7 @@
         <span class="badge badge--navy">CSCS · CHAS · ConstructionLine</span>
         <h3 class="mt-4">Construction &amp; FM</h3>
         <p>Validate CSCS / CPCS, capture site-specific inductions, manage PPE and equipment custody with full audit trail. Geofenced clock-ins to prove site presence.</p>
-        <a class="more" href="https://www.inductionportal.co.uk/facilities-management-training.html">FM training courses</a>
+        <a class="more" href="training.html">FM training courses</a>
         <a class="more" href="contact.html" style="margin-left:14px">Talk construction</a>
       </div>
       <div class="card reveal" data-delay="1" id="hospitality">
@@ -223,7 +216,7 @@
       <h2>Pick a sector pack and start screening today.</h2>
       <p>We'll configure your tenant for your sector and import your first records. Free.</p>
       <div class="hero-cta">
-        <a class="btn btn--primary btn--lg" href="https://app.inductionportal.co.uk/user/registration/steptwo" target="_blank" rel="noopener" data-trial>Start free trial →</a>
+        <a class="btn btn--primary btn--lg" href="https://portal.screeningportal.co.uk/register/induction-portal" target="_blank" rel="noopener" data-trial>Start free trial →</a>
         <a class="btn btn--ghost btn--lg" href="contact.html">Book a demo</a>
       </div>
       <p class="cta-reassure">No credit card. No commitment. Cancel any time.</p>
@@ -231,7 +224,7 @@
   </div>
 </section>
 
-<div class="xlink-band">Need staff training too? Certified compliance courses for your whole workforce, included with every plan. <a href="https://www.inductionportal.co.uk/training/index.html">Explore the Training Hub</a></div>
+<div class="xlink-band">Need staff training too? Certified compliance courses for your whole workforce, included with every plan. <a href="training.html">Explore the Training Hub</a></div>
 <footer class="site-footer">
   <div class="container">
     <div class="foot-grid">
@@ -241,12 +234,13 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="solutions.html">Industries</a></li>
-          <li><a href="https://www.inductionportal.co.uk/security-guard-training.html">Security Guard Training</a></li>
-          <li><a href="https://www.inductionportal.co.uk/facilities-management-training.html">Facilities Management Training</a></li>
-          <li><a href="https://www.inductionportal.co.uk/care-sector-training.html">Care Sector Training</a></li>
+          <li><a href="training.html#security">Security Guard Training</a></li>
+          <li><a href="training.html#fm">Facilities Management Training</a></li>
+          <li><a href="training.html#care">Care Sector Training</a></li>
           <li><a href="resources.html">Resources</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="https://app.inductionportal.co.uk" target="_blank" rel="noopener">Customer log in (Induction Portal)</a></li>
         </ul>
       </div>
       <div>
@@ -301,7 +295,7 @@
   </div>
 </footer>
 
-<a class="float-cta" href="https://app.inductionportal.co.uk/user/registration/steptwo" target="_blank" rel="noopener" data-trial>
+<a class="float-cta" href="https://portal.screeningportal.co.uk/register/induction-portal" target="_blank" rel="noopener" data-trial>
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
   Start free trial
 </a>

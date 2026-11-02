@@ -560,3 +560,59 @@ body.wave-home .hero .reveal[data-delay="2"] { animation-delay: .25s; }
 @media (prefers-reduced-motion: reduce) {
   body.wave-home .card:hover, body.wave-home .btn--primary:hover { transform: none; }
 }
+
+/* ---------- 22. Subpages (owner 2026-11-02: one theme everywhere) ---------- */
+/* The interior pages reuse the same language as the home: lavender intro
+   band, serif headlines, white rounded cards on cream. */
+body.wave-home .page-intro {
+  background: linear-gradient(180deg, var(--w-lavender) 0%, #c3d2ff 78%, var(--w-cream) 100%);
+  padding: 72px 0 64px;
+}
+body.wave-home .page-intro h1 { font-size: clamp(38px, 5vw, 62px); margin: 14px 0 18px; }
+body.wave-home .page-intro p { max-width: 760px; font-size: 19px; color: rgba(12, 29, 90, .82); }
+body.wave-home .breadcrumb { font-size: 13px; font-weight: 600; letter-spacing: .04em; color: rgba(12, 29, 90, .55); margin-bottom: 18px; }
+body.wave-home .breadcrumb a { color: rgba(12, 29, 90, .75); text-decoration: none; }
+body.wave-home .breadcrumb a:hover { color: var(--w-blue); }
+body.wave-home .text-gradient {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  color: var(--w-blue);
+}
+body.wave-home .section-title { margin-bottom: 36px; }
+
+/* Forms (contact page): rounded, calm, blue focus. */
+body.wave-home input[type="text"], body.wave-home input[type="email"],
+body.wave-home input[type="tel"], body.wave-home select, body.wave-home textarea {
+  background: #fff;
+  border: 1.5px solid #d9e0f5;
+  border-radius: 12px;
+  color: var(--w-ink);
+  font-family: var(--wf-body);
+}
+body.wave-home input:focus, body.wave-home select:focus, body.wave-home textarea:focus {
+  border-color: var(--w-blue);
+  outline: 2px solid rgba(31, 75, 255, .18);
+}
+
+/* Tables (pricing, the BS 7858 guide): card-like with a navy header row. */
+body.wave-home table { border-radius: 16px; overflow: hidden; border: 1px solid #e4e7f4; background: #fff; }
+body.wave-home thead th { background: var(--w-navy); color: #fff; font-family: var(--wf-body); }
+body.wave-home tbody tr:nth-child(even) { background: #f7f8fd; }
+
+/* Resource / training cards: the home card language. */
+body.wave-home .res-card .more { color: var(--w-blue); font-weight: 700; }
+body.wave-home .res-card--soon { opacity: .75; }
+
+/* Long-form article pages (the BS 7858 guide). */
+body.wave-home article h2, body.wave-home .article h2 { font-size: clamp(28px, 3vw, 40px); }
+body.wave-home blockquote { border-left: 4px solid var(--w-blue); background: #eef2ff; border-radius: 0 14px 14px 0; }
+/* The legacy gold orb and grid lines fight the lavender band; off. */
+body.wave-home .page-intro::before, body.wave-home .page-intro::after { display: none; }
+/* Logo roundel matched to the theme (owner 2026-11-02): the gold arc and
+   steel-blue collar become wave blue and navy on every page. */
+body.wave-home .brand-mark path[stroke="#b8892b"] { stroke: var(--w-blue); }
+body.wave-home .brand-mark path[fill="#2f6f9e"] { fill: var(--w-blue); }
+body.wave-home .brand-mark circle[fill="#14293d"],
+body.wave-home .brand-mark path[fill="#14293d"] { fill: var(--w-navy); }
+body.wave-home .brand-tag i { background: var(--w-blue); }
